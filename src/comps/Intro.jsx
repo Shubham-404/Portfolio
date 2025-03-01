@@ -12,7 +12,7 @@ const Home = () => {
         <h1 className='text-7xl font-bold font-hawk'>Creativity & Code!</h1>
         <h1 className='text-xl text-gray-300 !pt-10'>Creative Front-End Developer currently building projects and learning Back-End.</h1>
       </main>
-        <Button link="mailto:shubh.shubhamkrsingh@gmail.com" btn="Let's Connect" />
+        <Button link="https://google.com" btn="Let's Connect" />
     </div>
   )
 }
