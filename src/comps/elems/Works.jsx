@@ -1,5 +1,5 @@
 import React from 'react'
-import "./styles/Works.css"
+import "./elemStyles/Works.css"
 
 
 const Works = (props) => {
@@ -8,7 +8,12 @@ const Works = (props) => {
   }
   return (
     <div>
-      
+      <section className='w-3/5'>
+        
+      </section>
+      <section className='w-2/5'>
+        <img src="" alt="" />
+      </section>
     </div>
   )
 }

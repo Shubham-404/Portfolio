@@ -21,21 +21,21 @@
 }
 
 
-.img-cont:hover::before{
+.img-cont:hover::before, .img-cont:active::before{
     /* border: 3px solid var(--bor-col); */
     width: 100%;
     height: 100%;
     border-left: 1px solid var(--bor-col);
     border-top: 1px solid var(--bor-col);
-    top: 45%;
-    left: 45%;
+    top: 43%;
+    left: 43%;
 }
-.img-cont:hover::after{
+.img-cont:hover::after, .img-cont:active::after{
     /* border: 3px solid var(--bor-col); */
     width: 100%;
     height: 100%;
-    top: 55%;
-    left: 55%;
+    top: 58%;
+    left: 58%;
     border-right: 1px solid var(--bor-col);
     border-bottom: 1px solid var(--bor-col);
 }

@@ -44,7 +44,7 @@ body {
   height: 100%;
   width: 100%;
   color: whitesmoke;
-  background: linear-gradient(to left, var(--col), rgb(18, 10, 20), rgb(11, 8, 12));
+  background: radial-gradient(circle at 100%, var(--col), rgb(13, 5, 24), rgb(14, 9, 19));
   background-attachment: fixed;
   transition: 1s ease;
   animation: bg 2s ease-in-out infinite alternate;
@@ -60,11 +60,11 @@ a:hover {
 
 @keyframes bg {
   0% {
-    --col: rgb(31, 9, 34);
+    --col: rgb(69, 18, 128);
   }
 
   100% {
-    --col: rgb(36, 0, 59);
+    --col: rgb(46, 4, 95);
   }
 }
 

@@ -1,21 +1,17 @@
 import React, { useState } from 'react'
 import './styles/Nav.css'
-import Li from './Li'
+import Li from './elems/Li'
 
 const NavBar = () => {
-  const [Visible, setVisible] = useState(true)
 
-  const navOpen = () => {
-    setVisible((prev)=>!prev);
-    console.log("navopen")
-  }
-
-  const navClose = () => {
-    cross.style.display = "none"
-    ham.style.display = "block"
-
-  }
-
+  // useEffect(() => {
+  //   first
+  
+  //   return () => {
+  //     second
+  //   }
+  // }, [third])
+  
 
   return (
     <>
@@ -24,9 +20,9 @@ const NavBar = () => {
           <img className='avatar' src="/Portfolio/images/my-ava.png" alt="avatar" />
         </div>
         <div className="goto h-full" >
-          <img onClick={navOpen} id='ham' className='h-20 invert hidden cursor-pointer hover:scale-110 active:scale-90' src="/Portfolio/images/hamburger.svg" alt="Options" />
-          <img onClick={navClose} id='cross' className='h-18 invert hidden hover:scale-110 active:scale-90' src="/Portfolio/images/cross.svg" alt="Options" />
-          <ul className='flex h-full  justify-center items-center max-lg:grid'>
+          <img onClick='' id='ham' className='h-20 invert hidden cursor-pointer hover:scale-110 active:scale-90' src="/Portfolio/svgs/hamburger.svg" alt="Options" />
+          <img onClick='' id='cross' className='h-18 invert hidden hover:scale-110 active:scale-90' src="/Portfolio/svgs/cross.svg" alt="Options" />
+          <ul className='flex h-full justify-center items-center max-lg:grid'>
             <Li Tag="Intro" Href="#intro" />
             <Li Tag="About Me" Href="#about" />
             <Li Tag="Tech Stack" Href="#tech-stack" />
