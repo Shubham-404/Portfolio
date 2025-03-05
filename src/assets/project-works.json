@@ -1,0 +1,33 @@
+{
+    "projects": [
+      {
+        "name": "CocaCola Reimagined",
+        "time": "2025-01-20",
+        "desc": "This is a brief description of Project 1. It aims to solve problem X using technology Y.",
+        "tech_used": ["React+Vite", "Tailwind", "JavaScript"],
+        "pic": "https://example.com/project1.jpg",
+        "live_link": "https://example.com/project1.jpg",
+        "github_link": "https://example.com/project1.jpg"
+      },
+      {
+        "name": "HexTech",
+        "time": "2025-03-02",
+        "desc": "This is a brief description of Project 1. It aims to solve problem X using technology Y.",
+        "tech_used": ["Technology1", "Technology2", "Technology3"],
+        "pic": "https://example.com/project1.jpg",
+        "live_link": "https://example.com/project1.jpg",
+        "github_link": "https://example.com/project1.jpg"
+      },
+      {
+        "name": "Project 3",
+        "time": "2025-03-02",
+        "desc": "This is a brief description of Project 1. It aims to solve problem X using technology Y.",
+        "tech_used": ["Technology1", "Technology2", "Technology3"],
+        "pic": "https://example.com/project1.jpg",
+        "live_link": "https://example.com/project1.jpg",
+        "github_link": "https://example.com/project1.jpg"
+      }
+      
+    ]
+  }
+  

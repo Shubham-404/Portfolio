@@ -1,0 +1,28 @@
+#link {
+    /* background-color: rgb(112, 19, 112); */
+    position: relative;
+    overflow: hidden;
+    /* z-index: 3; */
+    box-shadow: 0 0 1px rgb(117, 50, 205);
+}
+
+#link::after{
+    transition: inherit;
+    content: '';
+    position: absolute;
+    top: 100px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    border-radius: inherit;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    background:linear-gradient(rgb(127, 14, 233), rgba(88, 0, 146, 0.589));
+}
+#link:hover{
+    box-shadow: 0 0 5px rgb(117, 50, 205);
+
+}
+#link:hover::after{
+    top:0px;
+}

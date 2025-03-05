@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "name": "React JS",
+      "image": "https://images.unsplash.com/photo-1726066012768-9aee2dc59e5f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxfHx8ZW58MHx8fHx8"
+    },
+    {
+      "id": 2,
+      "name": "Vite",
+      "description": "A fast build tool for modern web projects",
+      "image": "https://images.unsplash.com/photo-1741034793661-3bd2a33d5b1b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 2,
+      "name": "Vite",
+      "description": "A fast build tool for modern web projects",
+      "image": "https://images.unsplash.com/photo-1741034793661-3bd2a33d5b1b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxM3x8fGVufDB8fHx8fA%3D%3D"
+    }
+  ]
+   
