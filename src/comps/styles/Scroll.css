@@ -1,0 +1,19 @@
+/* scrollbar.css */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1c0020; /* Light purple */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #9c27b0; /* Purple */
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7b1fa2; /* Darker purple */
+  }
+  

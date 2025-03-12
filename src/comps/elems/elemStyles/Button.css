@@ -1,0 +1,25 @@
+#lets {
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --pos: -6px;
+
+}
+
+#lets:hover {
+    --pos: -10px;  
+}
+
+#lets button:active{
+    --pos: 0px;  
+    
+}
+
+
+#lets button {
+    top: var(--pos);
+    left: var(--pos);
+    background-color: rgba(255, 255, 255, 0.5);
+
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+

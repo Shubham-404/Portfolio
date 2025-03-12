@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "Pname": "Project One",
+    "description": "This is project one.",
+    "image": "/images/project1.jpg"
+  },
+  {
+    "id": 2,
+    "Pname": "Project Two",
+    "description": "This is project two.",
+    "image": "/images/project2.jpg"
+  }
+]
