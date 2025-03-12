@@ -1,7 +1,6 @@
 {
   "name": "portbeta",
-  "homepage": "https://shubham-404.github.io/Portfolio",
-  "private": true,
+  "homepage": "https://shubham-404.github.io/Portfolio/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
