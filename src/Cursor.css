@@ -1,0 +1,35 @@
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    /* background-color: #ff4081; */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    /* transition: width 0.2s ease, height 0.2s ease; */
+    z-index: 200;
+  }
+  
+  /* Enlarge the cursor when hovering over certain elements */
+  .cursor.enlarged {
+    width: 40px;
+    height: 40px;
+  }
+.cursor-small {
+    position: fixed;
+    /* width: 20px;
+    height: 20px; */
+    border-radius: 50%;
+    /* background-color: #ff4081; */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease;
+    z-index: 200;
+  }
+  
+  /* Enlarge the cursor when hovering over certain elements */
+  .cursor-small.enlarged {
+    width: 40px;
+    height: 40px;
+  }
+  
