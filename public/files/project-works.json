@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "Pname": "Project One",
-    "description": "This is project one.",
+    "Pname": "CocaCola Reimagined",
+    "description": "A reimagined ",
     "image": "/images/project1.jpg"
   },
   {
@@ -12,3 +12,4 @@
     "image": "/images/project2.jpg"
   }
 ]
+ 

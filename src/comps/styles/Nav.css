@@ -38,9 +38,13 @@ nav:hover {
 @media(max-width: 1024px) {
     nav{
         justify-content: space-between;
-        overflow: visible;
+        overflow: hidden;
     }
+    #avatar-cont{
+        overflow: hidden;
         
+    }
+    
     nav ul{
         display: none;
     }
