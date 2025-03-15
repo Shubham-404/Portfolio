@@ -2,13 +2,13 @@
   {
     "id": 1,
     "Pname": "CocaCola Reimagined",
-    "description": "A reimagined ",
-    "image": "/images/project1.jpg"
+    "description": "A reimagined web page for CocaCola with vibrant UI and user interactivity.",
+    "image": "../Portfolio/images/CocaCola.jpg"
   },
   {
     "id": 2,
-    "Pname": "Project Two",
-    "description": "This is project two.",
+    "Pname": "Smart Home Tracker",
+    "description": "An energy usage tracker for smart homes having huge impact on IOT based systems.",
     "image": "/images/project2.jpg"
   }
 ]

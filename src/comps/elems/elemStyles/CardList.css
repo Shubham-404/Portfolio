@@ -1,0 +1,12 @@
+.card-box{
+    --zoom: grayscale(.3);
+    /* filter:grayscale(.3) ; */
+    object-position: top;
+    transition: .5s ease;
+}
+.card-box:hover{
+    --zoom: none;
+}
+.card-box img{
+    filter: var(--zoom);
+}

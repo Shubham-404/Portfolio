@@ -15,8 +15,8 @@ const Projects = () => {
         <Heading Head="Projects" />
 
         <p className='!p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Some of my original and latest projects, that I have worked on are listed here.</p>
-        <div className="border flex gap-5 flex-wrap w-full h-full max-md:flex-col max-md:items-center justify-center  items-center">
-          <div className="flex items-center justify-center">
+        <div className="flex gap-5 flex-wrap w-full h-full max-md:flex-col max-md:items-center justify-center  items-center">
+          <div className="flex flex-wrap items-center justify-center">
             <CardList />
           </div>
 
