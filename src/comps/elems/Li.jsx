@@ -3,7 +3,7 @@ import React from 'react'
 const Li = (props) => {
   return (
     <>
-    <li onClick={props.toggleMobileNav} className='h-full text-nowrap'><a className='text-amber-200 flex items-center h-full font-code !p-2 hover:font-bold' href={props.Href}>&lt;{props.Tag}/&gt;</a></li>
+    <li onClick={props.toggleMobileNav} className='h-full text-nowrap'><a className='text-indigo-600 flex items-center h-full font-code !p-2' href={props.Href}>&lt;{props.Tag}/&gt;</a></li>
     </>
   )
 }

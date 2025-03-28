@@ -13,7 +13,7 @@ const NavBar = ({ toggleMobileNav }) => {
           <img
             id='ham'
             onClick={toggleMobileNav}
-            className={`h-20 invert cursor-pointer hover:scale-110 active:scale-90 z-220 absolute right-5 top-0 min-lg:hidden`}
+            className={`h-20 invert cursor-pointer hover:scale-110 active:scale-90 z-220 absolute right-5 top-0 min-lg:hidden min-lg:opacity-0`}
             src="/Portfolio/svgs/hamburger.svg"
             alt="Options"
           />

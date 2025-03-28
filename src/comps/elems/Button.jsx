@@ -4,7 +4,7 @@ import './elemStyles/Button.css';
 const Button = (props) => {
 
     const gotoLink = ()=>{
-        console.log('Submitted')
+        window.open(props.Href)
     }
     return (
         <div id='lets' className='relative w-45'>

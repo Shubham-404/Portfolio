@@ -50,5 +50,7 @@ nav:hover {
     }
     #ham{
         display: block;
+        opacity: 1;
+        pointer-events: auto;
     }
 }

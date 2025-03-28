@@ -18,10 +18,10 @@ const Home = () => {
         </main>
         <div className='!mt-10'>
 
-          <Button link="https://linkedin.com/in/shubham-singh404" btn="LinkedIn" />
+          <Button Href="https://linkedin.com/in/shubham-singh404" btn="LinkedIn" />
         </div>
       </div>
-    </div>
+    </div> 
   )
 }
 

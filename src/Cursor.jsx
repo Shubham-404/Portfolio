@@ -25,12 +25,12 @@ const CustomCursor = () => {
 
     return (
         <>
-            <div className={`cursor ${isHovered ? 'enlarged' : ''} border bg-none`} style={{
+            <div className={`cursor ${isHovered ? 'enlarged' : ''}`} style={{
                 left: `${cursorPosition.x}px`,
                 top: `${cursorPosition.y}px`,
             }}>
             </div>
-            <div className={`cursor-small ${isHovered ? 'enlarged' : ''} h-2 w-2 bg-white`} style={{
+            <div className={`cursor-small ${isHovered ? 'enlarged' : ''}`} style={{
                 left: `${cursorPosition.x}px`,
                 top: `${cursorPosition.y}px`,
             }}>
