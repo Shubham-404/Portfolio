@@ -77,12 +77,12 @@ const Contact = () => {
                             value={formData.message}
                             onChange={handleChange}
                             rows="10"
-                            className="w-full h-15 !p-5 bg-transparent text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                            className="w-full h-25 !p-5 bg-transparent text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
                         {/* Submit Button */}
                         <div className="!mt-6 !ml-3">
-                            <Button btn="Don't Click!" Type="submit" Href="https://google.com" />
+                            <Button btn="Don't Click!" Type="" Href="https://google.com" />
                         </div>
                     </div>
 

@@ -17,10 +17,10 @@
     border-radius: inherit;
     left: 50%;
     transform: translate(-50%, 0%);
-    background:linear-gradient(rgb(127, 14, 233), rgba(88, 0, 146, 0.589));
+    background:linear-gradient(rgb(139, 33, 238), rgb(47, 4, 75));
 }
 #link:hover{
-    box-shadow: 0 0 5px rgb(117, 50, 205);
+    box-shadow: 0 0 10px rgb(117, 50, 205);
 
 }
 #link:hover::after{
