@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Img from './elems/Img.jsx'
 import Social from './elems/Social.jsx'
 import Heading from './elems/Heading'
@@ -28,9 +30,33 @@ const Contact = () => {
         console.log('Form submitted:', formData);
     };
 
+    useEffect(() => {
+        gsap.registerPlugin("ScrollTrigger")
+
+        const container = document.querySelector('#cn');
+        const children = gsap.utils.toArray(container.children);
+        children.forEach((child) => {
+            gsap.fromTo(child, { scale: .9, opacity: 0 },
+                {
+                    scale: 1,
+                    opacity: 1,
+                    duration: .5,
+                    ease: "back.out(1)",
+                    scrollTrigger: {
+                        trigger: child,
+                        start: "top 80%",
+                        end: "bottom top",
+                        scrub: 1,
+                        markers: false,
+                    }
+                })
+        })
+
+    }, [])
+
     return (
         <div id='connect' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
-            <div className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
+            <div id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="Connect" />
 

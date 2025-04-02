@@ -1,16 +1,42 @@
-import React from 'react';
+import gsap from 'gsap';
+import React, { useState, useEffect, useRef } from 'react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ImgLink from './elems/Works.jsx'
 import Heading from './elems/Heading'
 import CardList from './elems/CardList.jsx';
 
 
 // import script from 'learn';
-
-
 const Projects = () => {
+useEffect(() => {
+  gsap.registerPlugin("ScrollTrigger")
+
+  const container = document.querySelector('#pj');
+  const children = gsap.utils.toArray(container.children);
+  children.forEach((child) => {
+    gsap.fromTo(child, { scale: .9, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1, 
+        duration: .5, 
+        ease: "back.out(1)",
+        scrollTrigger: {
+          trigger: child,
+          start: "top 80%", 
+          end: "bottom top",
+          scrub: 1, 
+          markers: false,
+        }
+      })
+  })
+
+}, [])
+
+
+
   return (
     <div id='projects' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
-      <div className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
+      <div id='pj' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
         <Heading Head="Projects" />
 
