@@ -1,42 +1,64 @@
-// src/CustomCursor.js
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './Cursor.css';
 
 const CustomCursor = () => {
-    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
-    const [isHovered, setIsHovered] = useState(false);
+  const cursorRef = useRef(null);  // Ref for the cursor element
+  const smallCursorRef = useRef(null);  // Ref for the small cursor element
+  const [isHovered, setIsHovered] = useState(false);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-    const updateCursorPosition = (e) => {
-        setCursorPosition({ x: e.clientX, y: e.clientY });
+  const updateCursorPosition = (e) => {
+    // Update cursor position directly
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+  };
+
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
+
+  useEffect(() => {
+    // Track mouse movement
+    const update = (e) => {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
-    const handleMouseEnter = () => setIsHovered(true);
-    const handleMouseLeave = () => setIsHovered(false);
+    window.addEventListener('mousemove', update);
+    return () => {
+      window.removeEventListener('mousemove', update);
+    };
+  }, []);
 
-    useEffect(() => {
-        // Track mouse movement
-        window.addEventListener('mousemove', updateCursorPosition);
+  useEffect(() => {
+    // Make sure the cursor follows the mouse smoothly using `requestAnimationFrame`
+    const cursor = cursorRef.current;
+    const smallCursor = smallCursorRef.current;
 
-        // Clean up event listener on component unmount
-        return () => {
-            window.removeEventListener('mousemove', updateCursorPosition);
-        };
-    }, []);
+    if (cursor && smallCursor) {
+      const updatePosition = () => {
+        const { x, y } = cursorPosition;
+        cursor.style.left = `${x}px`;
+        cursor.style.top = `${y}px`;
+        smallCursor.style.left = `${x}px`;
+        smallCursor.style.top = `${y}px`;
 
-    return (
-        <>
-            <div className={`cursor ${isHovered ? 'enlarged' : ''}`} style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-            }}>
-            </div>
-            <div className={`cursor-small ${isHovered ? 'enlarged' : ''}`} style={{
-                left: `${cursorPosition.x}px`,
-                top: `${cursorPosition.y}px`,
-            }}>
-            </div>
-        </>
-    );
+        requestAnimationFrame(updatePosition); // Keep updating smoothly
+      };
+
+      updatePosition(); // Initiate the smooth movement loop
+    }
+  }, [cursorPosition]);
+
+  return (
+    <>
+      <div
+        ref={cursorRef}
+        className={`cursor ${isHovered ? 'enlarged' : ''}`}
+      ></div>
+      <div
+        ref={smallCursorRef}
+        className={`cursor-small ${isHovered ? 'enlarged' : ''}`}
+      ></div>
+    </>
+  );
 };
 
 export default CustomCursor;

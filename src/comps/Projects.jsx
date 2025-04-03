@@ -1,6 +1,6 @@
 import gsap from 'gsap';
-import React, { useState, useEffect, useRef } from 'react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import React, { useState, useEffect, useRef } from 'react';
 import ImgLink from './elems/Works.jsx'
 import Heading from './elems/Heading'
 import CardList from './elems/CardList.jsx';

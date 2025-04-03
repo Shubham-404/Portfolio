@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from 'gsap';
 import NavBarMobile from './comps/NavBarMobile';
 import NavBar from './comps/NavBar';
 import Intro from './comps/Intro';
@@ -14,7 +13,7 @@ import Loading from './comps/Loading'; // Import the Loading component
 
 const App = () => {
   const [isMobileNavVisible, setMobileNavVisible] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false); // Add state for checking if the site has loaded
+  const [isLoaded, setIsLoaded] = useState(false);
 
   // Toggle mobile navbar visibility
   const toggleMobileNav = () => {
@@ -22,10 +21,10 @@ const App = () => {
   };
 
   const navRef = useRef(null);
-  const sectionRef = useRef(null);
 
   useEffect(() => {
-    // Simulate the loading time (this could be replaced with actual loading logic)
+    // Simulate the loading time (this could be replaced with actual loading logic
+
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 1500);
@@ -38,15 +37,15 @@ const App = () => {
       {!isLoaded && <Loading />} {/* Show loading animation until the site is loaded */}
       {isLoaded && (
         <>
-          <Cursor />
-          <NavBarMobile ref={sectionRef} isVisible={isMobileNavVisible} toggleMobileNav={toggleMobileNav} />
+          {/* <Cursor /> */}
+          <NavBarMobile isVisible={isMobileNavVisible} toggleMobileNav={toggleMobileNav} />
           <div id='intro' className="p-5 m-5 relative">
-            <NavBar ref={navRef} toggleMobileNav={toggleMobileNav} />
-            <Intro ref={sectionRef} />
-            <About ref={sectionRef} />
-            <TechStack ref={sectionRef} />
-            <Projects ref={sectionRef} />
-            <Contact ref={sectionRef} />
+            <NavBar ID="nv" ref={navRef} toggleMobileNav={toggleMobileNav} />
+            <Intro />
+            <About />
+            <TechStack />
+            <Projects />
+            <Contact />
           </div>
           <Footer />
         </>

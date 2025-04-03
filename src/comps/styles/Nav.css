@@ -6,49 +6,58 @@ nav {
     box-shadow: .5px .5px 1px rgba(90, 90, 92, 0.5), -1px -1px 3px black;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    --mt:30px;
-    --scale:.9;
+    --mt: 30px;
+    --scale: .9;
+    /* transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+
 }
 
 nav:hover {
     background: linear-gradient(to right, rgba(26, 26, 26, 0.4), rgba(20, 1, 20, 0.4));
     box-shadow: .5px .5px 2px rgba(90, 90, 92, 0.5), -1px -1px 7px black;
-    --mt:5px;
-    --scale:1.05;
-    
+    --mt: 5px;
+    --scale: 1.05;
+
 }
 
-#avatar-cont{
+#avatar-cont {
     padding: 5px;
     width: 100px;
-    --mt2:0;
-}
-#avatar-cont:hover{
-    --mt:180px;
-    --scale:1.05;
+    --mt2: 0;
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
 }
 
-.avatar{
+#avatar-cont:hover {
+    --mt: 180px;
+    --scale: 1.05;
+}
+
+.avatar {
     margin-top: var(--mt);
     scale: var(--scale);
     height: 80px;
     filter: drop-shadow(-3px -3px 2px rgb(0, 0, 0));
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
 }
 
 @media(max-width: 1024px) {
-    nav{
+    nav {
         justify-content: space-between;
         overflow: hidden;
     }
-    #avatar-cont{
+
+    #avatar-cont {
         overflow: hidden;
-        
+
     }
-    
-    nav ul{
+
+    nav ul {
         display: none;
     }
-    #ham{
+
+    #ham {
         display: block;
         opacity: 1;
         pointer-events: auto;

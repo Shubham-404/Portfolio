@@ -4,9 +4,11 @@
     overflow: hidden;
     /* z-index: 3; */
     box-shadow: 0 0 1px rgb(117, 50, 205);
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
 }
 
-#link::after{
+#link::after {
     transition: inherit;
     content: '';
     position: absolute;
@@ -17,12 +19,16 @@
     border-radius: inherit;
     left: 50%;
     transform: translate(-50%, 0%);
-    background:linear-gradient(rgb(139, 33, 238), rgb(47, 4, 75));
+    background: linear-gradient(rgb(139, 33, 238), rgb(47, 4, 75));
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
 }
-#link:hover{
+
+#link:hover {
     box-shadow: 0 0 10px rgb(117, 50, 205);
 
 }
-#link:hover::after{
-    top:0px;
+
+#link:hover::after {
+    top: 0px;
 }

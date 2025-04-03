@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { gsap } from 'gsap';
 import './styles/Nav.css';
 import Li from './elems/Li';
 
 const NavBar = ({ toggleMobileNav, ref }) => {
+  useEffect(() => {
+    const nav = document.querySelector("#nv")
+    gsap.fromTo(nav, { opacity: 0, scale: .7, y:-50 }, {
+      opacity: 1,
+      y:0,
+      scale: 1,
+      duration: .8,
+      ease: "back.out(1)"
+      // delay: 2
+    });
+  }, [])
+
   return (
     <>
-      <nav ref={ref} className='h-[5rem] z-50 overflow-hidden !m-5 !pl-10 !pr-10 rounded-full flex justify-self-center gap-5 justify-between items-center text-amber-200'>
+      <nav ref={ref} id="nv" className='h-[5rem] z-50 overflow-hidden !m-5 !pl-10 !pr-10 rounded-full flex justify-self-center gap-5 justify-between items-center text-amber-200'>
         <div id='avatar-cont' className="pic h-20 flex items-center justify-start w-20 transition-all duration-300 ease-[cubic-bezier(0.25, 0.8, 0.25, 1)] ">
           <img className='avatar' src="/Portfolio/images/my-ava.png" alt="avatar" />
         </div>
