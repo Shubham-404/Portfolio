@@ -36,7 +36,7 @@ const Contact = () => {
         const container = document.querySelector('#cn');
         const children = gsap.utils.toArray(container.children);
         children.forEach((child) => {
-            gsap.fromTo(child, { scale: .9, opacity: 0 },
+            gsap.fromTo(child, { scale: .8, opacity: 0 },
                 {
                     scale: 1,
                     opacity: 1,
