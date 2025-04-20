@@ -13,7 +13,8 @@ const Loading = () => {
 
   return (
     <div className={`loading-container ${isLoading ? 'loading' : 'loaded'}`}>
-      <div className="spinner"></div>
+      {/* <div className="spinner"></div> */}
+      <img className='h-40 w-40' src="/Portfolio/images/Scene2.gif" alt="loader" />
     </div>
   );
 };

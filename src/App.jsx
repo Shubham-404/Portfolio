@@ -24,12 +24,24 @@ const App = () => {
 
   useEffect(() => {
     // Simulate the loading time (this could be replaced with actual loading logic
-
-    const timer = setTimeout(() => {
+    const handleLoading = () => {
       setIsLoaded(true);
+      window.isLoaded = true;
+    }
+
+    // if (document.readyState === 'complete') handleLoading()
+    // else window.addEventListener('load', handleLoading);
+
+    // return () => {
+    //   window.removeEventListener('load', handleLoading);
+    // };
+
+    //=================== timeout loading ===============
+
+    setTimeout(() => {
+      handleLoading();
     }, 1500);
 
-    return () => clearTimeout(timer); // Cleanup the timeout
   }, []);
 
   return (
