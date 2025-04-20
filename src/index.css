@@ -21,7 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);  */
+  transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 @property --col {
@@ -45,11 +45,15 @@ body {
   width: 100%;
   color: whitesmoke;
   background: radial-gradient(circle at 100%, var(--col), rgb(13, 5, 24), rgb(14, 9, 19));
+  /* background: url("/images/Animation-1745132321777.gif"); */
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
   background-attachment: fixed;
   transition: 1s ease;
-  animation: bg 2s ease-in-out infinite alternate;
+  animation: bg 2.5s ease-in-out infinite alternate;
   /* pointer-events: none; */
-  cursor:auto;
+  cursor: auto;
   user-select: none;
 }
 
@@ -64,11 +68,16 @@ a:hover {
 
 @keyframes bg {
   0% {
+    --col: rgb(47, 9, 150);
+  }
+
+  50% {
     --col: rgb(69, 18, 128);
   }
 
+
   100% {
-    --col: rgb(46, 4, 95);
+    --col: rgb(17, 3, 34);
   }
 }
 
