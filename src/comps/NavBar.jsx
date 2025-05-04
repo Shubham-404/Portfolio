@@ -49,12 +49,13 @@ const NavBar = ({ dark }) => {
         <img className='avatar' src="/Portfolio/images/my-ava.png" alt="avatar" />
       </div>
       <div onClick={showNav} className="goto flex">
+
         {
           !mobileNav ?
             <img
               id='ham'
               ref={ham}
-              
+
               className={`h-15 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
               src="/Portfolio/svgs/hamburger.svg"
               alt="show"
@@ -63,8 +64,8 @@ const NavBar = ({ dark }) => {
             <img
               id='cross'
               ref={cross}
-              
-              className={`h-12 self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
+
+              className={`h-15 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
               src="/Portfolio/svgs/cross.svg"
               alt="close"
             />

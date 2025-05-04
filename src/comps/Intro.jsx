@@ -63,7 +63,7 @@ const Home = ({ toggleTheme, dark }) => {
 
             <h1
               onClick={() => { setNamaste(Namaste === "  " ? "🙏" : "  ") }}
-              className='w-min flex name text-7xl font-extrabold text-transparent max-lg:text-5xl max-md:text-4xl bg-clip-text'
+              className='w-min flex name text-7xl text-transparent max-lg:text-5xl max-md:text-4xl bg-clip-text'
             >
               Shubham.
             </h1>

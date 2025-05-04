@@ -23,3 +23,15 @@
     font-optical-sizing: auto;
     font-style: normal;
 }
+@font-face {
+    font-family: "Exo 2";
+    src: url("./Exo2-VariableFont_wght.ttf") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Fahkwang";
+    src: url("./Fahkwang-Medium.ttf") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}
