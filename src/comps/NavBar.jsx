@@ -14,17 +14,17 @@ const NavBar = ({ dark }) => {
   const showNav = () => {
     setMobileNav(prev => !prev);
     // console.log(mobileNav);
-    
+
   }
-  
+
   useEffect(() => {
     const navmob = mobNav.current;
     if (navmob) {
-      navmob.classList.remove('max-lg:opacity-0', 'max-lg:opacity-100');
+      navmob.classList.remove('max-lg:hidden', 'max-lg:flex');
       console.log(mobileNav);
-      navmob.classList.add(mobileNav? 'max-lg:opacity-100': 'max-lg:opacity-0');
-    } else{
-      navmob.classList.add('opacity-100');
+      navmob.classList.add(mobileNav ? 'max-lg:flex' : 'max-lg:hidden');
+    } else {
+      navmob.classList.add('flex');
     }
 
   }, [mobileNav])
@@ -49,24 +49,28 @@ const NavBar = ({ dark }) => {
       <div id='avatar-cont' className="pic h-20 w-20 flex items-center justify-start transition-all duration-300 ease-[cubic-bezier(0.25, 0.8, 0.25, 1)] ">
         <img className='avatar' src="/Portfolio/images/my-ava.png" alt="avatar" />
       </div>
-      <div className="goto flex">
-        <img
-          id='ham'
-          ref={ham}
-          onClick={showNav}
-          className={`h-15 self-center hidden justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
-          src="/Portfolio/svgs/hamburger.svg"
-          alt="Options"
-        />
-        <img
-          id='cross'
-          ref={cross}
-          onClick={showNav}
-          className={`!p-1 h-16 hidden invert cursor-pointer hover:scale-110 active:scale-90 z-220 absolute right-5 top-1`}
-          src="/Portfolio/svgs/cross.svg"
-          alt="Options"
-        />
-        <ul id='UL' ref={mobNav} className={`max-lg:opacity-0 flex z-20 h-full justify-center gap-5 items-center max-lg:text-gray-300 !p-2 max-lg:!pt-0 max-lg:!pr-0 max-lg:!pl-0 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-max max-lg:max-w-3xs right-0 top-15`}>
+      <div onClick={showNav} className="goto flex">
+        {
+          !mobileNav ?
+            <img
+              id='ham'
+              ref={ham}
+              
+              className={`h-15 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
+              src="/Portfolio/svgs/hamburger.svg"
+              alt="show"
+            />
+            :
+            <img
+              id='cross'
+              ref={cross}
+              
+              className={`h-12 self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
+              src="/Portfolio/svgs/cross.svg"
+              alt="close"
+            />
+        }
+        <ul id='UL' ref={mobNav} className={`max-lg:hidden flex z-20 h-full justify-center gap-5 items-center max-lg:text-gray-300 !p-2 max-lg:!pt-0 max-lg:!pr-0 max-lg:!pl-0 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-max max-lg:max-w-3xs right-0 top-15`}>
           <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
             <div className='h-2 w-2 rounded-full bg-green-600'></div>
             <div className='h-2 w-2 rounded-full bg-amber-600'></div>
