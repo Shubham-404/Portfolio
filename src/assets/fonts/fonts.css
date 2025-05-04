@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Starborn";
+    src: url("./starborn/Starborn.ttf") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "212 Saint Paddy Demo";
+    src: url("./212 Saint Paddy Demo.ttf") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+@font-face {
+    font-family: "CADEAUX";
+    src: url("./CADEAUX.TTF") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+@font-face {
+    font-family: "GrowWest-Regular";
+    src: url("./GrowWest-Regular.ttf") format("truetype");
+    font-optical-sizing: auto;
+    font-style: normal;
+}

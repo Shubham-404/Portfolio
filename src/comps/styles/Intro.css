@@ -1,13 +1,18 @@
+@custom-variant dark (&:where(.dark, .dark *));
 .name {
     animation: bgText 7s infinite alternate;
-    background-image: linear-gradient(to right, rgb(0, 236, 165), rgb(182, 72, 255), rgb(0, 236, 165));
+    background-image: linear-gradient(to right, rgb(105, 70, 223), rgb(30, 199, 148), rgb(105, 70, 255));
     cursor: pointer;
     position: relative;
   }
   
   .name:hover {
     animation: bgText 2s infinite alternate;
-    scale: 2;
+  }
+  .name > *:hover{
+    /* scale: 1.1; */
+    transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* border: 2px solid white; */
   }
   
   @keyframes bgText {

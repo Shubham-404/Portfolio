@@ -10,5 +10,9 @@ export default defineConfig({
   build: {
     outDir: "dist",
     // assetsDir: "assets", // Keeps CSS/JS inside `dist/assets/`
+  }, 
+  server:{
+    host: true,
+    port: 5173,
   }
 })

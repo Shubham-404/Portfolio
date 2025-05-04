@@ -22,7 +22,7 @@ useEffect(() => {
         ease: "back.out(1)",
         scrollTrigger: {
           trigger: child,
-          start: "top 80%", 
+          start: "left 80%", 
           end: "bottom top",
           scrub: 1, 
           markers: false,

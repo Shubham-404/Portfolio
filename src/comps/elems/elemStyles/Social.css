@@ -3,9 +3,8 @@
     position: relative;
     overflow: hidden;
     /* z-index: 3; */
-    box-shadow: 0 0 1px rgb(117, 50, 205);
+    box-shadow: 5px 5px 5px rgb(16, 8, 27);
     transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
-
 }
 
 #link::after {
@@ -25,7 +24,8 @@
 }
 
 #link:hover {
-    box-shadow: 0 0 10px rgb(117, 50, 205);
+    box-shadow: 5px 5px 10px rgb(16, 8, 27);
+    scale: 1.1;
 
 }
 

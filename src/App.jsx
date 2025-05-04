@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
 import NavBarMobile from './comps/NavBarMobile';
 import NavBar from './comps/NavBar';
 import Intro from './comps/Intro';
@@ -9,51 +8,65 @@ import Projects from './comps/Projects';
 import Contact from './comps/Contact';
 import Footer from './comps/Footer';
 import Cursor from './Cursor';
-import Loading from './comps/Loading'; // Import the Loading component
+import Loading from './comps/Loading';
 
 const App = () => {
-  const [isMobileNavVisible, setMobileNavVisible] = useState(false);
+  // const [isMobileNavVisible, setMobileNavVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const navRef = useRef(null);
+  const themeRef = useRef(null);
+
+  const [dark, setDark] = useState(true);
 
   // Toggle mobile navbar visibility
-  const toggleMobileNav = () => {
-    setMobileNavVisible(!isMobileNavVisible);
+  // const toggleMobileNav = () => {
+  //   setMobileNavVisible(!isMobileNavVisible);
+  // };
+
+  // Toggle theme
+  const toggleTheme = () => {
+    setDark(prev => !prev); // Flip state
   };
 
-  const navRef = useRef(null);
-
+  // Update the class on #intro div when `dark` changes
   useEffect(() => {
-    // Simulate the loading time (this could be replaced with actual loading logic
+    const theme = themeRef.current;
+    if (theme) {
+      theme.classList.remove('dark', 'light'); // remove both first
+      theme.classList.add(dark ? 'dark' : 'light'); // add current
+    }
+  }, [dark]);
+
+  // Handle loading state
+  useEffect(() => {
     const handleLoading = () => {
       setIsLoaded(true);
-      window.isLoaded = true;
-    }
+    };
+    setTimeout(() => {
+      handleLoading();
+    }, 1000);
 
-    // if (document.readyState === 'complete') handleLoading()
-    // else window.addEventListener('load', handleLoading);
+    // if (document.readyState === 'complete') {
+    //   handleLoading();
+    // } else {
+    //   window.addEventListener('load', handleLoading);
+    // }
 
     // return () => {
     //   window.removeEventListener('load', handleLoading);
     // };
-
-    //=================== timeout loading ===============
-
-    setTimeout(() => {
-      handleLoading();
-    }, 1500);
-
   }, []);
 
   return (
     <>
-      {!isLoaded && <Loading />} {/* Show loading animation until the site is loaded */}
+      {!isLoaded && <Loading />}
       {isLoaded && (
         <>
           {/* <Cursor /> */}
-          <NavBarMobile isVisible={isMobileNavVisible} toggleMobileNav={toggleMobileNav} />
-          <div id='intro' className="p-5 m-5 relative">
-            <NavBar ID="nv" ref={navRef} toggleMobileNav={toggleMobileNav} />
-            <Intro />
+          {/* <NavBarMobile isVisible={isMobileNavVisible} toggleMobileNav={toggleMobileNav} /> */}
+          <div ref={themeRef} id='intro' className="dark p-5 m-5 relative">
+            <NavBar ID="nv" dark={dark} ref={navRef} />
+            <Intro toggleTheme={toggleTheme} dark={dark} />
             <About />
             <TechStack />
             <Projects />

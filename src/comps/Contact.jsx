@@ -45,7 +45,7 @@ const Contact = () => {
                     scrollTrigger: {
                         trigger: child,
                         start: "top 80%",
-                        end: "bottom top",
+                        end: "top 60%",
                         scrub: 1,
                         markers: false,
                     }
@@ -77,7 +77,7 @@ const Contact = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full h-15 !p-5 bg-transparent text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                                className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Your Name"
                             />
                         </div>
@@ -88,7 +88,7 @@ const Contact = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full h-15 !p-5 bg-transparent text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                                className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Emali"
                             />
                         </div>
@@ -103,7 +103,7 @@ const Contact = () => {
                             value={formData.message}
                             onChange={handleChange}
                             rows="10"
-                            className="w-full h-25 !p-5 bg-transparent text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                            className="w-full h-25 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
                         {/* Submit Button */}
@@ -116,7 +116,7 @@ const Contact = () => {
 
 
                 <div className="w-full h-full  flex gap-5 flex-wrap !pt-5 max-md:flex-col max-md:items-center justify-start items-center">
-                    <section className='w-full h-full flex justify-evenly gap-2 items-center flex-wrap'>
+                    <section className='w-full h-full flex justify-center gap-5 items-center flex-wrap'>
                         <Social Name="Github" Src="/Portfolio/svgs/github.svg" Href="https://github.com/Shubham-404/" />
                         <Social Name="LinkedIn" Src="/Portfolio/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-singh404/" />
                         <Social Name="Instagram" Src="/Portfolio/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
