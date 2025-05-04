@@ -30,15 +30,11 @@ const Home = ({ toggleTheme, dark }) => {
   const sun = useRef(null);
   const moon = useRef(null);
 
-
-
-  // console.log(day)
-  // console.log(night)
   const switchTheme = () => {
     const icon = dark ? sun.current : moon.current;
-    if(icon){
+    if (icon) {
       gsap.fromTo(icon,
-        {rotation:0},
+        { rotation: 0 },
         {
           rotation: 360,
           duration: .6,
@@ -49,12 +45,6 @@ const Home = ({ toggleTheme, dark }) => {
     toggleTheme(); // Call the prop from App
 
   }
-
-  useEffect(() => {
-    console.log("theme switch.");
-
-
-  }, [dark])
 
   return (
     <div className="Intro !mt-5 !pt-10 grid justify-center items-center min-h-[75vh]">

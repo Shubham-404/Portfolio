@@ -11,17 +11,14 @@ import Cursor from './Cursor';
 import Loading from './comps/Loading';
 
 const App = () => {
+  console.log("Hello dear sneaky developer! Go ahead and scratch out all you want.");
+  
   // const [isMobileNavVisible, setMobileNavVisible] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const navRef = useRef(null);
   const themeRef = useRef(null);
 
   const [dark, setDark] = useState(true);
-
-  // Toggle mobile navbar visibility
-  // const toggleMobileNav = () => {
-  //   setMobileNavVisible(!isMobileNavVisible);
-  // };
 
   // Toggle theme
   const toggleTheme = () => {

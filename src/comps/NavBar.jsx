@@ -21,7 +21,6 @@ const NavBar = ({ dark }) => {
     const navmob = mobNav.current;
     if (navmob) {
       navmob.classList.remove('max-lg:hidden', 'max-lg:flex');
-      console.log(mobileNav);
       navmob.classList.add(mobileNav ? 'max-lg:flex' : 'max-lg:hidden');
     } else {
       navmob.classList.add('flex');
