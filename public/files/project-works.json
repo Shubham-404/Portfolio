@@ -1,15 +1,39 @@
 [
   {
     "id": 1,
-    "Pname": "CocaCola Reimagined",
-    "description": "A reimagined web page for CocaCola with vibrant UI and user interactivity.",
-    "image": "../Portfolio/images/CocaCola.jpg"
+    "Pname": "KhaataBook",
+    "description": "Track personal or business transactions with ease. KhaataBook lets you manage multiple hisaabs with optional passcode protection and a delightful UI experience.",
+    "image": "../Portfolio/images/khaatabook.png",
+    "url": "",
+    "github": "https://github.com/Shubham-404/KhaataBook",
+    "tech": ["ExpressJS", "MongoDB", "ejs", "NodeJS"]
   },
   {
     "id": 2,
+    "Pname": "CocaCola Reimagined",
+    "description": "Designed a reimagined and interactive website using ReactJS, featuring GSAP animations and tailored UI/UX showcasing products and brand, to increase user engagement and timeon-site.",
+    "image": "../Portfolio/images/CocaCola.jpg",
+    "url": "",
+    "github": "https://github.com/Shubham-404/CocaCola-Reimagined/",
+    "tech": ["ReactJS", "GSAP", "UI/UX", "Adv CSS"]
+  },
+  {
+    "id": 3,
+    "Pname": "Scalable Video Intelligence System",
+    "description": "Built a role-based web platform that uses AI/ML to transform live camera feeds into actionable insights. Designed a modular dashboard with role-based access control for flexible service management. Reduced manual surveillance and attendance logging effort by up to 70%, significantly improving operational efficiency.",
+    "image": "../Portfolio/images/attendance.png",
+    "url": "",
+    "github": "https://github.com/Shubham-404/VisionCap_v7/",
+    "tech": ["RetinaENV", "FaceRecognition", "Flask", "ReactJS", "YOLO"]
+  },
+  {
+    "id": 4,
     "Pname": "Smart Home Tracker",
-    "description": "An energy usage tracker for smart homes having huge impact on IOT based systems.",
-    "image": "/images/project2.jpg"
+    "description": "Developed a smart home energy tracking system featuring a real-time dashboard that visualizes energy usage patterns and sources, allowing users to identify energy waste and reduce consumption by 15% within one month.",
+    "image": "../Portfolio/images/smarthome.png",
+    "url": "",
+    "github": "https://github.com/Shubham-404/hextech/",
+    "tech": ["Django", "Python", "Data-Analysis"]
   }
 ]
  

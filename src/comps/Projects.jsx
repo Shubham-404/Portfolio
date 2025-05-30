@@ -8,29 +8,29 @@ import CardList from './elems/CardList.jsx';
 
 // import script from 'learn';
 const Projects = () => {
-useEffect(() => {
-  gsap.registerPlugin("ScrollTrigger")
+  useEffect(() => {
+    gsap.registerPlugin("ScrollTrigger")
 
-  const container = document.querySelector('#pj');
-  const children = gsap.utils.toArray(container.children);
-  children.forEach((child) => {
-    gsap.fromTo(child, { scale: .8, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1, 
-        duration: .5, 
-        ease: "back.out(1)",
-        scrollTrigger: {
-          trigger: child,
-          start: "left 80%", 
-          end: "bottom top",
-          scrub: 1, 
-          markers: false,
-        }
-      })
-  })
+    const container = document.querySelector('#pj');
+    const children = gsap.utils.toArray(container.children);
+    children.forEach((child) => {
+      gsap.fromTo(child, { scale: .8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: .5,
+          ease: "back.out(1)",
+          scrollTrigger: {
+            trigger: child,
+            start: "left 80%",
+            end: "bottom top",
+            scrub: 1,
+            markers: false,
+          }
+        })
+    })
 
-}, [])
+  }, [])
 
 
 
@@ -42,9 +42,7 @@ useEffect(() => {
 
         <p className='!p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Some of my original and latest projects, that I have worked on are listed here.</p>
         <div className="flex gap-5 flex-wrap w-full h-full max-md:flex-col max-md:items-center justify-center  items-center">
-          <div className="flex flex-wrap items-center justify-center">
-            <CardList />
-          </div>
+          <CardList />
 
 
         </div>

@@ -1,12 +1,43 @@
-.card-box{
+/* .card-box{
     --zoom: grayscale(.3);
-    /* filter:grayscale(.3) ; */
     object-position: top;
     transition: .5s ease;
 }
 .card-box:hover{
-    --zoom: none;
+    --zoom: none; 
 }
 .card-box img{
     filter: var(--zoom);
+}
+button{
+    
+} */
+
+
+#projects {
+  overflow-x: hidden;
+  /* Prevent horizontal scrollbar on the main container */
+}
+
+#pj {
+  overflow: hidden;
+  /* Ensure no overflow from the container */
+}
+
+#cards {
+  display: flex;
+  flex-wrap: nowrap;
+  /* Prevent wrapping */
+  width: max-content;
+  /* Fit the content width */
+}
+
+.card-box {
+  flex: 0 0 auto;
+  /* Prevent cards from shrinking */
+  
+  transform-origin: center;
+  /* Ensure scaling happens from the center */
+  will-change: transform, opacity;
+  /* Optimize for animation performance */
 }

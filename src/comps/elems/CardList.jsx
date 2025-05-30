@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
 import './elemStyles/CardList.css'
+import Util from "./Util";
 
 const CardList = () => {
     const [data, setData] = useState([]);
@@ -11,14 +14,25 @@ const CardList = () => {
             .catch((error) => console.error("Error loading data:", error));
     }, []);
 
+
+
     return (
-        <div className="flex flex-wrap justify-center items-center gap-4 !p-4">
+        <div className="flex justify-center flex-wrap w-[90vw] items-center gap-4 !p-4">
             {data.length > 0 ? (
                 data.map((item) => (
-                    <div key={item.id} className="max-w-90 min-w-30 h-full card-box overflow-hidden bg-blue-950/15 border border-indigo-300/10 !p-4 flex gap-2 flex-col gap hover:bg-blue-950/30 rounded-xl max-lg:scale-90 justify-center items-center">
-                        <img src={item.image} alt={item.Pname} className="w-full h-32 object-cover rounded-md" />
+                    <div key={item.id} className="card-box max-w-[80vw] min-lg:w-[60vw] min-w-100 h-[70svh] overflow-hidden bg-blue-950/15 border border-indigo-300/10 !p-4 flex gap-2 flex-col gap hover:bg-blue-950/30 rounded-xl max-lg:scale-90 items-center">
+                        <img src={item.image} alt={item.Pname} className="w-full h-50 object-cover object-center rounded-md" />
                         <h2 className="text-xl font-bold !mt-2">{item.Pname}</h2>
-                        <p className="text-gray-600">{item.description}</p>
+                        <p className="text-gray-600 h-31 overflow-hidden">{item.description}</p>
+                        <div className="flex text-sm gap-3 w-full !px-3">
+                            {item.tech.map(element => (
+                                <Util Tech={element} />
+                            ))}
+                        </div>
+                        <div className="btns w-full h-max bottom-0 flex justify-start">
+                            <button className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-indigo-900 border-l-2 border-indigo-300 !px-4 !py-2 !m-2 rounded-full text-gray-50 cursor-pointer hover:scale-102 active:scale-97"><a className=" hover:!text-white  flex items-center gap-2"
+                                href={`${item.github}`} target="_blank"><h2>View Repo</h2> <img className="h-5" src="/Portfolio/svgs/arrow-right.svg" alt="arrow" /></a></button>
+                        </div>
                     </div>
                 ))
             ) : (
