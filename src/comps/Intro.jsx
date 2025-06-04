@@ -15,6 +15,7 @@ const Home = ({ toggleTheme, dark }) => {
       "#main-head h1",
       { scale: .8, opacity: 0, y: '200px' },
       {
+        delay:.5,
         scale: 1,
         opacity: 1,
         y: 0,

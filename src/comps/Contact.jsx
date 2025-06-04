@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import emailjs from '@emailjs/browser';
 import Img from './elems/Img.jsx'
 import Social from './elems/Social.jsx'
 import Heading from './elems/Heading'
@@ -15,6 +16,11 @@ const Contact = () => {
         email: '',
         message: '',
     });
+    const [status, setStatus] = useState({
+        submitting: false,
+        submitted: false,
+        error: null
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,10 +30,27 @@ const Contact = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here (e.g., send data to an API or email service)
-        console.log('Form submitted:', formData);
+        setStatus({ submitting: true, submitted: false, error: null });
+
+        try {
+            await emailjs.send(
+                'service_sks_404', // Replace with your EmailJS service ID
+                'template_e5jrkoc', // Replace with your EmailJS template ID
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                },
+                'me13X6x6eGJ25gDDR' // Replace with your EmailJS public key
+            );
+
+            setStatus({ submitting: false, submitted: true, error: null });
+            setFormData({ name: '', email: '', message: '' });
+        } catch (error) {
+            setStatus({ submitting: false, submitted: false, error: error.message });
+        }
     };
 
     useEffect(() => {
@@ -77,6 +100,7 @@ const Contact = () => {
                                 name="name"
                                 value={formData.name}
                                 onChange={handleChange}
+                                required
                                 className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Your Name"
                             />
@@ -88,8 +112,9 @@ const Contact = () => {
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
+                                required
                                 className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
-                                placeholder="Emali"
+                                placeholder="Email"
                             />
                         </div>
 
@@ -102,13 +127,29 @@ const Contact = () => {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
+                            required
                             rows="10"
                             className="w-full h-25 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
+                        
+                        {/* Status Messages */}
+                        {status.error && (
+                            <p className="text-red-500 !ml-3">{status.error}</p>
+                        )}
+                        {status.submitted && (
+                            <p className="text-green-500 !ml-3">Message sent successfully!</p>
+                        )}
+                        
                         {/* Submit Button */}
                         <div className="!mt-6 !ml-3">
-                            <Button btn="Don't Click!" Type="" Href="https://google.com" />
+                            <button
+                                type="submit"
+                                disabled={status.submitting}
+                                className="!px-6 !py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 !transition-colors disabled:opacity-50"
+                            >
+                                {status.submitting ? 'Sending...' : 'Send Message'}
+                            </button>
                         </div>
                     </div>
 

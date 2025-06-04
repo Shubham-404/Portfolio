@@ -1,4 +1,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
+
+#main-head h1{
+  transition: none !important;
+}
 .name {
     animation: bgText 7s infinite alternate;
     background-image: linear-gradient(to right, rgb(105, 70, 223), rgb(30, 199, 148), rgb(105, 70, 255));
