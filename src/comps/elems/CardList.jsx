@@ -17,16 +17,16 @@ const CardList = () => {
 
 
     return (
-        <div className="flex justify-center flex-wrap w-[90vw] items-center gap-4 !p-4">
+        <div className="flex justify-center flex-wrap items-center gap-2 !pt-0 !p-4">
             {data.length > 0 ? (
                 data.map((item) => (
-                    <div key={item.id} className="card-box max-w-[80vw] min-lg:w-[60vw] min-w-100 h-[70svh] overflow-hidden bg-blue-950/15 border border-indigo-300/10 !p-4 flex gap-2 flex-col gap hover:bg-blue-950/30 rounded-xl max-lg:scale-90 items-center">
+                    <div key={item.id} className="card-box min-lg:w-[50rem] w-max max-w-[80vw] text-wrap h-min  bg-blue-950/15 border border-indigo-300/10 !p-4 flex gap-2 flex-col gap hover:bg-blue-950/30 rounded-xl max-lg:scale-90 items-center">
                         <img src={item.image} alt={item.Pname} className="w-full h-50 object-cover object-center rounded-md" />
                         <h2 className="text-xl font-bold !mt-2">{item.Pname}</h2>
                         <p className="text-gray-600 h-31 overflow-hidden">{item.description}</p>
-                        <div className="flex text-sm gap-3 w-full !px-3">
-                            {item.tech.map(element => (
-                                <Util Tech={element} />
+                        <div className="flex flex-wrap text-sm gap-3 w-full !px-3">
+                            {item.tech.map((element, index) => (
+                                <Util key={`${item.id}-tech-${index}`} Tech={element} />
                             ))}
                         </div>
                         <div className="btns w-full h-max bottom-0 flex justify-start">

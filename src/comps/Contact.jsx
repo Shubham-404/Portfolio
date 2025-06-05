@@ -132,7 +132,7 @@ const Contact = () => {
                             className="w-full h-25 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
-                        
+
                         {/* Status Messages */}
                         {status.error && (
                             <p className="text-red-500 !ml-3">{status.error}</p>
@@ -140,7 +140,7 @@ const Contact = () => {
                         {status.submitted && (
                             <p className="text-green-500 !ml-3">Message sent successfully!</p>
                         )}
-                        
+
                         {/* Submit Button */}
                         <div className="!mt-6 !ml-3">
                             <button
@@ -159,9 +159,9 @@ const Contact = () => {
                 <div className="w-full h-full  flex gap-5 flex-wrap !pt-5 max-md:flex-col max-md:items-center justify-start items-center">
                     <section className='w-full h-full flex justify-center gap-5 items-center flex-wrap'>
                         <Social Name="Github" Src="/Portfolio/svgs/github.svg" Href="https://github.com/Shubham-404/" />
-                        <Social Name="LinkedIn" Src="/Portfolio/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-singh404/" />
+                        <Social Name="LinkedIn" Src="/Portfolio/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-404-/" />
                         <Social Name="Instagram" Src="/Portfolio/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
-                        <Social Name="Extra" Src="/Portfolio/svgs/namaste.svg" Href="https://github.com/Shubham-404/" />
+                        <Social Name="Extra" Src="/Portfolio/svgs/namaste.svg" Href="https://medium.com/@shubham-404" />
                     </section>
                     <p className='!p-5 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full'>To know more about me!</p>
 

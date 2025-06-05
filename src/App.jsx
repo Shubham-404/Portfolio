@@ -11,7 +11,17 @@ import Cursor from './Cursor';
 import Loading from './comps/Loading';
 
 const App = () => {
-  console.log("Hello dear sneaky developer! Go ahead and scratch out all you want.");
+  console.log(`
+    |  | ___          __     ____  ___ ___  ___     ____       ___ ___  | /
+    |__| |_  |   |   |  |     |  | |_  |__| |__|    |___  |\\ | |_  |__| |/  \\ /
+    |  | |__ |__ |__ |__|    _|__| |__ |  | |  \\    ____| | \\| |__ |  | | \\  |
+    
+    ___  ___      ___      __  ___  ___ ___   | |
+    |  | |_  \\  / |_  |   |  | |__| |_  |__|  | |
+    |__| |__  \\/  |__ |__ |__| |    |__ |  \\  o o
+    
+    Go ahead and scratch out all you want.
+    `);
   
   const [isLoaded, setIsLoaded] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
@@ -91,7 +101,7 @@ const App = () => {
       // Add a small delay to ensure smooth transition
       const timer = setTimeout(() => {
         setIsLoaded(true);
-      }, 500);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [resourcesLoaded]);
