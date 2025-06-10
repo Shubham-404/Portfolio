@@ -23,7 +23,7 @@
     "Pname": "CocaCola Reimagined",
     "description": "Designed a reimagined and interactive website using ReactJS, featuring GSAP animations and tailored UI/UX showcasing products and brand, to increase user engagement and timeon-site.",
     "image": "../Portfolio/images/CocaCola.jpg",
-    "url": "https://shubham-404.github.io/Portfolio/images/comingsoon.gif",
+    "url": "",
     "github": "https://github.com/Shubham-404/CocaCola-Reimagined/",
     "tech": ["ReactJS", "GSAP", "UI/UX", "Adv CSS"]
   },
