@@ -10,30 +10,31 @@
   },
   {
     "id": 2,
+    "Pname": "Utsav-NIE",
+    "description": "UTSAV is a modern, full-stack web application designed to streamline the planning, management, and participation of events in academic institutions and beyond. It provides a centralized platform for organizers and participants to engage seamlessly in events of all scales.",
+    "image": "../Portfolio/images/utsav.png",
+    "url": "https://utsav-ems.web.app/",
+    "urlMessage":"",
+    "github": "https://github.com/Utsava-v1/Utsava-nie-v1",
+    "tech": ["ReactJS", "Firebase", "Role-based Access Control", "TailwindCSS"]
+  },
+  {
+    "id": 3,
     "Pname": "CocaCola Reimagined",
     "description": "Designed a reimagined and interactive website using ReactJS, featuring GSAP animations and tailored UI/UX showcasing products and brand, to increase user engagement and timeon-site.",
     "image": "../Portfolio/images/CocaCola.jpg",
-    "url": "",
+    "url": "https://shubham-404.github.io/Portfolio/images/comingsoon.gif",
     "github": "https://github.com/Shubham-404/CocaCola-Reimagined/",
     "tech": ["ReactJS", "GSAP", "UI/UX", "Adv CSS"]
   },
   {
-    "id": 3,
+    "id": 4,
     "Pname": "Scalable Video Intelligence System",
     "description": "Built a role-based web platform that uses AI/ML to transform live camera feeds into actionable insights. Designed a modular dashboard with role-based access control for flexible service management. Reduced manual surveillance and attendance logging effort by up to 70%, significantly improving operational efficiency.",
     "image": "../Portfolio/images/attendance.png",
     "url": "",
     "github": "https://github.com/Shubham-404/VisionCap_v7/",
     "tech": ["RetinaENV", "FaceRecognition", "Flask", "ReactJS", "YOLO"]
-  },
-  {
-    "id": 4,
-    "Pname": "Smart Home Tracker",
-    "description": "Developed a smart home energy tracking system featuring a real-time dashboard that visualizes energy usage patterns and sources, allowing users to identify energy waste and reduce consumption by 15% within one month.",
-    "image": "../Portfolio/images/smarthome.png",
-    "url": "",
-    "github": "https://github.com/Shubham-404/hextech/",
-    "tech": ["Django", "Python", "Data-Analysis"]
   }
 ]
  

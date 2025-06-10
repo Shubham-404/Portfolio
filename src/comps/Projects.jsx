@@ -40,7 +40,7 @@ const Projects = () => {
 
         <Heading Head="Projects" />
 
-        <p className='!p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Some of my original and latest projects, that I have worked on are listed here.</p>
+        <p className='!p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of my latest projects along with a concise description, link to their GitHub repositories and Live Preview(if available). Make sure to take a look and feel free to contact for any suggestions or questions.</p>
         <div className="flex gap-5 flex-wrap w-full h-full max-md:flex-col max-md:items-center justify-center  items-center">
           <CardList />
 

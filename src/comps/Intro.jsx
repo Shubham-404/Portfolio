@@ -77,7 +77,7 @@ const Home = ({ toggleTheme, dark }) => {
           </h1>
         </main>
         <h1 className='!mt-10 flex items-center justify-center gap-5 w-max !pl-2 !pt-2'>
-          <Button Href="https://linkedin.com/in/shubham-singh404" btn="LinkedIn" />
+          <Button Href="https://github.com/Shubham-404/" btn="GitHub" />
           <div onClick={switchTheme} className="setting !pb-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
               <img ref={sun} className='h-6 brightness-85' src="/Portfolio/svgs/sun.svg" alt="light" />

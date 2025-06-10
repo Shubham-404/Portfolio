@@ -101,7 +101,7 @@ const Contact = () => {
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
-                                className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                                className="w-full h-15 !p-5 bg-indigo-200/10 ring-1 ring-gray-500 inset-shadow-lg rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Your Name"
                             />
                         </div>
@@ -113,7 +113,7 @@ const Contact = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full h-15 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                                className="w-full h-15 !p-5 bg-indigo-200/10 ring-1 ring-gray-500 inset-shadow-lg rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Email"
                             />
                         </div>
@@ -129,7 +129,7 @@ const Contact = () => {
                             onChange={handleChange}
                             required
                             rows="10"
-                            className="w-full h-25 !p-5 bg-transparent border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
+                            className="w-full h-25 !p-5 bg-indigo-200/10 ring-1 ring-gray-500 inset-shadow-lg rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
 
@@ -161,7 +161,7 @@ const Contact = () => {
                         <Social Name="Github" Src="/Portfolio/svgs/github.svg" Href="https://github.com/Shubham-404/" />
                         <Social Name="LinkedIn" Src="/Portfolio/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-404-/" />
                         <Social Name="Instagram" Src="/Portfolio/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
-                        <Social Name="Extra" Src="/Portfolio/svgs/namaste.svg" Href="https://medium.com/@shubham-404" />
+                        <Social Name="Medium" Src="/Portfolio/svgs/medium.svg" Href="https://medium.com/@shubham-404" />
                     </section>
                     <p className='!p-5 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full'>To know more about me!</p>
 

@@ -52,7 +52,6 @@ const App = () => {
         
         // Load images
         const imageUrls = [
-          '/Portfolio/images/Scene2.gif',
           '/Portfolio/images/my-ava.png',
           '/Portfolio/images/prayag.jpg',
           '/Portfolio/svgs/github.svg',
