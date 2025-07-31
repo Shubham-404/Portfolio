@@ -1,21 +1,33 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './styles/Intro.css'
 import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from './elems/Button'
+import ScrollToPlugin from "gsap/ScrollToPlugin";
 
-const Home = ({ toggleTheme, dark }) => {
+const Home = ({ toggleTheme, dark, scrollToRef }) => {
+  gsap.registerPlugin(ScrollToPlugin)
+
+  const handleScrollAbout = () => {    
+    if (scrollToRef.current) {
+      gsap.to(window, {
+        duration: .1,
+        scrollTo: scrollToRef.current,
+        ease: 'ease',
+      });
+    } else{
+      console.error("Ref is Null!")
+    }
+  }
 
   const [Namaste, setNamaste] = useState("")
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
     gsap.fromTo(
       "#main-head h1",
       { scale: .8, opacity: 0, y: '200px' },
       {
-        delay:.5,
+        delay: .5,
         scale: 1,
         opacity: 1,
         y: 0,
@@ -24,9 +36,18 @@ const Home = ({ toggleTheme, dark }) => {
         stagger: .2
       }
     );
-
   }, []);
 
+  useEffect(() => {
+    gsap.fromTo(
+      ".scroll-float",
+      { opacity: 0 },
+      {
+        delay: 2,
+        opacity: 1,
+      }
+    )
+  }, [])
 
   const sun = useRef(null);
   const moon = useRef(null);
@@ -49,7 +70,7 @@ const Home = ({ toggleTheme, dark }) => {
 
   return (
     <div className="Intro !mt-5 !pt-10 grid justify-center items-center min-h-[75vh]">
-      <div id='main-head' className='!p-10 !pt-0  max-md:!p-13'>
+      <div id='main-head' className='!p-10 relative !pt-0  max-md:!p-13'>
         <main className='about justify-self-center font-hawk !p-0 !pt-0 max-w-3xl text-lg/20'>
           <span>
 
@@ -63,7 +84,7 @@ const Home = ({ toggleTheme, dark }) => {
           <span className='flex flex-col gap-1 font-bold max-lg:text-3xl max-md:text-4xl'>
 
             <h1
-              onClick={() => { setNamaste(Namaste === "  " ? "🙏" : "  ") }}
+              onClick={() => { setNamaste(Namaste === "" ? "🙏" : "") }}
               className='w-min flex name text-7xl text-transparent max-lg:text-5xl max-md:text-4xl bg-clip-text'
             >
               Shubham.
@@ -87,6 +108,10 @@ const Home = ({ toggleTheme, dark }) => {
           </div>
 
         </h1>
+        <button onClick={handleScrollAbout} className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce ">
+          <span>Scroll Down</span>
+          <svg className='' height="100%" viewBox="0 0 24 24" width="24"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z" fill="rgb(100,100,128)"></path></svg>
+        </button>
       </div>
     </div>
   )

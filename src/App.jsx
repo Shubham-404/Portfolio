@@ -1,5 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
-import NavBarMobile from './comps/NavBarMobile';
+import { useState, useRef, useEffect } from 'react';
 import NavBar from './comps/NavBar';
 import Intro from './comps/Intro';
 import About from './comps/About';
@@ -7,10 +6,16 @@ import TechStack from './comps/TechStack';
 import Projects from './comps/Projects';
 import Contact from './comps/Contact';
 import Footer from './comps/Footer';
-import Cursor from './Cursor';
 import Loading from './comps/Loading';
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+
+//without this line, ScrollToPlugin may get dropped by your bundler...
 
 const App = () => {
+  const plugins = [ScrollToPlugin];
   console.log(`
     |  | ___          __     ____  ___ ___  ___     ____       ___ ___  | /
     |__| |_  |   |   |  |     |  | |_  |__| |__|    |___  |\\ | |_  |__| |/  \\ /
@@ -22,12 +27,14 @@ const App = () => {
     
     Go ahead and scratch out all you want.
     `);
-  
+
   const [isLoaded, setIsLoaded] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
   const navRef = useRef(null);
   const themeRef = useRef(null);
   const [dark, setDark] = useState(true);
+  const aboutRef = useRef(null);
+  gsap.registerPlugin(ScrollTrigger);
 
   // Toggle theme
   const toggleTheme = () => {
@@ -49,7 +56,7 @@ const App = () => {
       try {
         // Load fonts
         await document.fonts.ready;
-        
+
         // Load images
         const imageUrls = [
           '/Portfolio/images/my-ava.png',
@@ -81,7 +88,7 @@ const App = () => {
 
         // Wait for all resources to load
         await Promise.all([...imagePromises, jsonPromise]);
-        
+
         // Set resources as loaded
         setResourcesLoaded(true);
       } catch (error) {
@@ -112,8 +119,8 @@ const App = () => {
         <>
           <div ref={themeRef} id='intro' className="dark p-5 m-5 relative">
             <NavBar ID="nv" dark={dark} ref={navRef} />
-            <Intro toggleTheme={toggleTheme} dark={dark} />
-            <About />
+            <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef = {aboutRef} />
+            <About ref={aboutRef} />
             <TechStack />
             <Projects />
             <Contact />
