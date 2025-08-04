@@ -119,7 +119,7 @@ const App = () => {
         <>
           <div ref={themeRef} id='intro' className="dark p-5 m-5 relative">
             <NavBar ID="nv" dark={dark} ref={navRef} />
-            <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef = {aboutRef} />
+            <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
             <About ref={aboutRef} />
             <TechStack />
             <Projects />
