@@ -77,8 +77,15 @@ const Contact = () => {
 
     }, [])
 
+    const handleBackToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
     return (
-        <div id='connect' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
+        <div id='connect' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-6 flex justify-center items-start'>
             <div id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="Connect" />
@@ -165,7 +172,15 @@ const Contact = () => {
                         <Social Name="Medium" Src="/Portfolio/svgs/medium.svg" Href="https://medium.com/@shubham-404" />
                     </section>
 
-
+                    <div className="w-full flex justify-center">
+                        <button
+                            type="button"
+                            onClick={handleBackToTop}
+                            className="!px-6 !py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 !transition-colors disabled:opacity-50"
+                        >
+                            Back to top
+                        </button>
+                    </div>
 
                 </div>
             </div>
