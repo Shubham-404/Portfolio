@@ -57,7 +57,7 @@ const NavBar = ({ dark }) => {
               ref={ham}
 
               className={`h-15 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
-              src="/svgs/hamburger.svg"
+              src="/svgs/hamburger.png"
               alt="show"
             />
             :

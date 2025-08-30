@@ -2,8 +2,8 @@
   {
     "id": 1,
     "Pname": "KhataBook",
-    "description": "Inspired by the original KhataBook, this is a full-stack ledger management app built for learning,, and showcasing real-world backend practices. Features include an optional passcode encryption for sensitive records, animated splash screen for brand touch and a triple-layer data validation using JavaScript, Joi in express routes, and database schema level.",
-    "image": "/images/khaatabook.png",
+    "description": "This is a full-stack ledger management app built for learning,, and showcasing real-world backend practices. Features include an optional passcode encryption for sensitive records, animated splash screen for brand touch and a triple-layer data validation.",
+    "image": "/images/khatabook.png",
     "url": "",
     "github": "https://github.com/Shubham-404/KhataBook",
     "tech": ["ExpressJS", "MongoDB", "ejs", "NodeJS"]
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "Pname": "Utsav-NIE",
-    "description": "UTSAV is a modern, full-stack web application designed to streamline the planning, management, and participation of events in academic institutions and beyond. It provides a centralized platform for organizers and participants to engage seamlessly in events of all scales.",
+    "description": "UTSAV is a modern, full-stack web application designed to provide a centralized platform for organizers and participants to engage seamlessly in events of all scales.",
     "image": "/images/utsav.png",
     "url": "https://utsav-ems.web.app/",
     "urlMessage":"",
@@ -20,12 +20,12 @@
   },
   {
     "id": 3,
-    "Pname": "CocaCola Reimagined",
-    "description": "Designed a reimagined and interactive website using ReactJS, featuring GSAP animations and tailored UI/UX showcasing products and brand, to increase user engagement and timeon-site.",
-    "image": "/images/CocaCola.jpg",
+    "Pname": "Personal Portfolio",
+    "description": "This very portfolio you're viewing - showcases my journey, achievements & skills  with dynamic content and immersive animations.",
+    "image": "/images/portfolio.png",
     "url": "",
-    "github": "https://github.com/Shubham-404/CocaCola-Reimagined/",
-    "tech": ["ReactJS", "GSAP", "UI/UX", "Adv CSS"]
+    "github": "https://github.com/Shubham-404/Portfolio/",
+    "tech": ["ReactJS", "GSAP", "Adv CSS"]
   }
 ]
  
