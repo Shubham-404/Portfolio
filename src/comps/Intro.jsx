@@ -101,9 +101,9 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           <Button Href="https://github.com/Shubham-404/" btn="GitHub" />
           <div onClick={switchTheme} className="setting !pb-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
-              <img ref={sun} className='h-6 brightness-85' src="/Portfolio/svgs/sun.svg" alt="light" />
+              <img ref={sun} className='h-6 brightness-85' src="/svgs/sun.svg" alt="light" />
             ) : (
-              <img ref={moon} className='h-6 brightness-85' src="/Portfolio/svgs/moon.svg" alt="dark" />
+              <img ref={moon} className='h-6 brightness-85' src="/svgs/moon.svg" alt="dark" />
             )}
           </div>
 

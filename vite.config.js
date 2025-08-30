@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
-  base: "/Portfolio",  // Ensures correct paths in GitHub Pages
+  base: "/",  // Ensures correct paths in GitHub Pages
   build: {
     outDir: "dist",
     // assetsDir: "assets", // Keeps CSS/JS inside `dist/assets/`

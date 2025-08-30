@@ -59,18 +59,18 @@ const App = () => {
 
         // Load images
         const imageUrls = [
-          '/Portfolio/images/my-ava.png',
-          '/Portfolio/images/prayag.jpg',
-          '/Portfolio/svgs/github.svg',
-          '/Portfolio/svgs/linkedin.svg',
-          '/Portfolio/svgs/instagram.svg',
-          '/Portfolio/svgs/namaste.svg',
-          '/Portfolio/svgs/sun.svg',
-          '/Portfolio/svgs/moon.svg',
-          '/Portfolio/svgs/hamburger.svg',
-          '/Portfolio/svgs/cross.svg',
-          '/Portfolio/svgs/download.svg',
-          '/Portfolio/svgs/arrow-right.svg'
+          '/images/my-ava.png',
+          '/images/prayag.jpg',
+          '/svgs/github.svg',
+          '/svgs/linkedin.svg',
+          '/svgs/instagram.svg',
+          '/svgs/namaste.svg',
+          '/svgs/sun.svg',
+          '/svgs/moon.svg',
+          '/svgs/hamburger.svg',
+          '/svgs/cross.svg',
+          '/svgs/download.svg',
+          '/svgs/arrow-right.svg'
         ];
 
         const imagePromises = imageUrls.map(url => {
@@ -83,7 +83,7 @@ const App = () => {
         });
 
         // Load JSON data
-        const jsonPromise = fetch("/Portfolio/files/project-works.json")
+        const jsonPromise = fetch("/files/project-works.json")
           .then(response => response.json());
 
         // Wait for all resources to load

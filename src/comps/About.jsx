@@ -6,7 +6,7 @@ import Heading from './elems/Heading'
 const About = forwardRef((props, ref) => {
     const resumeDownload = () => {
         const link = document.createElement('a');
-        link.href = '/Portfolio/files/Shubham-Resume-2025.pdf';  // Path to the file in the public folder
+        link.href = '/files/Shubham-Resume-2025.pdf';  // Path to the file in the public folder
         link.target = '__blank';  // 
         link.click();
     }
@@ -48,14 +48,14 @@ const About = forwardRef((props, ref) => {
                             <br />
                             <a target='blank' href="https://linkedin.com/in/shubham-404-/"><strong>Let’s connect! 🚀</strong></a></p>
                         <a onClick={resumeDownload} className='!ml-5 cursor-pointer flex items-center justify-center rounded-full overflow-hidden w-35 gap-3 jush2-center hover:scale-105 hover:brightness-110 active:scale-95 !p-3 bg-linear-to-r from-indigo-600 to-purple-800'>
-                            <img className='h-7 invert' src="/Portfolio/svgs/download.svg" alt="download" />
+                            <img className='h-7 invert' src="/svgs/download.svg" alt="download" />
                             <h2 className='text-md max-md:text-sm font-bold text-white '>Resume</h2>
                         </a>
 
                     </section>
                     <section className='w-70 max-lg:w-50 max-md:w-[70%] !mb-5'>
                         <div className='img-cont relative'>
-                            <img className='rounded-xl w-full' src="/Portfolio/images/prayag.jpg" alt="MyPic" />
+                            <img className='rounded-xl w-full' src="/images/my-pic2.jpg" alt="MyPic" />
                         </div>
                     </section>
                 </div>

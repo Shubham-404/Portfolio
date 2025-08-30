@@ -159,10 +159,10 @@ const Contact = () => {
                 <div className="w-full h-full  flex gap-5 flex-wrap !pt-5 max-md:flex-col max-md:items-center justify-start items-center">
                     <p className='!p-5 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full text-center'>To know more about me</p>
                     <section className='w-full h-full flex justify-center gap-5 items-center flex-wrap !mb-10'>
-                        <Social Name="Github" Src="/Portfolio/svgs/github.svg" Href="https://github.com/Shubham-404/" />
-                        <Social Name="LinkedIn" Src="/Portfolio/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-404-/" />
-                        <Social Name="Instagram" Src="/Portfolio/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
-                        <Social Name="Medium" Src="/Portfolio/svgs/medium.svg" Href="https://medium.com/@shubham-404" />
+                        <Social Name="Github" Src="/svgs/github.svg" Href="https://github.com/Shubham-404/" />
+                        <Social Name="LinkedIn" Src="/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-404-/" />
+                        <Social Name="Instagram" Src="/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
+                        <Social Name="Medium" Src="/svgs/medium.svg" Href="https://medium.com/@shubham-404" />
                     </section>
 
 

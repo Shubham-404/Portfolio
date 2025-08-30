@@ -8,7 +8,7 @@ const CardList = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch("/Portfolio/files/project-works.json")
+        fetch("/files/project-works.json")
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error("Error loading data:", error));
@@ -31,11 +31,11 @@ const CardList = () => {
                         </div>
                         <div className="btns w-full h-max bottom-0 flex justify-start">
                             <button className="bg-gradient-to-r from-indigo-700 via-indigo-600 to-indigo-900 border-l-2 border-indigo-300 !px-4 !py-2 !m-2 rounded-full text-gray-50 cursor-pointer hover:scale-102 active:scale-97"><a className=" hover:!text-white  flex items-center gap-2"
-                                href={`${item.github}`} target="_blank"><h2>GitHub Repo</h2> <img className="h-5" src="/Portfolio/svgs/arrow-right.svg" alt="arrow" /></a></button>
+                                href={`${item.github}`} target="_blank"><h2>GitHub Repo</h2> <img className="h-5" src="/svgs/arrow-right.svg" alt="arrow" /></a></button>
 
                             {item.url ?
                                 <button className="bg-gradient-to-r from-pink-700 via-pink-600 to-pink-900 border-l-2 border-pink-300 !px-4 !py-2 !m-2 rounded-full text-gray-50 cursor-pointer hover:scale-102 active:scale-97"><a className=" hover:!text-white  flex items-center gap-2"
-                                    href={`${item.url}`} target="_blank"><h2>View Live</h2> <img className="h-5" src="/Portfolio/svgs/arrow-right.svg" alt="arrow" /></a></button>
+                                    href={`${item.url}`} target="_blank"><h2>View Live</h2> <img className="h-5" src="/svgs/arrow-right.svg" alt="arrow" /></a></button>
                                 :
                                 <div></div>
                             }
