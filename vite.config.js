@@ -3,16 +3,13 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react(),
-    tailwindcss(),
-  ],
-  base: "/",  // Ensures correct paths in GitHub Pages
+  plugins: [react(), tailwindcss()],
+  base: '/', // Use root for custom domain
   build: {
-    outDir: "dist",
-    // assetsDir: "assets", // Keeps CSS/JS inside `dist/assets/`
-  }, 
-  server:{
+    outDir: 'dist',
+  },
+  server: {
     host: true,
     port: 5173,
-  }
+  },
 })
