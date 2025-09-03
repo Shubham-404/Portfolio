@@ -10,7 +10,7 @@
   },
   {
     "id": 2,
-    "Pname": "Utsav-NIE",
+    "Pname": "Utsav (BETA)",
     "description": "UTSAV is a modern, full-stack web application designed to provide a centralized platform for organizers and participants to engage seamlessly in events of all scales.",
     "image": "/images/utsav.png",
     "url": "https://utsav-ems.web.app/",
@@ -22,10 +22,20 @@
     "id": 3,
     "Pname": "Personal Portfolio",
     "description": "This very portfolio you're viewing - showcases my journey, achievements & skills  with dynamic content and immersive animations.",
-    "image": "/images/portfolio.png",
+    "image": "/images/space.jpeg",
     "url": "",
     "github": "https://github.com/Shubham-404/Portfolio/",
     "tech": ["ReactJS", "GSAP", "Adv CSS"]
+  }
+  ,
+  {
+    "id": 4,
+    "Pname": "Image Hover",
+    "description": "Images hover stunnig animation using CSS only!",
+    "image": "/images/image-hover.png",
+    "url": "https://shubham-404.github.io/image-hover-effect/",
+    "github": "https://github.com/Shubham-404/image-hover-effect/",
+    "tech": ["HTML", "Adv CSS"]
   }
 ]
  

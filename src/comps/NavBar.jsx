@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import './styles/Nav.css';
 import Li from './elems/Li';
+import { useGSAP } from '@gsap/react';
 
 const NavBar = ({ dark }) => {
   const [mobileNav, setMobileNav] = useState(false)
@@ -56,8 +57,8 @@ const NavBar = ({ dark }) => {
               id='ham'
               ref={ham}
 
-              className={`h-15 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
-              src="/svgs/hamburger.png"
+              className={`h-10 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
+              src="/svgs/menu.svg"
               alt="show"
             />
             :
@@ -65,7 +66,7 @@ const NavBar = ({ dark }) => {
               id='cross'
               ref={cross}
 
-              className={`h-15 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
+              className={`h-10 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
               src="/svgs/cross.svg"
               alt="close"
             />

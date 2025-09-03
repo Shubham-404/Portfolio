@@ -1,28 +1,31 @@
 import { useState, useRef, useEffect } from 'react'
 import './styles/Intro.css'
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import Button from './elems/Button'
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 const Home = ({ toggleTheme, dark, scrollToRef }) => {
   gsap.registerPlugin(ScrollToPlugin)
+  gsap.registerPlugin(useGSAP)
 
-  const handleScrollAbout = () => {    
+  const handleScrollAbout = () => {
     if (scrollToRef.current) {
-      gsap.to(window, {
-        duration: .1,
-        scrollTo: scrollToRef.current,
-        ease: 'ease',
+      useGSAP(() => {
+
+        gsap.to(window, {
+          duration: .1,
+          scrollTo: scrollToRef.current,
+          ease: 'ease',
+        })
       });
-    } else{
+    } else {
       console.error("Ref is Null!")
     }
   }
 
   const [Namaste, setNamaste] = useState("")
-
-  useEffect(() => {
-
+  useGSAP(() => {
     gsap.fromTo(
       "#main-head h1",
       { scale: .8, opacity: 0, y: '200px' },
@@ -36,9 +39,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
         stagger: .2
       }
     );
-  }, []);
-
-  useEffect(() => {
+  })
+  useGSAP(() => {
     gsap.fromTo(
       ".scroll-float",
       { opacity: 0 },
@@ -47,7 +49,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
         opacity: 1,
       }
     )
-  }, [])
+  })
 
   const sun = useRef(null);
   const moon = useRef(null);

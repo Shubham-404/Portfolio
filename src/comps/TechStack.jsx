@@ -3,12 +3,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Img from './elems/Img.jsx'
 import Heading from './elems/Heading'
+import { useGSAP } from '@gsap/react';
  
 
 const TechStack = () => {
 
     useEffect(() => {
         gsap.registerPlugin("ScrollTrigger")
+        gsap.registerPlugin(useGSAP)
 
         const container = document.querySelector('#tc');
         const children = gsap.utils.toArray(container.children);

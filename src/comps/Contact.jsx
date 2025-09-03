@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from '@gsap/react';
 import emailjs from '@emailjs/browser';
-import Img from './elems/Img.jsx'
-import Social from './elems/Social.jsx'
+// import Img from './elems/Img.jsx'
+// import Social from './elems/Social.jsx'
 import Heading from './elems/Heading'
-import Button from './elems/Button.jsx'
-import Input from './elems/Input.jsx'
+// import Button from './elems/Button.jsx'
+// import Input from './elems/Input.jsx'
 
 
 const Contact = () => {
@@ -55,35 +56,37 @@ const Contact = () => {
 
     useEffect(() => {
         gsap.registerPlugin("ScrollTrigger")
+        gsap.registerPlugin(useGSAP)
 
-        const container = document.querySelector('#cn');
-        const children = gsap.utils.toArray(container.children);
-        children.forEach((child) => {
-            gsap.fromTo(child, { scale: .8, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: .5,
-                    ease: "back.out(1)",
-                    scrollTrigger: {
-                        trigger: child,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: 1,
-                        markers: false,
-                    }
-                })
-        })
+            const container = document.querySelector('#cn');
+            const children = gsap.utils.toArray(container.children);
+
+            children.forEach((child) => {
+                gsap.fromTo(child, { scale: .8, opacity: 0 },
+                    {
+                        scale: 1,
+                        opacity: 1,
+                        duration: .5,
+                        ease: "back.out(1)",
+                        scrollTrigger: {
+                            trigger: child,
+                            start: "top 80%",
+                            end: "top 60%",
+                            scrub: 1,
+                            markers: false,
+                        }
+                    })
+            })
 
     }, [])
 
     return (
-        <div id='connect' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
+        <div id='connect' className='min-h-100 w-full !p-20 !pb-20 max-md:!p-3 flex justify-center items-start'>
             <div id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="Connect" />
 
-                <p className='!p-5 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full'>Let's Connect.</p>
+                <p className='!p-5 text-xl text-indigo-100 font-semibold text-nowrap max-w-full max-lg:text-2xl max-md:text-xl h-full leading-[2.5rem]'>Share a suggestion, an idea or just a <br /> 'Namaste🙏' below.</p>
 
                 <form
                     onSubmit={handleSubmit}
@@ -132,6 +135,7 @@ const Contact = () => {
                             className="w-full h-25 !p-5 bg-indigo-200/10 ring-1 ring-gray-500 inset-shadow-lg rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                             placeholder="Your Message"
                         />
+                        <span className='text-xs text-gray-500'>(If you're unable to send a message, kindly reach me out through other platforms mentioned below.)</span>
 
                         {/* Status Messages */}
                         {status.error && (
@@ -155,19 +159,6 @@ const Contact = () => {
 
                 </form>
 
-
-                <div className="w-full h-full  flex gap-5 flex-wrap !pt-5 max-md:flex-col max-md:items-center justify-start items-center">
-                    <p className='!p-5 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full text-center'>To know more about me</p>
-                    <section className='w-full h-full flex justify-center gap-5 items-center flex-wrap !mb-10'>
-                        <Social Name="Github" Src="/svgs/github.svg" Href="https://github.com/Shubham-404/" />
-                        <Social Name="LinkedIn" Src="/svgs/linkedin.svg" Href="https://linkedin.com/in/shubham-404-/" />
-                        <Social Name="Instagram" Src="/svgs/instagram.svg" Href="https://instagram.com/shubham_404___/" />
-                        <Social Name="Medium" Src="/svgs/medium.svg" Href="https://medium.com/@shubham-404" />
-                    </section>
-
-
-
-                </div>
             </div>
         </div>
     )

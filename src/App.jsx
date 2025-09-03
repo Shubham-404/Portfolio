@@ -16,17 +16,8 @@ import gsap from "gsap";
 
 const App = () => {
   const plugins = [ScrollToPlugin];
-  console.log(`
-    |  | ___          __     ____  ___ ___  ___     ____       ___ ___  | /
-    |__| |_  |   |   |  |     |  | |_  |__| |__|    |___  |\\ | |_  |__| |/  \\ /
-    |  | |__ |__ |__ |__|    _|__| |__ |  | |  \\    ____| | \\| |__ |  | | \\  |
-    
-    ___  ___      ___      __  ___  ___ ___   | |
-    |  | |_  \\  / |_  |   |  | |__| |_  |__|  | |
-    |__| |__  \\/  |__ |__ |__| |    |__ |  \\  o o
-    
-    Go ahead and scratch out all you want.
-    `);
+  console.log("%cHello Dear Sneaky Developer.", "font-size: 4em; font-weight: bold; color: white;");
+  console.log("%cGo ahead and scrach all you want!", "font-size: 2em; font-weight: bold; color: gray;");
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
@@ -67,7 +58,7 @@ const App = () => {
           '/svgs/namaste.svg',
           '/svgs/sun.svg',
           '/svgs/moon.svg',
-          '/svgs/hamburger.svg',
+          '/svgs/menu.svg',
           '/svgs/cross.svg',
           '/svgs/download.svg',
           '/svgs/arrow-right.svg'
