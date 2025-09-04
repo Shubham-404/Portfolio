@@ -53,9 +53,42 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
 
   const sun = useRef(null);
   const moon = useRef(null);
+  const waveRef = useRef(null);
+  const celebrateRef = useRef(null);
+  const musicRef = useRef(null);
+  const noMusicRef = useRef(null);
+  const [play, setPlay] = useState(false);
+  const songRef = useRef(new Audio("/files/falling-again.mp3"));
 
+  // To control Music
+  const switchMusic = () => {
+    const musicElem = songRef.current;
+    if (play) {
+      musicElem.pause();
+      setPlay(false)
+      waveRef.current.classList.add("h-0")
+      waveRef.current.classList.remove("h-7")
+      celebrateRef.current.classList.add("h-0")
+      celebrateRef.current.classList.remove("h-2")
+      // console.log("paused.");
+
+    } else if (!play) {
+      musicElem.play();
+      setPlay(true)
+      waveRef.current.classList.remove("h-0")
+      waveRef.current.classList.add("h-7")
+      celebrateRef.current.classList.remove("h-0")
+      celebrateRef.current.classList.add("h-2")
+      // console.log("playing.");
+    }
+
+  }
+
+
+  // To switch between dark and light mode.
   const switchTheme = () => {
     const icon = dark ? sun.current : moon.current;
+
     if (icon) {
       gsap.fromTo(icon,
         { rotation: 0 },
@@ -67,17 +100,24 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
       )
     }
     toggleTheme(); // Call the prop from App
-
   }
 
+  // To handle Namaste
+  const handleNamaste = () => { setNamaste(Namaste === "" ? "🙏" : "") }
+
   return (
-    <div className="Intro !mt-5 !pt-10 grid justify-center items-center min-h-[75vh]">
+    <div className="Intro !mt-5 !pt-0 grid justify-center items-center min-h-[75vh] justify-self-center">
+      <div ref={celebrateRef} className='!mb-8 w-[50%] h-0 justify-self-center flex overflow-hidden'>
+        <img className='w-40' src="/images/decoration.gif" alt="" />
+        <img className='w-40' src="/images/decoration.gif" alt="" />
+        <img className='w-40' src="/images/decoration.gif" alt="" />
+      </div>
       <div id='main-head' className='!p-10 relative !pt-0  max-md:!p-13'>
         <main className='about justify-self-center font-hawk !p-0 !pt-0 max-w-3xl text-lg/20'>
           <span>
 
             <h1
-              onClick={() => { setNamaste(Namaste === "" ? "🙏" : "") }}
+              onClick={handleNamaste}
               className='font-ubmono font-normal text-3xl tracking-wide flex w-max max-lg:text-3xl max-md:text-xl'
             >
               Namaste({Namaste}); I am
@@ -99,13 +139,29 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             Creative Web-Developer building projects and diving into Machine Learning.
           </h1>
         </main>
-        <h1 className='!mt-10 flex items-center justify-center gap-5 w-max !pl-2 !pt-2'>
-          <Button Href="https://github.com/Shubham-404/" btn="GitHub" />
-          <div onClick={switchTheme} className="setting !pb-2 flex justify-center items-center hover:scale-110 active:scale-80">
+        <h1 className='!mt-10 flex items-start justify-center gap-5 w-max !pl-2 !pt-2'>
+          <div className='flex flex-col h-17 justify-start items-center gap-0'>
+            <div className='flex'>
+              <Button Href="https://github.com/Shubham-404/" btn="GitHub" play={play} />
+            </div>
+            <img ref={waveRef} className='w-32 h-0 rotate-180' src="/images/music.gif" alt="" />
+          </div>
+
+          {/* Theme */}
+          <div onClick={switchTheme} className="setting !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
-              <img ref={sun} className='h-6 brightness-85' src="/svgs/sun.svg" alt="light" />
+              <img ref={sun} className='h-6 shadow-xl' src="/svgs/sun.svg" alt="light" />
             ) : (
-              <img ref={moon} className='h-6 brightness-85' src="/svgs/moon.svg" alt="dark" />
+              <img ref={moon} className='h-6 shadow-xl' src="/svgs/moon.svg" alt="dark" />
+            )}
+          </div>
+
+          {/* Music */}
+          <div onClick={switchMusic} className="music invert !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+            {play ? (
+              <img ref={musicRef} className='h-6 rounded-full' src="/svgs/music.svg" alt="music" />
+            ) : (
+              <img ref={noMusicRef} className='h-6 rounded-full' src="/svgs/no-music.svg" alt="no_music" />
             )}
           </div>
 

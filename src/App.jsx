@@ -16,8 +16,6 @@ import gsap from "gsap";
 
 const App = () => {
   const plugins = [ScrollToPlugin];
-  console.log("%cHello Dear Sneaky Developer.", "font-size: 4em; font-weight: bold; color: white;");
-  console.log("%cGo ahead and scrach all you want!", "font-size: 2em; font-weight: bold; color: gray;");
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
@@ -25,6 +23,7 @@ const App = () => {
   const themeRef = useRef(null);
   const [dark, setDark] = useState(true);
   const aboutRef = useRef(null);
+
   gsap.registerPlugin(ScrollTrigger);
 
   // Toggle theme

@@ -77,16 +77,13 @@ body {
   height: 100%;
   width: 100%;
   /* color: whitesmoke; */
-  background: radial-gradient(circle at 100%, rgb(47, 9, 150), rgb(13, 5, 24), rgb(13, 5, 24));
+  background-image: radial-gradient(circle at 100%, rgb(47, 9, 150), rgb(13, 5, 24), rgb(13, 5, 24));
   /* background: url("/images/Small-waves-[remix].gif"); */
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
   background-attachment: fixed;
   transition: 1s ease;
-  /* animation: 4s ease-in-out infinite alternate; */
-  /* pointer-events: none; */
-  cursor: auto;
   user-select: none;
 }
 
