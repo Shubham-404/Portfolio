@@ -49,7 +49,7 @@ const About = forwardRef((props, ref) => {
 
                             <a className='' target='blank' href="https://linkedin.com/in/shubham-404-/">
                                 <strong className='flex items-center justify-between gap-2 !px-3 !py-2 bg-gradient-to-br from-blue-500/20 to-transparent rounded-lg hover:scale-105 border-2 border-blue-500/30 hover:border-blue-500/50 hover:from-blue-600/60 text-nowrap'>Let’s connect! <img className='h-6 rounded-md' src="/svgs/linkedin-color.svg" alt="LinkedIn" /></strong></a>
-                            <a target='_blank' href='/files/Shubham-Resume-2025.pdf' className='cursor-pointer flex items-center justify-center rounded-full overflow-hidden w-35 gap-1 jush2-center hover:scale-105 hover:brightness-110 active:scale-95 !px-3 !py-2 border-x-2 border-l-indigo-300 border-r-purple-400 bg-linear-to-r from-indigo-600 to-purple-800'>
+                            <a target='_blank' href='/files/Shubham-Resume-2025.pdf' className='cursor-pointer flex items-center justify-center rounded-lg overflow-hidden w-35 gap-1 jush2-center hover:scale-105 hover:brightness-110 active:scale-95 !px-3 !py-2 border-x-2 border-l-indigo-300 border-r-purple-400 bg-linear-to-r from-indigo-600 to-purple-800'>
                                 <h3 className='text-md max-md:text-sm font-bold text-white '>Résumé</h3>
                                 <img className='h-5 invert' src="/svgs/open.svg" alt="download" />
                             </a>

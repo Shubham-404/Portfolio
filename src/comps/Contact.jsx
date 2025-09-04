@@ -86,7 +86,7 @@ const Contact = () => {
 
                 <Heading Head="Connect" />
 
-                <p className='!p-5 text-xl text-indigo-100 font-semibold text-nowrap max-w-full max-lg:text-2xl max-md:text-xl h-full leading-[2.5rem]'>Share a suggestion, an idea or just a <br /> 'Namaste🙏' below.</p>
+                <p className='!p-5 text-xl font-semibold text-nowrap max-w-full max-lg:text-2xl max-md:text-xl h-full leading-[2.5rem]'>Share a suggestion, an idea or just a <br /> 'Namaste' below.</p>
 
                 <form
                     onSubmit={handleSubmit}
@@ -150,7 +150,7 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={status.submitting}
-                                className="!px-6 !py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 !transition-colors disabled:opacity-50"
+                                className="cursor-pointer flex items-center justify-center rounded-lg !text-bold overflow-hidden w-35 gap-1 jush2-center hover:scale-105 hover:brightness-110 active:scale-95 !px-3 !py-2 border-x-2 border-l-indigo-300 border-r-purple-400 bg-linear-to-r from-indigo-600 to-purple-800"
                             >
                                 {status.submitting ? 'Sending...' : 'Send Message'}
                             </button>

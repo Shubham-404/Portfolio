@@ -1,8 +1,9 @@
-import Social from './elems/Social'
+import Social from './elems/Social';
+import { lazy } from 'react';
 
 const Footer = () => {
   return (
-    <div className='bg-[url(/images/space.jpeg)] bg-center bg-cover bg-no-repeat '>
+    <div className='bg-[url(/images/space.gif)] bg-center bg-cover bg-no-repeat '>
       <footer className='w-full bg-t text-center !py-10 text-white font-ubuntu flex flex-col justify-center items-center text-lg max-lg:text-base max-md:text-sm max-sm:text-xs'>
         <div className="w-full h-full flex gap-5 flex-wrap flex-col max-md:items-center justify-center items-center">
           <p className='!p-3 text-6xl font-bold max-w-full max-lg:text-5xl max-md:text-3xl h-full text-center'>To know more about me</p>
