@@ -20,7 +20,7 @@ const CardList = () => {
         <div className="grid gap-2 !pt-0 !p-4">
             {data.length > 0 ? (
                 data.map((item) => (
-                    <div key={item.id} className="card-box min-lg:w-[50rem] max-w-[80vw] text-wrap h-min bg-indigo-600/30 border border-indigo-300/10 !p-4 flex gap-2 flex-col hover:bg-indigo-600/40 rounded-xl max-lg:scale-90 items-center">
+                    <div key={item.id} className="card-box min-lg:w-[50rem] max-w-[80vw] text-wrap h-min bg-indigo-600/10 border border-indigo-700/40 !p-4 flex gap-2 flex-col hover:bg-indigo-600/20 hover:scale-102 rounded-xl max-lg:scale-90 items-center">
                         <h2 className="text-xl font-bold !p-4">{item.Pname}</h2>
                         <div style={{ backgroundImage: `url(${item.image})` }} className="w-full inner-card bg-cover bg-center text-white rounded-xl overflow-hidden">
                             <div className="w-full h-50 bg-gradient-to-t from-black/60 via-transparent to-transparent" ></div>

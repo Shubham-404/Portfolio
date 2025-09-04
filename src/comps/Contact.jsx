@@ -98,7 +98,7 @@ const Contact = () => {
                         <div className='flex flex-wrap'>
 
                             <div className="!m-3 w-max">
-                                <label for="name" className='text-xs !p-3 text-indigo-200/90'>Name</label>
+                                <label for="name" className='text-xs !p-3 opacity-60'>Name</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -111,7 +111,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="!m-3 w-max">
-                                <label for="email" className='text-xs !p-3 w-min text-indigo-200/90'>Email</label>
+                                <label for="email" className='text-xs !p-3 w-min opacity-60'>Email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -128,7 +128,7 @@ const Contact = () => {
 
                         {/* Message Input */}
                         <div className="!m-4 w-">
-                            <label for="message" className='text-xs !p-3 text-indigo-200/90'>Message</label>
+                            <label for="message" className='text-xs !p-3 opacity-60'>Message</label>
                             <textarea
                                 id="message"
                                 name="message"
@@ -139,7 +139,7 @@ const Contact = () => {
                                 className="w-full h-25 !p-5  !mt-3 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 inset-shadow-lg rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50"
                                 placeholder="Your Message"
                             />
-                            <span className='text-xs text-gray-700'>(If you're unable to send a message, kindly reach me out through other platforms mentioned below.)</span>
+                            <span className='text-xs  opacity-60'>(If you're unable to send a message, kindly reach me out through other platforms mentioned below.)</span>
 
                             {/* Status Messages */}
                             {status.error && (
