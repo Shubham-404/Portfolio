@@ -98,7 +98,7 @@ const Contact = () => {
                         <div className='flex flex-wrap'>
 
                             <div className="!m-3 w-max">
-                                <label for="name" className='text-xs !p-3 opacity-60'>Name</label>
+                                <label htmlFor="name" className='text-xs !p-3 opacity-60'>Name</label>
                                 <input
                                     type="text"
                                     id="name"
@@ -111,7 +111,7 @@ const Contact = () => {
                                 />
                             </div>
                             <div className="!m-3 w-max">
-                                <label for="email" className='text-xs !p-3 w-min opacity-60'>Email</label>
+                                <label htmlFor="email" className='text-xs !p-3 w-min opacity-60'>Email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -128,7 +128,7 @@ const Contact = () => {
 
                         {/* Message Input */}
                         <div className="!m-4 w-">
-                            <label for="message" className='text-xs !p-3 opacity-60'>Message</label>
+                            <label htmlFor="message" className='text-xs !p-3 opacity-60'>Message</label>
                             <textarea
                                 id="message"
                                 name="message"

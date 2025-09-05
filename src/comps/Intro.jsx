@@ -68,8 +68,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
       setPlay(false)
       waveRef.current.classList.add("h-0")
       waveRef.current.classList.remove("h-7")
-      celebrateRef.current.classList.add("h-0")
-      celebrateRef.current.classList.remove("h-2")
+      celebrateRef.current.classList.add("w-0")
+      celebrateRef.current.classList.remove("w-[55vw]")
       // console.log("paused.");
 
     } else if (!play) {
@@ -77,8 +77,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
       setPlay(true)
       waveRef.current.classList.remove("h-0")
       waveRef.current.classList.add("h-7")
-      celebrateRef.current.classList.remove("h-0")
-      celebrateRef.current.classList.add("h-2")
+      celebrateRef.current.classList.remove("w-0")
+      celebrateRef.current.classList.add("w-[55vw]")
       // console.log("playing.");
     }
 
@@ -107,10 +107,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
 
   return (
     <div className="Intro relative !mt-5 !pt-10  grid justify-center items-center min-h-[75vh] justify-self-center">
-      <div ref={celebrateRef} className=' absolute top-0 rounded-full w-[50%] h-0 justify-self-center flex overflow-hidden'>
-        <img className='w-40' src="/images/decoration.gif" alt="" />
-        <img className='w-40' src="/images/decoration.gif" alt="" />
-        <img className='w-40' src="/images/decoration.gif" alt="" />
+      <div ref={celebrateRef} className='waves absolute top-0 rounded-full w-0 h-[2px] justify-self-center flex overflow-hidden'>
       </div>
       <div id='main-head' className='!p-10 relative !pt-0  max-md:!p-13'>
         <main className='about justify-self-center font-hawk !p-0 !pt-0 max-w-3xl text-lg/20'>
@@ -159,9 +156,9 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           {/* Music */}
           <div onClick={switchMusic} className="music options invert !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {play ? (
-              <img ref={musicRef} className='h-6 rounded-full' src="/svgs/music.svg" alt="music" />
+              <img ref={musicRef} className='h-6 rounded-full' src="/images/playing.gif" alt="music" />
             ) : (
-              <img ref={noMusicRef} className='h-6 rounded-full' src="/svgs/no-music.svg" alt="no_music" />
+              <img ref={noMusicRef} className='h-6 rounded-full' src="/images/mute.gif" alt="no_music" />
             )}
           </div>
 

@@ -59,8 +59,6 @@ const App = () => {
           '/svgs/moon.svg',
           '/svgs/menu.svg',
           '/svgs/cross.svg',
-          '/svgs/download.svg',
-          '/svgs/arrow-right.svg'
         ];
 
         const imagePromises = imageUrls.map(url => {

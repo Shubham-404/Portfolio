@@ -8,6 +8,11 @@
   cursor: pointer;
   position: relative;
 }
+.waves {
+  animation: bgText 2s infinite alternate;
+  background-image: linear-gradient(to right, rgb(55, 25, 189), transparent, rgb(30, 199, 148), rgb(55, 25, 189));
+  transition: .8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
 .name:hover {
   animation: bgText 2s infinite alternate;
@@ -18,6 +23,7 @@
   transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
   /* border: 2px solid white; */
 }
+
 
 @keyframes bgText {
   0% {
