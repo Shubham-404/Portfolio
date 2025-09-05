@@ -106,8 +106,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
   const handleNamaste = () => { setNamaste(Namaste === "" ? "🙏" : "") }
 
   return (
-    <div className="Intro !mt-5 !pt-0 grid justify-center items-center min-h-[75vh] justify-self-center">
-      <div ref={celebrateRef} className='!mb-8 w-[50%] h-0 justify-self-center flex overflow-hidden'>
+    <div className="Intro relative !mt-5 !pt-10  grid justify-center items-center min-h-[75vh] justify-self-center">
+      <div ref={celebrateRef} className=' absolute top-0 rounded-full w-[50%] h-0 justify-self-center flex overflow-hidden'>
         <img className='w-40' src="/images/decoration.gif" alt="" />
         <img className='w-40' src="/images/decoration.gif" alt="" />
         <img className='w-40' src="/images/decoration.gif" alt="" />
