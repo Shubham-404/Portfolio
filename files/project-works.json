@@ -2,15 +2,13 @@
   {
     "id": 1,
     "Pname": "KhataBook",
-    "description": "This is a full-stack ledger management app built for learning,, and showcasing real-world backend practices. Features include an optional passcode encryption for sensitive records, animated splash screen for brand touch and a triple-layer data validation.",
+    "description": "This is a full-stack ledger management app built for learning, and showcasing real-world backend practices. Features include an optional passcode encryption for sensitive records, animated splash screen for brand touch and a triple-layer data validation.",
     "image": "/images/khatabook.png",
     "url": "",
     "github": "https://github.com/Shubham-404/KhataBook",
     "tech": [
       "ExpressJS",
-      "MongoDB",
-      "ejs",
-      "NodeJS"
+      "MongoDB"
     ]
   },
   {
@@ -25,7 +23,7 @@
       "ReactJS",
       "Firebase",
       "TailwindCSS",
-      "Role-based Access Control"
+      "RBAC"
     ]
   },
   {
@@ -39,19 +37,7 @@
       "ReactJS",
       "GSAP",
       "Adv CSS"
-    ],
-    "next": {
-      "id": 4,
-      "Pname": "Image Hover",
-      "description": "Images hover stunnig animation using CSS only!",
-      "image": "/images/image-hover.png",
-      "url": "https://shubham-404.github.io/image-hover-effect/",
-      "github": "https://github.com/Shubham-404/image-hover-effect/",
-      "tech": [
-        "HTML",
-        "Adv CSS"
-      ]
-    }
+    ]
   },
   {
       "id": 4,
