@@ -148,7 +148,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Theme */}
-          <div onClick={switchTheme} className="setting !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchTheme} className="setting options !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
               <img ref={sun} className='h-6 shadow-xl' src="/svgs/sun.svg" alt="light" />
             ) : (
@@ -157,7 +157,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Music */}
-          <div onClick={switchMusic} className="music invert !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchMusic} className="music options invert !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {play ? (
               <img ref={musicRef} className='h-6 rounded-full' src="/svgs/music.svg" alt="music" />
             ) : (

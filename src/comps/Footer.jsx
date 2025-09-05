@@ -16,9 +16,9 @@ const Footer = () => {
         </div>
 
         <div className='border border-green-600/40 rounded-md !p-4 !py-5 w-min text-nowrap flex flex-col items-start justify-start backdrop-blur-sm'>
-          <h4 className='font-ubmono text-white'><span className='text-green-600/80'>~@linux:~$</span> Created and Designed with 🤍 by Shubham</h4>
-          <h4 className='font-ubmono text-white flex gap-1'><span className='text-green-600/80'>~@linux:~$</span> Inspired by <a className='text-blue-300 text-nowrap flex gap-1' href="https://github.com/emmabostian/developer-portfolios" target='_blank'>dev-portfolios</a></h4>
-          <h4 className='font-ubmono text-white'><span className='text-green-600/80'>~@linux:~$</span> Last updated on: Sep'25</h4>
+          <h4 className='font-ubmono text-white'><span className='text-green-600/80'>~@linux:~$</span> Designed and developed with 🤍 by Shubham</h4>
+          <h4 className='font-ubmono text-white flex gap-2'><span className='text-green-600/80'>~@linux:~$</span> Inspired by <a className='text-blue-300 text-nowrap flex gap-1' href="https://saurabhpatil.netlify.app" target='_blank'>Saurabh Patil</a></h4>
+          <h4 className='font-ubmono text-white'><span className='text-green-600/80'>~@linux:~$</span> Last updated: Sep'25</h4>
           <h4 className='font-ubmono text-white'><span className='text-green-600/80'>~@linux:~$</span><span className='font-bold motion-safe:animate-ping'>&nbsp;|</span></h4>
         </div>
       </footer>
