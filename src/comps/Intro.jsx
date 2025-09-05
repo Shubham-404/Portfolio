@@ -145,7 +145,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Theme */}
-          <div onClick={switchTheme} className="setting options !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchTheme} className="setting options border border-amber-300/20 inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-800/10 rounded-2xl !p-3 !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
               <img ref={sun} className='h-6 shadow-xl' src="/svgs/sun.svg" alt="light" />
             ) : (
@@ -154,16 +154,16 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Music */}
-          <div onClick={switchMusic} className="music options invert !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchMusic} className="music options border border-amber-300/20 inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-800/10 rounded-2xl !p-3 !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {play ? (
-              <img ref={musicRef} className='h-6 rounded-full' src="/images/playing.gif" alt="music" />
+              <img ref={musicRef} className='h-6 invert' src="/images/playing.gif" alt="music" />
             ) : (
-              <img ref={noMusicRef} className='h-6 rounded-full' src="/images/mute.gif" alt="no_music" />
+              <img ref={noMusicRef} className='h-6 invert' src="/images/mute.gif" alt="no_music" />
             )}
           </div>
 
         </h1>
-        <button onClick={handleScrollAbout} className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce ">
+        <button onClick={handleScrollAbout} className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce ">
           <span>Scroll Down</span>
           <svg className='' height="100%" viewBox="0 0 24 24" width="24"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z" fill="rgb(100,100,128)"></path></svg>
         </button>

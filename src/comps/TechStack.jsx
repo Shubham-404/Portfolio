@@ -39,7 +39,7 @@ const TechStack = () => {
 
                 <Heading Head="Tech Stack" />
 
-                <p className='!p-5 text-lg/10 max-w-full  max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of the major tools, that I have worked with or currently working on.</p>
+                <p className='!p-2 text-lg/10 max-w-full gap-1 max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of the major tools, that I have worked with or currently working on.</p>
                 <div className=''>
 
                     <div className="max-w-[80vw] justify-self-center flex flex-wrap min-lg:gap-5 min-md:!px-15 justify-center items-center ">
