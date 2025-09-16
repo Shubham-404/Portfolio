@@ -11,14 +11,14 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
 
   const handleScrollAbout = () => {
     if (scrollToRef.current) {
-      useGSAP(() => {
+      // useGSAP(() => {
 
-        gsap.to(window, {
-          duration: .1,
-          scrollTo: scrollToRef.current,
-          ease: 'ease',
-        })
-      });
+      gsap.to(window, {
+        duration: .1,
+        scrollTo: scrollToRef.current,
+        ease: 'ease',
+      })
+      // });
     } else {
       console.error("Ref is Null!")
     }
@@ -158,7 +158,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             {play ? (
               <img ref={musicRef} className='h-6 invert' src="/images/playing.gif" alt="music" />
             ) : (
-              <img ref={noMusicRef} className='h-6 invert' src="/images/mute.gif" alt="no_music" />
+              <img ref={noMusicRef} className='h-6 invert !p-[2px]' src="/images/enable-sound.png" alt="no_music" />
             )}
           </div>
 
