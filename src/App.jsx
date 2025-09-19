@@ -105,7 +105,7 @@ const App = () => {
       <Loading isLoading={!isLoaded} />
       {isLoaded && (
         <>
-          <div ref={themeRef} id='intro' className="dark p-5 m-5 relative">
+          <div ref={themeRef} id='intro' className="dark relative">
             <NavBar ID="nv" dark={dark} ref={navRef} />
             <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
             <About ref={aboutRef} />

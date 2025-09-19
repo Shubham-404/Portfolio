@@ -14,30 +14,4 @@ button{
 } */
 
 
-#projects {
-  overflow-x: hidden;
-  /* Prevent horizontal scrollbar on the main container */
-}
-
-#pj {
-  overflow: hidden;
-  /* Ensure no overflow from the container */
-}
-
-#cards {
-  display: flex;
-  flex-wrap: nowrap;
-  /* Prevent wrapping */
-  width: max-content;
-  /* Fit the content width */
-}
-
-.card-box {
-  flex: 0 0 auto;
-  /* Prevent cards from shrinking */
-  
-  transform-origin: center;
-  /* Ensure scaling happens from the center */
-  will-change: transform, opacity;
-  /* Optimize for animation performance */
-}
+/* Card styles are now handled by Tailwind classes in CardList.jsx */

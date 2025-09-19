@@ -145,7 +145,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Theme */}
-          <div onClick={switchTheme} className="setting options border border-amber-300/20 inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-800/10 rounded-2xl !p-3 !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchTheme} className="setting options inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-600/50 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {dark ? (
               <img ref={sun} className='h-6 shadow-xl' src="/svgs/sun.svg" alt="light" />
             ) : (
@@ -154,11 +154,11 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Music */}
-          <div onClick={switchMusic} className="music options border border-amber-300/20 inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-800/10 rounded-2xl !p-3 !py-2 flex justify-center items-center hover:scale-110 active:scale-80">
+          <div onClick={switchMusic} className="music options inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-600/50 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
             {play ? (
               <img ref={musicRef} className='h-6 invert' src="/images/playing.gif" alt="music" />
             ) : (
-              <img ref={noMusicRef} className='h-6 invert !p-[2px]' src="/images/enable-sound.png" alt="no_music" />
+              <img ref={noMusicRef} className='h-6 invert p-[2px]' src="/images/enable-sound.png" alt="no_music" />
             )}
           </div>
 
