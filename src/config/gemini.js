@@ -3,7 +3,7 @@
 
 export const GEMINI_CONFIG = {
     // Your Gemini API Key
-    API_KEY: 'AIzaSyBMgbEx_9rt-YTljxaPUAKORrMbG6z1oxE',
+    API_KEY: 'Your_Gemini_API_Key_Here',
     
     // Gemini API endpoint
     API_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent',

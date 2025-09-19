@@ -73,7 +73,7 @@ const Contact = () => {
             }
 
             // Then, perform AI validation using Gemini
-            console.log('Validating form data with Gemini AI...');
+            console.log('Validating form data with AI...');
             const validationResult = await validateFormData(formData);
             
             if (!validationResult.isValid) {

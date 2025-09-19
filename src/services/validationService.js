@@ -13,7 +13,7 @@ export const validateFormData = async (formData) => {
     try {
         // Check if API key is configured
         if (!GEMINI_CONFIG.API_KEY || GEMINI_CONFIG.API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
-            console.warn('Gemini API key not configured. Skipping validation.');
+            console.warn('Key not configured. Skipping validation.');
             return { isValid: true, confidence: 'skipped' };
         }
 
@@ -48,7 +48,7 @@ export const validateFormData = async (formData) => {
         });
 
         if (!response.ok) {
-            throw new Error(`Gemini API error: ${response.status} ${response.statusText}`);
+            throw new Error(`API error: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
@@ -57,13 +57,13 @@ export const validateFormData = async (formData) => {
         const result = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
         
         if (!result) {
-            throw new Error('No response from Gemini API');
+            throw new Error('No response from API');
         }
 
         // Parse the result (should be 0 or 1)
         const isValid = result === '1';
         
-        console.log('Gemini validation result:', { result, isValid, formData });
+        console.log('AI validation result:', { result, isValid, formData });
         
         return { 
             isValid, 
