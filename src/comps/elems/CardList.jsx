@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 import './elemStyles/CardList.css'
 import Util from "./Util";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const CardList = () => {
+    gsap.registerPlugin(useGSAP)
     const [data, setData] = useState([]);
 
     useEffect(() => {
@@ -13,11 +16,27 @@ const CardList = () => {
             .then((json) => setData(json))
             .catch((error) => console.error("Error loading data:", error));
     }, []);
+    useGSAP(() => {
+        gsap.fromTo(".cards", 
+            {x:1100, top:0}, 
+            {
+                x:-1100,
+                // duration: 5,
+                scrollTrigger:{
+                    // pin: true,
+                    trigger:".cards",
+                    start:"top 40%",
+                    end:"top 0%",
+                    scrub: 1,
+                    // markers: true
+                }
+            })
+    })
 
 
 
     return (
-        <div className="grid gap-2 !pt-0 !p-4">
+        <div className="cards top-0 flex items-center gap-2 min-lg:gap-5 p-2">
             {data.length > 0 ? (
                 data.map((item) => (
                     <div key={item.id} className="card-box min-lg:w-[50rem] max-w-[80vw] text-wrap h-min bg-indigo-600/10 border border-indigo-700/40 p-4 flex gap-2 flex-col hover:bg-indigo-600/20 hover:scale-102 rounded-4xl max-lg:scale-90 items-center flex-none origin-center will-change-transform">

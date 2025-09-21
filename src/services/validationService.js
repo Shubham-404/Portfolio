@@ -63,7 +63,7 @@ export const validateFormData = async (formData) => {
         // Parse the result (should be 0 or 1)
         const isValid = result === '1';
         
-        console.log('AI validation result:', { result, isValid, formData });
+        // console.log('AI validation result:', { result, isValid, formData });
         
         return { 
             isValid, 
