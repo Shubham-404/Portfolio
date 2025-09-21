@@ -2,8 +2,8 @@
 // Get your API key from: https://aistudio.google.com/app/apikey
 
 export const GEMINI_CONFIG = {
-    // Your Gemini API Key
-    API_KEY: 'Your_Gemini_API_Key_Here',
+    // Your Gemini API Key - reads from environment variable
+    API_KEY: import.meta.env.VITE_GEMINI_API_KEY,
     
     // Gemini API endpoint
     API_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent',
@@ -29,8 +29,22 @@ Consider these factors:
 Respond with only: 1 or 0`
 };
 
+// Validation function to check if API key is properly configured
+export const validateGeminiConfig = () => {
+    if (!GEMINI_CONFIG.API_KEY) {
+        console.error('Gemini API key is not configured. Please set VITE_GEMINI_API_KEY in your environment variables.');
+        return false;
+    }
+    return true;
+};
+
 // Instructions for setup:
-// 1. Go to https://aistudio.google.com/app/apikey
-// 2. Create a new API key
-// 3. Replace 'YOUR_GEMINI_API_KEY_HERE' with your actual API key
-// 4. The API key should start with 'AIza...'
+// Local Development:
+// 1. Create a .env file in your project root
+// 2. Add: VITE_GEMINI_API_KEY=your_actual_api_key_here
+// 3. The API key should start with 'AIza...'
+//
+// Netlify Deployment:
+// 1. Go to your Netlify dashboard
+// 2. Navigate to Site settings > Environment variables
+// 3. Add: VITE_GEMINI_API_KEY with your API key value
