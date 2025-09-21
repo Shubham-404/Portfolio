@@ -25,5 +25,18 @@ package-lock.json
 *.sln
 *.sw?
 
-# Secrets
+# Environment variables and secrets
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# API keys and configuration (if any)
+config/secrets.js
+config/keys.js
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
