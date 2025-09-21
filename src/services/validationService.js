@@ -14,7 +14,7 @@ export const validateFormData = async (formData) => {
         // Check if API key is configured
         if (!GEMINI_CONFIG.API_KEY || GEMINI_CONFIG.API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
             console.warn('Key not configured. Skipping validation.');
-            return { isValid: true, confidence: 'skipped' };
+            return { isValid: false, confidence: '' };
         }
 
         // Prepare the prompt with form data
