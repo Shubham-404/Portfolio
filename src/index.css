@@ -97,10 +97,6 @@ body {
   color: rgb(20, 20, 20);
 }
 
-#intro {
-  backdrop-filter: blur(1.5rem);
-}
-
 a:hover {
   color: rgb(180, 255, 230);
   font: bold

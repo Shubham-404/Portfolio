@@ -43,7 +43,7 @@ const Projects = () => {
 
         <p className='!p-5 text-lg/10 max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of my latest projects along with a concise description, link to their GitHub repositories and Live Preview(if available). Make sure to take a look and feel free to contact for any suggestions or questions.</p>
         <div className="flex relative flex-col min-h-[80vh] h-full items-center">
-          <h1 className="scroll-guide text-4xl absolute top-50 text-center opacity-30">Scroll<br/>to<br/>view.</h1>
+          <h1 className="scroll-guide text-4xl absolute top-50 text-center opacity-30">Scroll up<br/>SLOW<br/>to view.</h1>
           <CardList />
 
 

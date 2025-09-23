@@ -3,7 +3,7 @@
 
 export const GEMINI_CONFIG = {
     // Your Gemini API Key - reads from environment variable
-    API_KEY: import.meta.env.VITE_GEMINI_API_KEY,
+    API_KEY: "no-api-key-found",
     
     // Gemini API endpoint
     API_URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent',
@@ -37,14 +37,3 @@ export const validateGeminiConfig = () => {
     }
     return true;
 };
-
-// Instructions for setup:
-// Local Development:
-// 1. Create a .env file in your project root
-// 2. Add: VITE_GEMINI_API_KEY=your_actual_api_key_here
-// 3. The API key should start with 'AIza...'
-//
-// Netlify Deployment:
-// 1. Go to your Netlify dashboard
-// 2. Navigate to Site settings > Environment variables
-// 3. Add: VITE_GEMINI_API_KEY with your API key value
