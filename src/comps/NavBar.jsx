@@ -5,11 +5,13 @@ import Li from './elems/Li';
 import { useGSAP } from '@gsap/react';
 
 const NavBar = () => {
+  gsap.registerPlugin(useGSAP);
   const [mobileNav, setMobileNav] = useState(false)
 
   const mobNav = useRef(null)
   const ham = useRef(null)
   const cross = useRef(null)
+  const blankRef = useRef(null)
 
 
   const showNav = () => {
@@ -24,6 +26,7 @@ const NavBar = () => {
 
   useEffect(() => {
     const navmob = mobNav.current;
+    const blankBox = blankRef.current;
     if (navmob) {
       navmob.classList.remove('max-lg:hidden', 'max-lg:flex');
       navmob.classList.add(mobileNav ? 'max-lg:flex' : 'max-lg:hidden');
@@ -31,10 +34,15 @@ const NavBar = () => {
       navmob.classList.add('flex');
     }
 
+    if (mobileNav) {
+      blankBox.classList.remove('hidden');
+    } else {
+      blankBox.classList.add('hidden');
+    }
+
   }, [mobileNav])
 
-
-  useEffect(() => {
+  useGSAP(() => {
     const nav = document.querySelector("#nv");
     gsap.fromTo(nav, { opacity: 0, scale: 0.7, y: -50 }, {
       opacity: 1,
@@ -43,16 +51,30 @@ const NavBar = () => {
       duration: 0.8,
       ease: "back.out(1)"
     });
+  });
+
+
+  useGSAP(() => {
+    gsap.fromTo('.hey', { opacity:1, scale: 0.8, y: 20, x:50 }, {
+      opacity: 0,
+      y: -10,
+      x: 60,
+      scale: 1.1,
+      delay: 1, 
+      duration: 4,
+      ease: "back.out(1)"
+    });
   }, []);
 
   return (
     <>
       <nav
         id="nv"
-        className='h-[5rem] z-[1000] relative overflow-hidden max-lg:overflow-visible !px-10 max-md:!px-5 rounded-full border border-indigo-300/20 flex justify-self-center gap-5 justify-between items-center w-[90%]'
+        className='h-[5rem] z-[1000] relative overflow-hidden max-lg:overflow-visible !px-10 max-md:!px-5 rounded-full flex justify-self-center gap-5 justify-between items-center w-[90%]'
       >
         <div id='avatar-cont' className="pic h-20 w-20 flex items-center justify-start transition-all duration-300 ease-[cubic-bezier(0.25, 0.8, 0.25, 1)] ">
           <img className='avatar' src="/images/my-ava.png" alt="avatar" />
+          <span className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
         <div onClick={showNav} className="goto flex">
 
@@ -93,7 +115,7 @@ const NavBar = () => {
             <Li Tag="Connect" Href="#connect" />
           </ul>
         </div>
-        <div onClick={Blank} className="blank -z-1 fixed h-screen w-full top-0 left-0"></div>
+        <div onClick={Blank} ref={blankRef} className="blank hidden -z-1 fixed h-screen w-full top-0 left-0"></div>
       </nav>
     </>
   );

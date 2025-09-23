@@ -13,7 +13,7 @@ nav {
 
 nav:hover {
     background: linear-gradient(to right, rgba(34, 0, 56, 0.2), rgba(56, 0, 185, 0.5));
-    box-shadow: .5px .5px 3px rgba(90, 90, 92, 0.5);
+    box-shadow: .5px .5px 3px rgba(23, 23, 59, 0.5);
     --mt: 5px;
     --scale: 1.05;
 
