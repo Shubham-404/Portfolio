@@ -43,12 +43,12 @@ const TechStack = () => {
                 <div className=''>
 
                     <div className="max-w-[80vw] justify-self-center flex flex-wrap min-lg:gap-5 min-md:!px-15 justify-center items-center ">
-                        <Img imgAdd="node.png" techName="NodeJS" />
+                        <Img imgAdd="node.png" techName="Node.js" />
                         <Img imgAdd="tech1.png" techName="React" />
+                        <Img imgAdd="tech2.png" techName="Experss" />
                         <Img imgAdd="mongo.png" techName="MongoDB" />
                         <Img imgAdd="gsap.png" techName="GSAP" />
                         <Img imgAdd="firebase.png" techName="Firebase" />
-                        <Img imgAdd="tech2.png" techName="JavaScript" />
                         <Img imgAdd="tech3.png" techName="Git" />
                         <Img imgAdd="tailwind.png" techName="TailwindCSS" />
                         <Img imgAdd="python.png" techName="Flask" />

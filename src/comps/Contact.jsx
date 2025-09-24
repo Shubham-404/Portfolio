@@ -66,7 +66,7 @@ const Contact = () => {
                 setStatus({
                     submitting: false,
                     submitted: false,
-                    error: 'Details entered seem fake. Please provide genuine information.',
+                    error: 'Please enter valid data, AI is detecting spam here!',
                     validating: false
                 });
                 return;
@@ -80,7 +80,7 @@ const Contact = () => {
                 setStatus({
                     submitting: false,
                     submitted: false,
-                    error: 'Details entered seem fake. Please provide genuine information.',
+                    error: 'Please enter valid data, AI is detecting spam here!',
                     validating: false
                 });
                 return;
@@ -129,13 +129,13 @@ const Contact = () => {
             if (error.text) {
                 errorMessage = error.text;
             } else if (error.message) {
-                errorMessage = error.message;
+                errorMessage = 'If you\'re seeing this, then probably email service is not available. You can still use social media to connect!.';
             }
 
             setStatus({
                 submitting: false,
                 submitted: false,
-                error: errorMessage
+                error: 'If you\'re seeing this, then probably email service is not available. You can still use social media to connect!.'
             });
         }
     };
@@ -173,7 +173,7 @@ const Contact = () => {
 
                     <Heading Head="Connect" />
 
-                    <p className='p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Feel free to share a suggestion, talk about an idea or simply say 'Namaste' in your language.</p>
+                    <p className='p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Feel free to share a suggestion, talk about an idea or simply say <i>' नमस्ते '</i> &nbsp;in your language! <br />I love to connect to people from different parts of the globe.</p>
 
                     <form
                         onSubmit={handleSubmit}

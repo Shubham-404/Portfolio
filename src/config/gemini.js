@@ -32,7 +32,7 @@ Respond with only: 1 or 0`
 // Validation function to check if API key is properly configured
 export const validateGeminiConfig = () => {
     if (!GEMINI_CONFIG.API_KEY) {
-        console.error('Gemini API key is not configured. Please set VITE_GEMINI_API_KEY in your environment variables.');
+        console.error('AI key is not configured. Please set the APIKey in your environment variables.');
         return false;
     }
     return true;

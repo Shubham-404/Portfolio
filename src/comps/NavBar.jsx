@@ -55,12 +55,12 @@ const NavBar = () => {
 
 
   useGSAP(() => {
-    gsap.fromTo('.hey', { opacity:1, scale: 0.8, y: 20, x:50 }, {
+    gsap.fromTo('.hey', { opacity: 1, scale: 0.8, y: 20, x: 50 }, {
       opacity: 0,
       y: -10,
       x: 60,
       scale: 1.1,
-      delay: 1, 
+      delay: 1,
       duration: 4,
       ease: "back.out(1)"
     });
@@ -104,15 +104,12 @@ const NavBar = () => {
               <div className='h-2 w-2 rounded-full bg-amber-600'></div>
               <div className='h-2 w-2 rounded-full bg-red-600'></div>
             </li>
-            <Li Tag="Intro" Href="#intro" />
+            <Li Tag="About" Href="#about" />
             <div className='w-[50%] h-[.5px] bg-gray-600'></div>
-            <Li Tag="About Me" Href="#about" />
-            <div className='w-[50%] h-[.5px] bg-gray-600'></div>
-            <Li Tag="Tech Stack" Href="#tech-stack" />
-            <div className='w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Projects" Href="#projects" />
             <div className='w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Connect" Href="#connect" />
+            <div className=''></div>
           </ul>
         </div>
         <div onClick={Blank} ref={blankRef} className="blank hidden -z-1 fixed h-screen w-full top-0 left-0"></div>

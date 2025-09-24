@@ -10,6 +10,7 @@ import Loading from './comps/Loading';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import ToTop from './comps/ToTop';
 
 
 //without this line, ScrollToPlugin may get dropped by your bundler...
@@ -108,12 +109,14 @@ const App = () => {
           <div ref={themeRef} id='intro' className="dark relative">
             <NavBar ID="nv" ref={navRef} />
             <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
-            <About ref={aboutRef} />
-            <Projects />
-            <TechStack />
-            <Contact />
+            <div className=''>
+              <About ref={aboutRef} />
+              <Projects />
+              <TechStack />
+              <Contact />
+            </div>
+            <Footer />
           </div>
-          <Footer />
         </>
       )}
     </>
