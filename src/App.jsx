@@ -51,7 +51,7 @@ const App = () => {
 
         // Load images
         const imageUrls = [
-          '/images/avatar.png',
+          '/images/avatar-full.png',
           '/images/github-gif.gif',
           '/images/firebase.png',
           '/images/django.png',
@@ -101,7 +101,7 @@ const App = () => {
         setResourcesLoaded(true);
       } catch (error) {
         console.error('Error loading resources:', error);
-        // Even if there's an error, we should show the site after a reasonable timeout
+        // Even if there's an error, show the site after a reasonable timeout
         setTimeout(() => setResourcesLoaded(true), 5000);
       }
     };
