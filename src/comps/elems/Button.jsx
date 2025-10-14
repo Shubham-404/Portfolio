@@ -8,8 +8,8 @@ const Button = (props) => {
         window.open(props.Href)
     }
     return (
-        <div className='relative w-45 group transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] hover:-translate-x-1 hover:-translate-y-1'>
-            <button onClick={gotoLink} type={props.Type} className='w-full h-10 max-md:w-40 font-mono rounded-lg absolute text-sm max-md:text-xs text-gray-900 p-2 font-extrabold flex items-center justify-center cursor-pointer bg-white/50 backdrop-blur-2xl transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] group-hover:-translate-x-1 group-hover:-translate-y-1 active:translate-x-0 active:translate-y-0'>
+        <div className='relative w-45 group transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)]'>
+            <button onClick={gotoLink} type={props.Type} className='w-full h-10 max-md:w-40 font-mono rounded-lg absolute text-sm max-md:text-xs text-gray-900 p-2 font-extrabold flex items-center justify-center cursor-pointer bg-white/50 border border-white/20 backdrop-blur-sm transition-all duration-300 ease-[cubic-bezier(0.25,0.8,0.25,1)] -translate-x-1 -translate-y-1 group-hover:-translate-x-2 group-hover:-translate-y-2 active:translate-x-0 active:translate-y-0 shadow-2xl shadow-black/50'>
                 {props.btn}&nbsp;
                 {
                     (props.play) ?

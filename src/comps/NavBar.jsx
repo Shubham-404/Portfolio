@@ -70,10 +70,10 @@ const NavBar = () => {
     <>
       <nav
         id="nv"
-        className='h-[5rem] z-[1000] relative overflow-hidden max-lg:overflow-visible !px-10 max-md:!px-5 rounded-full flex justify-self-center gap-5 justify-between items-center w-[90%]'
+        className='h-[5rem] z-[1000] relative overflow-hidden max-lg:overflow-visible !px-10 max-md:!px-5 rounded-full flex justify-self-center gap-5 justify-between items-center w-[70%]'
       >
-        <div id='avatar-cont' className="pic h-20 w-20 flex items-center justify-start transition-all duration-300 ease-[cubic-bezier(0.25, 0.8, 0.25, 1)] ">
-          <img className='avatar' src="/images/my-ava.png" alt="avatar" />
+        <div id='avatar-cont' className="pic h-20 w-20 flex items-center justify-start">
+          <img className='avatar' src="/images/avatar.png" alt="avatar" />
           <span className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
         <div onClick={showNav} className="goto flex">
@@ -100,15 +100,18 @@ const NavBar = () => {
           }
           <ul id='UL' ref={mobNav} className={`max-lg:hidden flex z-20 h-full justify-center gap-5 items-center max-lg:text-gray-300 !p-2 max-lg:!pt-0 max-lg:!pr-0 max-lg:!pl-0 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-max max-lg:max-w-3xs right-0 top-15`}>
             <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
-              <div className='h-2 w-2 rounded-full bg-green-600'></div>
-              <div className='h-2 w-2 rounded-full bg-amber-600'></div>
               <div className='h-2 w-2 rounded-full bg-red-600'></div>
+              <div className='h-2 w-2 rounded-full bg-amber-600'></div>
+              <div className='h-2 w-2 rounded-full bg-green-600'></div>
             </li>
             <Li Tag="About" Href="#about" />
             <div className='w-[50%] h-[.5px] bg-gray-600'></div>
             <Li Tag="Projects" Href="#projects" />
             <div className='w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Connect" Href="#connect" />
+            <div className=''></div>
+            <div className='w-[50%] h-[.5px] bg-gray-500'></div>
+            <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" />
             <div className=''></div>
           </ul>
         </div>

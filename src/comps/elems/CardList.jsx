@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
 import './elemStyles/CardList.css'
 import Util from "./Util";
 import { useGSAP } from "@gsap/react";

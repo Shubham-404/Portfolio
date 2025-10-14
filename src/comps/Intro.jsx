@@ -136,7 +136,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             Creative Web-Developer building projects and diving into Machine Learning.
           </h1>
         </main>
-        <h1 className='!mt-10 flex items-start justify-center gap-5 w-max !pl-2 !pt-2'>
+        <h1 className='!mt-10 flex items-center justify-center gap-5 max-md:gap-2 w-max !pt-2'>
           <div className='flex flex-col h-17 justify-start items-center gap-0'>
             <div className='flex'>
               <Button Href="https://github.com/Shubham-404/" btn="GitHub" play={play} />
@@ -145,21 +145,24 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
           {/* Theme */}
-          <div onClick={switchTheme} className="setting options inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-600/50 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
-            {dark ? (
-              <img ref={sun} className='h-6 shadow-xl' src="/svgs/sun.svg" alt="light" />
-            ) : (
-              <img ref={moon} className='h-6 shadow-xl' src="/svgs/moon.svg" alt="dark" />
-            )}
-          </div>
+          <div className='flex justify-center items-center gap-3 mb-6'>
 
-          {/* Music */}
-          <div onClick={switchMusic} className="music options inset-shadow-xs inset-shadow-blue-400/80 bg-indigo-600/50 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
-            {play ? (
-              <img ref={musicRef} className='h-6 invert' src="/images/playing.gif" alt="music" />
-            ) : (
-              <img ref={noMusicRef} className='h-6 invert p-[2px]' src="/images/enable-sound.png" alt="no_music" />
-            )}
+            <div onClick={switchTheme} className="setting options h-8 w-10 inset-shadow-sm inset-shadow-indigo-800 bg-indigo-700/60 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
+              {dark ? (
+                <img ref={sun} className='h-5 shadow-xl' src="/svgs/sun.svg" alt="light" />
+              ) : (
+                <img ref={moon} className='h-5 shadow-xl' src="/svgs/moon.svg" alt="dark" />
+              )}
+            </div>
+
+            {/* Music */}
+            <div onClick={switchMusic} className="music options h-8 w-10 inset-shadow-sm inset-shadow-indigo-800 bg-indigo-700/60 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
+              {play ? (
+                <img ref={musicRef} className='h-5 invert' src="/images/playing.gif" alt="music" />
+              ) : (
+                <img ref={noMusicRef} className='h-5 invert p-[2px]' src="/images/enable-sound.png" alt="no_music" />
+              )}
+            </div>
           </div>
 
         </h1>

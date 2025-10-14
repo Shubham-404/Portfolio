@@ -168,7 +168,7 @@ const Contact = () => {
 
     return (
         <>
-            <div id='connect' className='min-h-100 w-full !p-20 !pb-20 max-md:!p-3 flex justify-center items-start bg-gradient-to-b from-transparent via-transparent to-black'>
+            <div id='connect' className='min-h-100 w-full !p-20 !pb-20 max-md:!p-3 flex justify-center items-start'>
                 <div id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                     <Heading Head="Connect" />
@@ -291,7 +291,6 @@ const Contact = () => {
                         </div>
                     </form>
 
-                    <div className='w-full h-40'></div>
                 </div>
             </div>
         </>

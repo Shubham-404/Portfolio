@@ -11,6 +11,7 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import ToTop from './comps/ToTop';
+import CustomCursor from './Cursor';
 
 
 //without this line, ScrollToPlugin may get dropped by your bundler...
@@ -50,8 +51,26 @@ const App = () => {
 
         // Load images
         const imageUrls = [
-          '/images/my-ava.png',
-          '/images/prayag.jpg',
+          '/images/avatar.png',
+          '/images/github-gif.gif',
+          '/images/firebase.png',
+          '/images/django.png',
+          '/images/image-hover.png',
+          '/images/khatabook.png',
+          '/images/mongo.png',
+          '/images/music.gif',
+          '/images/node.png',
+          '/images/playing.gif',
+          '/images/python.png',
+          '/images/tailwind.png',
+          '/images/tech1.png',
+          '/images/tech2.png',
+          '/images/tech3.png',
+          '/images/tech4.png',
+          '/images/tech5.png',
+          '/images/utsav.png',
+          '/images/enable-sound.png',
+          '/images/prayag2.jpg',
           '/svgs/github.svg',
           '/svgs/linkedin.svg',
           '/svgs/instagram.svg',
@@ -107,6 +126,7 @@ const App = () => {
       {isLoaded && (
         <>
           <div ref={themeRef} id='intro' className="dark relative">
+            <CustomCursor/>
             <NavBar ID="nv" ref={navRef} />
             <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
             <div className=''>
@@ -114,8 +134,8 @@ const App = () => {
               <Projects />
               <TechStack />
               <Contact />
+              <Footer />
             </div>
-            <Footer />
           </div>
         </>
       )}
