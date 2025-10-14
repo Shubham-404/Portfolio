@@ -109,7 +109,6 @@ const NavBar = () => {
             <Li Tag="Projects" Href="#projects" />
             <div className='w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Connect" Href="#connect" />
-            <div className=''></div>
             <div className='w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" />
             <div className=''></div>
