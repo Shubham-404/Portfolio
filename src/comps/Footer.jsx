@@ -6,7 +6,7 @@ const Footer = () => {
     <div className=''>
       <footer className='w-full bg-opacity-60 text-center py-12 font-ubuntu'>
         <div className="flex flex-col items-center justify-center gap-6 mb-8">
-          <p className='text-3xl font-semibold max-lg:text-2xl max-md:text-xl max-sm:text-lg'>Connect with Me</p>
+          <p className='text-3xl font-semibold max-lg:text-2xl max-md:text-xl max-sm:text-lg'>You can find me on:</p>
           
           <section className='flex justify-between w-full max-md:max-w-70 max-w-80 flex-wrap'>
             <Social Name="Github" Src="/svgs/github.svg" Href="https://github.com/Shubham-404/" />

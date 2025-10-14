@@ -126,7 +126,7 @@ const App = () => {
       {isLoaded && (
         <>
           <div ref={themeRef} id='intro' className="dark relative">
-            <CustomCursor/>
+            {/* <CustomCursor/> */}
             <NavBar ID="nv" ref={navRef} />
             <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
             <div className=''>
