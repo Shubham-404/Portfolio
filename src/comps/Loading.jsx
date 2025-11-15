@@ -1,13 +1,14 @@
-import React from 'react';
-import './styles/Loading.css';  // You will create this CSS file for the animation styles
+import { memo } from 'react';
+import './styles/Loading.css';
 
 const Loading = ({ isLoading }) => {
+  if (!isLoading) return null;
+
   return (
-    <div className={`loading-container ${!isLoading ? 'loaded' : ''}`}>
-      {/* <div className="spinner"></div> */}
-      <img className='h-40 w-40' src="/images/Scene2.gif" alt="loader" />
+    <div className="loading-container">
+      <img className='h-40 w-40' src="/images/Scene2.gif" alt="Loading..." />
     </div>
   );
 };
 
-export default Loading;
+export default memo(Loading);

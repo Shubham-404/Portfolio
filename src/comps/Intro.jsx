@@ -1,115 +1,112 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useCallback, memo } from 'react'
 import './styles/Intro.css'
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Button from './elems/Button'
-import ScrollToPlugin from "gsap/ScrollToPlugin";
 
 const Home = ({ toggleTheme, dark, scrollToRef }) => {
-  gsap.registerPlugin(ScrollToPlugin)
-  gsap.registerPlugin(useGSAP)
-
-  const handleScrollAbout = () => {
-    if (scrollToRef.current) {
-      // useGSAP(() => {
-
+  const handleScrollAbout = useCallback(() => {
+    if (scrollToRef?.current) {
       gsap.to(window, {
-        duration: .1,
+        duration: 0.1,
         scrollTo: scrollToRef.current,
         ease: 'ease',
-      })
-      // });
-    } else {
-      console.error("Ref is Null!")
+      });
     }
-  }
+  }, [scrollToRef]);
 
-  const [Namaste, setNamaste] = useState("")
+  const [Namaste, setNamaste] = useState("");
+  const mainHeadRef = useRef(null);
+  const scrollFloatRef = useRef(null);
+
   useGSAP(() => {
-    gsap.fromTo(
-      "#main-head h1",
-      { scale: .8, opacity: 0, y: '200px' },
-      {
-        delay: .5,
-        scale: 1,
-        opacity: 1,
-        y: 0,
-        // duration: 1,
-        ease: "back.out(1)",
-        stagger: .2
-      }
-    );
-  })
+    if (mainHeadRef.current) {
+      const h1Elements = mainHeadRef.current.querySelectorAll('h1');
+      gsap.fromTo(
+        h1Elements,
+        { scale: 0.8, opacity: 0, y: '200px' },
+        {
+          delay: 0.5,
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          ease: "back.out(1)",
+          stagger: 0.2
+        }
+      );
+    }
+  });
+
   useGSAP(() => {
-    gsap.fromTo(
-      ".scroll-float",
-      { opacity: 0 },
-      {
-        delay: 2,
-        opacity: 1,
-      }
-    )
-  })
+    if (scrollFloatRef.current) {
+      gsap.fromTo(
+        scrollFloatRef.current,
+        { opacity: 0 },
+        {
+          delay: 2,
+          opacity: 1,
+        }
+      );
+    }
+  });
 
   const sun = useRef(null);
   const moon = useRef(null);
   const waveRef = useRef(null);
   const celebrateRef = useRef(null);
-  const musicRef = useRef(null);
-  const noMusicRef = useRef(null);
   const [play, setPlay] = useState(false);
-  const songRef = useRef(new Audio("/files/falling-again.mp3"));
+  const songRef = useRef(null);
+
+  // Initialize audio only once
+  if (!songRef.current) {
+    songRef.current = new Audio("/files/falling-again.mp3");
+    songRef.current.loop = true;
+  }
 
   // To control Music
-  const switchMusic = () => {
+  const switchMusic = useCallback(() => {
     const musicElem = songRef.current;
+    if (!musicElem) return;
+
     if (play) {
       musicElem.pause();
-      setPlay(false)
-      waveRef.current.classList.add("h-0")
-      waveRef.current.classList.remove("h-7")
-      celebrateRef.current.classList.add("w-0")
-      celebrateRef.current.classList.remove("w-[55vw]")
-      // console.log("paused.");
-
-    } else if (!play) {
-      musicElem.play();
-      setPlay(true)
-      waveRef.current.classList.remove("h-0")
-      waveRef.current.classList.add("h-7")
-      celebrateRef.current.classList.remove("w-0")
-      celebrateRef.current.classList.add("w-[55vw]")
-      // console.log("playing.");
+      setPlay(false);
+    } else {
+      musicElem.play().catch(() => {
+        // Handle autoplay restrictions silently
+      });
+      setPlay(true);
     }
-
-  }
+  }, [play]);
 
 
   // To switch between dark and light mode.
-  const switchTheme = () => {
+  const switchTheme = useCallback(() => {
     const icon = dark ? sun.current : moon.current;
 
     if (icon) {
-      gsap.fromTo(icon,
-        { rotation: 0 },
-        {
-          rotation: 360,
-          duration: .6,
-          ease: "power2.out"
-        }
-      )
+      gsap.to(icon, {
+        rotation: 360,
+        duration: 0.6,
+        ease: "power2.out"
+      });
     }
-    toggleTheme(); // Call the prop from App
-  }
+    toggleTheme();
+  }, [dark, toggleTheme]);
 
   // To handle Namaste
-  const handleNamaste = () => { setNamaste(Namaste === "" ? "🙏" : "") }
+  const handleNamaste = useCallback(() => {
+    setNamaste(prev => prev === "" ? "🙏" : "");
+  }, []);
 
   return (
     <div className="Intro relative !mt-5 !pt-10  grid justify-center items-center min-h-[75vh] justify-self-center">
-      <div ref={celebrateRef} className='waves absolute top-0 rounded-full w-0 h-[2px] justify-self-center flex overflow-hidden'>
+      <div 
+        ref={celebrateRef} 
+        className={`waves absolute top-0 rounded-full h-[2px] justify-self-center flex overflow-hidden transition-all duration-300 ${play ? 'w-[55vw]' : 'w-0'}`}
+      >
       </div>
-      <div id='main-head' className='!p-10 relative !pt-0  max-md:!p-13'>
+      <div ref={mainHeadRef} id='main-head' className='!p-10 relative !pt-0  max-md:!p-13'>
         <main className='about justify-self-center font-hawk !p-0 !pt-0 max-w-3xl text-lg/20'>
           <span>
 
@@ -123,7 +120,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           <span className='flex flex-col gap-1 font-bold max-lg:text-3xl max-md:text-4xl'>
 
             <h1
-              onClick={() => { setNamaste(Namaste === "" ? "🙏" : "") }}
+              onClick={handleNamaste}
               className='w-min flex name text-7xl text-transparent max-lg:text-5xl max-md:text-4xl bg-clip-text'
             >
               Shubham.
@@ -141,7 +138,12 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             <div className='flex'>
               <Button Href="https://github.com/Shubham-404/" btn="GitHub" play={play} />
             </div>
-            <img ref={waveRef} className='w-32 h-0 rotate-180' src="/images/music.gif" alt="" />
+            <img 
+              ref={waveRef} 
+              className={`w-32 rotate-180 transition-all duration-300 ${play ? 'h-7' : 'h-0'}`} 
+              src="/images/music.gif" 
+              alt="" 
+            />
           </div>
 
           {/* Theme */}
@@ -156,23 +158,34 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             </div>
 
             {/* Music */}
-            <div onClick={switchMusic} className="music options h-8 w-10 inset-shadow-sm inset-shadow-indigo-800 bg-indigo-700/60 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80">
+            <button 
+              onClick={switchMusic} 
+              type="button"
+              aria-label={play ? "Pause music" : "Play music"}
+              className="music options h-8 w-10 inset-shadow-sm inset-shadow-indigo-800 bg-indigo-700/60 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80"
+            >
               {play ? (
-                <img ref={musicRef} className='h-5 invert' src="/images/playing.gif" alt="music" />
+                <img className='h-5 invert' src="/images/playing.gif" alt="Playing music" />
               ) : (
-                <img ref={noMusicRef} className='h-5 invert p-[2px]' src="/images/enable-sound.png" alt="no_music" />
+                <img className='h-5 invert p-[2px]' src="/images/enable-sound.png" alt="Enable sound" />
               )}
-            </div>
+            </button>
           </div>
 
         </h1>
-        <button onClick={handleScrollAbout} className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce ">
+        <button 
+          ref={scrollFloatRef}
+          onClick={handleScrollAbout} 
+          type="button"
+          aria-label="Scroll to about section"
+          className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce "
+        >
           <span>Scroll Down</span>
-          <svg className='' height="100%" viewBox="0 0 24 24" width="24"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z" fill="rgb(100,100,128)"></path></svg>
+          <svg className='' height="100%" viewBox="0 0 24 24" width="24" aria-hidden="true"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z" fill="rgb(100,100,128)"></path></svg>
         </button>
       </div>
     </div>
   )
 }
 
-export default Home;
+export default memo(Home);

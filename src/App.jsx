@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import NavBar from './comps/NavBar';
 import Intro from './comps/Intro';
 import About from './comps/About';
@@ -10,28 +10,21 @@ import Loading from './comps/Loading';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import ToTop from './comps/ToTop';
-import CustomCursor from './Cursor';
 
-
-//without this line, ScrollToPlugin may get dropped by your bundler...
+// Register GSAP plugins once at the module level
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const App = () => {
-  const plugins = [ScrollToPlugin];
-
   const [isLoaded, setIsLoaded] = useState(false);
   const [resourcesLoaded, setResourcesLoaded] = useState(false);
-  const navRef = useRef(null);
   const themeRef = useRef(null);
   const [dark, setDark] = useState(true);
   const aboutRef = useRef(null);
 
-  gsap.registerPlugin(ScrollTrigger);
-
   // Toggle theme
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setDark(prev => !prev);
-  };
+  }, []);
 
   // Update the class on #intro div when `dark` changes
   useEffect(() => {
@@ -100,7 +93,6 @@ const App = () => {
         // Set resources as loaded
         setResourcesLoaded(true);
       } catch (error) {
-        console.error('Error loading resources:', error);
         // Even if there's an error, show the site after a reasonable timeout
         setTimeout(() => setResourcesLoaded(true), 5000);
       }
@@ -126,8 +118,7 @@ const App = () => {
       {isLoaded && (
         <>
           <div ref={themeRef} id='intro' className="dark relative">
-            {/* <CustomCursor/> */}
-            <NavBar ID="nv" ref={navRef} />
+            <NavBar />
             <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
             <div className=''>
               <About ref={aboutRef} />

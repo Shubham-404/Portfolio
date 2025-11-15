@@ -1,11 +1,11 @@
-import React from 'react'
+import { memo } from 'react';
 
-const Util = ({Tech}) => {
+const Util = ({ Tech }) => {
   return (
     <div className='!py-1 !px-2 rounded-full border border-gray-600'>
-        {Tech}
+      {Tech}
     </div>
-  )
-}
+  );
+};
 
-export default Util
+export default memo(Util);

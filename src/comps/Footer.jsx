@@ -1,5 +1,5 @@
+import { memo } from 'react';
 import Social from './elems/Social';
-import { lazy } from 'react';
 
 const Footer = () => {
   return (
@@ -33,4 +33,4 @@ const Footer = () => {
   )
 }
 
-export default Footer;
+export default memo(Footer);

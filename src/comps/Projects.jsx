@@ -1,43 +1,42 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useState, useEffect, useRef } from 'react';
-import ImgLink from './elems/Works.jsx'
+import React, { useEffect, useRef, memo } from 'react';
 import Heading from './elems/Heading'
 import CardList from './elems/CardList.jsx';
 
-
-// import script from 'learn';
 const Projects = () => {
-  useEffect(() => {
-    gsap.registerPlugin("ScrollTrigger")
+  const containerRef = useRef(null);
 
-    const container = document.querySelector('#pj');
-    const children = gsap.utils.toArray(container.children);
-    // children.forEach((child) => {
-    gsap.fromTo("#pj", { scale: .8, opacity: 0 },
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const animation = gsap.fromTo(containerRef.current, 
+      { scale: 0.8, opacity: 0 },
       {
         scale: 1,
         opacity: 1,
-        duration: .5,
+        duration: 0.5,
         ease: "back.out(1)",
-        stagger: 2,
         scrollTrigger: {
-          trigger: "#pj",
-          start: "left 80%",
+          trigger: containerRef.current,
+          start: "top 80%",
           end: "bottom top",
           scrub: 1,
           markers: false,
         }
-      })
-    // })
+      }
+    );
 
+    return () => {
+      animation?.scrollTrigger?.kill();
+    };
   }, [])
 
 
 
   return (
     <div id='projects' className='min-h-[90svh]  max-w-screen overflow-hidden !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
-      <div id='pj' className='!p-5 max-md:!p-3 overflow-hidden !pb-0 max-w-270'>
+      <div ref={containerRef} id='pj' className='!p-5 max-md:!p-3 overflow-hidden !pb-0 max-w-270'>
 
         <Heading Head="Projects" />
 
@@ -53,4 +52,4 @@ const Projects = () => {
   )
 }
 
-export default Projects 
+export default memo(Projects); 

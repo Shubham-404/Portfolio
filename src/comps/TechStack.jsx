@@ -1,25 +1,25 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Img from './elems/Img.jsx'
 import Heading from './elems/Heading'
-import { useGSAP } from '@gsap/react';
- 
 
 const TechStack = () => {
+    const containerRef = useRef(null);
 
     useEffect(() => {
-        gsap.registerPlugin("ScrollTrigger")
-        gsap.registerPlugin(useGSAP)
+        if (!containerRef.current) return;
 
-        const container = document.querySelector('#tc');
+        const container = containerRef.current;
         const children = gsap.utils.toArray(container.children);
-        children.forEach((child) => {
-            gsap.fromTo(child, { scale: .8, opacity: 0 },
+        
+        const scrollTriggers = children.map((child) => {
+            return gsap.fromTo(child, 
+                { scale: 0.8, opacity: 0 },
                 {
                     scale: 1,
                     opacity: 1,
-                    duration: .5,
+                    duration: 0.5,
                     ease: "back.out(1)",
                     scrollTrigger: {
                         trigger: child,
@@ -28,14 +28,18 @@ const TechStack = () => {
                         scrub: 1,
                         markers: false,
                     }
-                })
-        })
+                }
+            );
+        });
 
+        return () => {
+            scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
+        };
     }, [])
 
     return (
         <div id='tech-stack' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
-            <div id='tc' className='!p-10  max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
+            <div ref={containerRef} id='tc' className='!p-10  max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="Tech Stack" />
 
@@ -59,4 +63,4 @@ const TechStack = () => {
     )
 }
 
-export default TechStack
+export default memo(TechStack);

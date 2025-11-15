@@ -1,123 +1,116 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback, memo } from 'react';
 import { gsap } from 'gsap';
 import './styles/Nav.css';
 import Li from './elems/Li';
 import { useGSAP } from '@gsap/react';
 
 const NavBar = () => {
-  gsap.registerPlugin(useGSAP);
-  const [mobileNav, setMobileNav] = useState(false)
+  const [mobileNav, setMobileNav] = useState(false);
+  const navRef = useRef(null);
+  const mobNav = useRef(null);
+  const blankRef = useRef(null);
+  const heyRef = useRef(null);
 
-  const mobNav = useRef(null)
-  const ham = useRef(null)
-  const cross = useRef(null)
-  const blankRef = useRef(null)
-
-
-  const showNav = () => {
+  const showNav = useCallback(() => {
     setMobileNav(prev => !prev);
-    // console.log(mobileNav);
+  }, []);
 
-  }
-  const Blank = () => {
-    setMobileNav(false)
-
-  }
-
-  useEffect(() => {
-    const navmob = mobNav.current;
-    const blankBox = blankRef.current;
-    if (navmob) {
-      navmob.classList.remove('max-lg:hidden', 'max-lg:flex');
-      navmob.classList.add(mobileNav ? 'max-lg:flex' : 'max-lg:hidden');
-    } else {
-      navmob.classList.add('flex');
-    }
-
-    if (mobileNav) {
-      blankBox.classList.remove('hidden');
-    } else {
-      blankBox.classList.add('hidden');
-    }
-
-  }, [mobileNav])
+  const closeNav = useCallback(() => {
+    setMobileNav(false);
+  }, []);
 
   useGSAP(() => {
-    const nav = document.querySelector("#nv");
-    gsap.fromTo(nav, { opacity: 0, scale: 0.7, y: -50 }, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.8,
-      ease: "back.out(1)"
-    });
+    if (navRef.current) {
+      gsap.fromTo(navRef.current, 
+        { opacity: 0, scale: 0.7, y: -50 }, 
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          ease: "back.out(1)"
+        }
+      );
+    }
   });
 
-
   useGSAP(() => {
-    gsap.fromTo('.hey', { opacity: 1, scale: 0.8, y: 20, x: 50 }, {
-      opacity: 0,
-      y: -10,
-      x: 60,
-      scale: 1.1,
-      delay: 1,
-      duration: 4,
-      ease: "back.out(1)"
-    });
-  }, []);
+    if (heyRef.current) {
+      gsap.to(heyRef.current, {
+        opacity: 0,
+        scale: 1.1,
+        y: -10,
+        x: 60,
+        delay: 1,
+        duration: 4,
+        ease: "back.out(1)"
+      });
+    }
+  });
 
   return (
     <>
       <nav
+        ref={navRef}
         id="nv"
         className='h-[5rem] z-[1000] relative overflow-hidden max-lg:overflow-visible !px-10 max-md:!px-5 rounded-full flex justify-self-center gap-5 justify-between items-center w-[70%]'
       >
         <div id='avatar-cont' className="pic h-20 w-20 flex items-center justify-start">
           <img className='avatar' src="/images/avatar.png" alt="avatar" />
-          <span className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
+          <span ref={heyRef} className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
-        <div onClick={showNav} className="goto flex">
+        <button 
+          onClick={showNav} 
+          type="button"
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileNav}
+          className="goto flex bg-transparent border-none cursor-pointer"
+        >
 
-          {
-            !mobileNav ?
-              <img
-                id='ham'
-                ref={ham}
-
-                className={`h-10 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
-                src="/svgs/menu.svg"
-                alt="show"
-              />
-              :
-              <img
-                id='cross'
-                ref={cross}
-
-                className={`h-10 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90`}
-                src="/svgs/cross.svg"
-                alt="close"
-              />
-          }
-          <ul id='UL' ref={mobNav} className={`max-lg:hidden flex z-20 h-full justify-center gap-5 items-center max-lg:text-gray-300 !p-2 max-lg:!pt-0 max-lg:!pr-0 max-lg:!pl-0 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-max max-lg:max-w-3xs right-0 top-15`}>
+          {!mobileNav ? (
+            <img
+              id='ham'
+              className="h-10 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90"
+              src="/svgs/menu.svg"
+              alt="Open menu"
+            />
+          ) : (
+            <img
+              id='cross'
+              className="h-10 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90"
+              src="/svgs/cross.svg"
+              alt="Close menu"
+            />
+          )}
+        </button>
+        <ul 
+          id='UL' 
+          ref={mobNav} 
+          className={`${mobileNav ? 'max-lg:flex' : 'max-lg:hidden'} flex z-20 h-full max-lg:justify-start items-center gap-3 max-lg:text-gray-300 !p-0 max-lg:!pb-3 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-min max-lg:max-w-40 right-0 top-15 lg:justify-end `}
+        >
             <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
               <div className='h-2 w-2 rounded-full bg-red-600'></div>
               <div className='h-2 w-2 rounded-full bg-amber-600'></div>
               <div className='h-2 w-2 rounded-full bg-green-600'></div>
             </li>
             <Li Tag="About" Href="#about" />
-            <div className='w-[50%] h-[.5px] bg-gray-600'></div>
+            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-600'></div>
             <Li Tag="Projects" Href="#projects" />
-            <div className='w-[50%] h-[.5px] bg-gray-500'></div>
+            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
             <Li Tag="Connect" Href="#connect" />
-            <div className='w-[50%] h-[.5px] bg-gray-500'></div>
-            <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" />
-            <div className=''></div>
+            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
+            <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" toggleMobileNav={closeNav} />
           </ul>
-        </div>
-        <div onClick={Blank} ref={blankRef} className="blank hidden -z-1 fixed h-screen w-full top-0 left-0"></div>
+        <button 
+          onClick={closeNav} 
+          ref={blankRef} 
+          type="button"
+          aria-label="Close navigation"
+          className={`blank ${mobileNav ? '' : 'hidden'} -z-1 fixed h-screen w-full top-0 left-0 bg-transparent border-none`}
+        />
       </nav>
     </>
   );
 };
 
-export default NavBar;
+export default memo(NavBar);

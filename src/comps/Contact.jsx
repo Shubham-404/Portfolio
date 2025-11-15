@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emailjs from '@emailjs/browser';
 import Heading from './elems/Heading'
 import { EMAILJS_CONFIG } from '../config/emailjs';
@@ -73,7 +73,6 @@ const Contact = () => {
             }
 
             // Then, perform AI validation using Gemini
-            console.log('Validating form data with AI...');
             const validationResult = await validateFormData(formData);
             
             if (!validationResult.isValid) {
@@ -86,7 +85,6 @@ const Contact = () => {
                 return;
             }
 
-            console.log('Validation passed, proceeding with email sending...');
             setStatus(prev => ({ ...prev, validating: false }));
 
             // Send email using EmailJS
@@ -105,8 +103,6 @@ const Contact = () => {
                 EMAILJS_CONFIG.PUBLIC_KEY
             );
 
-            console.log('Email sent successfully:', response);
-
             setStatus({
                 submitting: false,
                 submitted: true,
@@ -122,8 +118,6 @@ const Contact = () => {
             }, 5000);
 
         } catch (error) {
-            console.error('Email sending failed:', error);
-
             let errorMessage = 'Failed to send message. Please try again.';
 
             if (error.text) {
@@ -140,19 +134,21 @@ const Contact = () => {
         }
     };
 
-    useEffect(() => {
-        gsap.registerPlugin("ScrollTrigger")
-        gsap.registerPlugin(useGSAP)
+    const containerRef = useRef(null);
 
-        const container = document.querySelector('#cn');
+    useEffect(() => {
+        if (!containerRef.current) return;
+
+        const container = containerRef.current;
         const children = gsap.utils.toArray(container.children);
 
-        children.forEach((child) => {
-            gsap.fromTo(child, { scale: .8, opacity: 0 },
+        const scrollTriggers = children.map((child) => {
+            return gsap.fromTo(child, 
+                { scale: 0.8, opacity: 0 },
                 {
                     scale: 1,
                     opacity: 1,
-                    duration: .5,
+                    duration: 0.5,
                     ease: "back.out(1)",
                     scrollTrigger: {
                         trigger: child,
@@ -161,15 +157,19 @@ const Contact = () => {
                         scrub: 1,
                         markers: false,
                     }
-                })
-        })
+                }
+            );
+        });
 
+        return () => {
+            scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
+        };
     }, [])
 
     return (
         <>
             <div id='connect' className='min-h-100 w-full !p-20 !pb-20 max-md:!p-3 flex justify-center items-start'>
-                <div id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
+                <div ref={containerRef} id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                     <Heading Head="Connect" />
 
@@ -297,4 +297,4 @@ const Contact = () => {
     )
 }
 
-export default Contact
+export default memo(Contact);

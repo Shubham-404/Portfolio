@@ -1,10 +1,24 @@
+import { memo } from 'react';
 
-const Li = (props) => {
+const Li = ({ Tag, Target, Href, toggleMobileNav }) => {
+  const handleClick = () => {
+    if (toggleMobileNav) {
+      toggleMobileNav();
+    }
+  };
+
   return (
-    <>
-      <li onClick={props.toggleMobileNav} className='h-full text-nowrap'><a className='block h-full font-code !p-2 max-lg:!p-2 max-lg:w-35 font-semibold font-ub max-lg:!pl-5 max-lg:!pr-5' target={props.Target} href={props.Href}>{props.Tag}</a></li>
-    </>
-  )
-}
+    <li onClick={handleClick} className='h-min text-nowrap max-lg:h-5 '>
+      <a 
+        className='block h-full font-code !p-2 max-lg:h-5 max-lg:!p-0 max-lg:w-15 font-semibold font-ub max-lg:text-sm' 
+        target={Target} 
+        href={Href}
+        rel={Target === '_blank' ? 'noopener noreferrer' : undefined}
+      >
+        {Tag}
+      </a>
+    </li>
+  );
+};
 
-export default Li
+export default memo(Li);
