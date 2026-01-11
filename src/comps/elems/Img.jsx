@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import "./elemStyles/Img.css";
 
 const Img = ({ imgAdd, techName }) => {
   return (

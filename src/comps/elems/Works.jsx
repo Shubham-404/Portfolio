@@ -1,5 +1,4 @@
 import React from 'react'
-import "./elemStyles/Works.css"
 
 
 const Works = (props) => {

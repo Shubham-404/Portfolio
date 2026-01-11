@@ -10,6 +10,7 @@ import Loading from './comps/Loading';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import ScrollStack, { ScrollStackItem } from './comps/ext-components/ScrollStack';
 
 // Register GSAP plugins once at the module level
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);

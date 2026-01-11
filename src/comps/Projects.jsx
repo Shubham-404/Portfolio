@@ -1,54 +1,67 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import React, { useEffect, useRef, memo } from 'react';
+import React, { useEffect, useRef, memo, useState } from 'react';
 import Heading from './elems/Heading'
-import CardList from './elems/CardList.jsx';
+import Card from './elems/Card.jsx';
+import ScrollStack, { ScrollStackItem } from './ext-components/ScrollStack.jsx';
 
 const Projects = () => {
   const containerRef = useRef(null);
 
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetch("/files/project-works.json")
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch(() => {
+        // Silently handle error - component will show loading state
+      });
+  }, []);
+
+  // for scrolltrigger
   useEffect(() => {
     if (!containerRef.current) return;
+    const children = gsap.utils.toArray(containerRef.current.children);
 
-    const animation = gsap.fromTo(containerRef.current, 
-      { scale: 0.8, opacity: 0 },
-      {
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: "back.out(1)",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          end: "bottom top",
-          scrub: 1,
-          markers: false,
+    const scrollTriggers = children.map((child) => {
+      return gsap.fromTo(child,
+        { scale: 0.8, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
+          ease: "back.out(1)",
+          scrollTrigger: {
+            trigger: child,
+            start: "top 80%",
+            end: "top 60%",
+            scrub: 1,
+            markers: false,
+          }
         }
-      }
-    );
-
+      );
+    });
     return () => {
-      animation?.scrollTrigger?.kill();
+      scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
     };
-  }, [])
-
-
+  }, []); // Run once on mount
 
   return (
-    <div id='projects' className='min-h-[90svh]  max-w-screen overflow-hidden !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
-      <div ref={containerRef} id='pj' className='!p-5 max-md:!p-3 overflow-hidden !pb-0 max-w-270'>
-
-        <Heading Head="Projects" />
-
-        <p className='!p-5 text-lg/10 max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of my latest projects along with a concise description, link to their GitHub repositories and Live Preview(if available). Make sure to take a look and feel free to contact for any suggestions or questions.</p>
-        <div className="flex relative flex-col min-h-[80vh] h-full items-center">
-          <h1 className="scroll-guide text-4xl absolute top-50 text-center opacity-30">Scroll up<br/>SLOW<br/>to view.</h1>
-          <CardList />
-
-
-        </div>
+    <>
+      <div ref={containerRef} id='projects' className='projects-container -mt-40 pb-80'>
+        <ScrollStack useWindowScroll={true}>
+          <ScrollStackItem itemClassName="flex justify-center">
+            <Heading className="" Head="Projects" />
+          </ScrollStackItem>
+          {data.map((project, index) => (
+            <ScrollStackItem key={index}>
+              <Card item={project} />
+            </ScrollStackItem>
+          ))}
+        </ScrollStack>
       </div>
-    </div>
+    </>
   )
 }
 

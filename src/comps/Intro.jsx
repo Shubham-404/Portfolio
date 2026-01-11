@@ -178,7 +178,7 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           onClick={handleScrollAbout} 
           type="button"
           aria-label="Scroll to about section"
-          className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm -bottom-30 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce "
+          className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm bottom-0 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce "
         >
           <span>Scroll Down</span>
           <svg className='' height="100%" viewBox="0 0 24 24" width="24" aria-hidden="true"><path d="M7.41,8.59L12,13.17l4.59-4.58L18,10l-6,6l-6-6L7.41,8.59z" fill="rgb(100,100,128)"></path></svg>

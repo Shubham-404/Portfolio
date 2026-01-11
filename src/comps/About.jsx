@@ -39,7 +39,7 @@ const About = forwardRef((props, ref) => {
 
 
     return (
-        <div ref={ref} id='about' className='min-h-100 w-full !p-10 max-md:!p-3 !pb-0 flex justify-center items-center'>
+        <div ref={ref} id='about' className='min-h-screen w-full max-md:!p-3 !pb-0 flex justify-center '>
             <div ref={containerRef} id='ab' className='!mt-10 !p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="About Me" />

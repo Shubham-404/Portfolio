@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from 'react';
-import './elemStyles/Button.css';
 
 const Button = ({ Href, btn, play }) => {
     const gotoLink = useCallback(() => {

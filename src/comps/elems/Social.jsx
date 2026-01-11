@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import "./elemStyles/Social.css";
 
 const Social = ({ Name, Href, Src }) => {
     return (
