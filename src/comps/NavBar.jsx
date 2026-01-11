@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import './styles/Nav.css';
 import Li from './elems/Li';
 import { useGSAP } from '@gsap/react';
+import { Rotate as Hamburger } from 'hamburger-react';
 
 const NavBar = () => {
   const [mobileNav, setMobileNav] = useState(false);
@@ -21,8 +22,8 @@ const NavBar = () => {
 
   useGSAP(() => {
     if (navRef.current) {
-      gsap.fromTo(navRef.current, 
-        { opacity: 0, scale: 0.7, y: -50 }, 
+      gsap.fromTo(navRef.current,
+        { opacity: 0, scale: 0.7, y: -50 },
         {
           opacity: 1,
           y: 0,
@@ -59,51 +60,30 @@ const NavBar = () => {
           <img className='avatar' src="/images/avatar.png" alt="avatar" />
           <span ref={heyRef} className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
-        <button 
-          onClick={showNav} 
-          type="button"
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileNav}
-          className="goto flex bg-transparent border-none cursor-pointer"
-        >
-
-          {!mobileNav ? (
-            <img
-              id='ham'
-              className="h-10 hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90"
-              src="/svgs/menu.svg"
-              alt="Open menu"
-            />
-          ) : (
-            <img
-              id='cross'
-              className="h-10 min-lg:hidden self-center justify-self-center invert cursor-pointer hover:scale-110 active:scale-90"
-              src="/svgs/cross.svg"
-              alt="Close menu"
-            />
-          )}
-        </button>
-        <ul 
-          id='UL' 
-          ref={mobNav} 
+        <div className="lg:hidden z-30">
+          <Hamburger toggled={mobileNav} toggle={setMobileNav} size={25} />
+        </div>
+        <ul
+          id='UL'
+          ref={mobNav}
           className={`${mobileNav ? 'max-lg:flex' : 'max-lg:hidden'} flex z-20 h-full max-lg:justify-start items-center gap-3 max-lg:text-gray-300 !p-0 max-lg:!pb-3 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-min max-lg:max-w-40 right-0 top-15 lg:justify-end `}
         >
-            <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
-              <div className='h-2 w-2 rounded-full bg-red-600'></div>
-              <div className='h-2 w-2 rounded-full bg-amber-600'></div>
-              <div className='h-2 w-2 rounded-full bg-green-600'></div>
-            </li>
-            <Li Tag="About" Href="#about" />
-            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-600'></div>
-            <Li Tag="Projects" Href="#projects" />
-            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
-            <Li Tag="Connect" Href="#connect" />
-            <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
-            <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" toggleMobileNav={closeNav} />
-          </ul>
-        <button 
-          onClick={closeNav} 
-          ref={blankRef} 
+          <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
+            <div className='h-2 w-2 rounded-full bg-red-600'></div>
+            <div className='h-2 w-2 rounded-full bg-amber-600'></div>
+            <div className='h-2 w-2 rounded-full bg-green-600'></div>
+          </li>
+          <Li Tag="About" Href="#about" />
+          <div className='lg:hidden w-[50%] h-[.5px] bg-gray-600'></div>
+          <Li Tag="Projects" Href="#projects" />
+          <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
+          <Li Tag="Connect" Href="#connect" />
+          <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
+          <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" toggleMobileNav={closeNav} />
+        </ul>
+        <button
+          onClick={closeNav}
+          ref={blankRef}
           type="button"
           aria-label="Close navigation"
           className={`blank ${mobileNav ? '' : 'hidden'} -z-1 fixed h-screen w-full top-0 left-0 bg-transparent border-none`}

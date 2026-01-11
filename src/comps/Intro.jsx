@@ -101,8 +101,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
 
   return (
     <div className="Intro relative !mt-5 !pt-10  grid justify-center items-center min-h-[75vh] justify-self-center">
-      <div 
-        ref={celebrateRef} 
+      <div
+        ref={celebrateRef}
         className={`waves absolute top-0 rounded-full h-[2px] justify-self-center flex overflow-hidden transition-all duration-300 ${play ? 'w-[55vw]' : 'w-0'}`}
       >
       </div>
@@ -138,11 +138,11 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             <div className='flex'>
               <Button Href="https://github.com/Shubham-404/" btn="GitHub" play={play} />
             </div>
-            <img 
-              ref={waveRef} 
-              className={`w-32 rotate-180 transition-all duration-300 ${play ? 'h-7' : 'h-0'}`} 
-              src="/images/music.gif" 
-              alt="" 
+            <img
+              ref={waveRef}
+              className={`w-32 rotate-180 transition-all duration-300 ${play ? 'h-7' : 'h-0'}`}
+              src="/images/music.gif"
+              alt=""
             />
           </div>
 
@@ -158,8 +158,8 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
             </div>
 
             {/* Music */}
-            <button 
-              onClick={switchMusic} 
+            <button
+              onClick={switchMusic}
               type="button"
               aria-label={play ? "Pause music" : "Play music"}
               className="music options h-8 w-10 inset-shadow-sm inset-shadow-indigo-800 bg-indigo-700/60 rounded-full p-2 flex justify-center items-center hover:scale-110 active:scale-80"
@@ -173,9 +173,9 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
           </div>
 
         </h1>
-        <button 
+        <button
           ref={scrollFloatRef}
-          onClick={handleScrollAbout} 
+          onClick={handleScrollAbout}
           type="button"
           aria-label="Scroll to about section"
           className="scroll-float absolute opacity-80 text-[rgb(100,100,128)] font-medium text-sm bottom-0 min-lg:-bottom-5 max-md:-bottom-10 cursor-pointer left-1/2 -translate-x-1/2 -translate-y-1/2  grid place-items-center justify-center self-center justify-self-center animate-bounce "

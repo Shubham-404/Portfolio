@@ -12,9 +12,9 @@ const About = forwardRef((props, ref) => {
 
         const container = containerRef.current;
         const children = gsap.utils.toArray(container.children);
-        
+
         const scrollTriggers = children.map((child) => {
-            return gsap.fromTo(child, 
+            return gsap.fromTo(child,
                 { scale: 0.8, opacity: 0 },
                 {
                     scale: 1,

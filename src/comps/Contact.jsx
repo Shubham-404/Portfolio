@@ -74,7 +74,7 @@ const Contact = () => {
 
             // Then, perform AI validation using Gemini
             const validationResult = await validateFormData(formData);
-            
+
             if (!validationResult.isValid) {
                 setStatus({
                     submitting: false,
@@ -143,7 +143,7 @@ const Contact = () => {
         const children = gsap.utils.toArray(container.children);
 
         const scrollTriggers = children.map((child) => {
-            return gsap.fromTo(child, 
+            return gsap.fromTo(child,
                 { scale: 0.8, opacity: 0 },
                 {
                     scale: 1,
@@ -181,11 +181,10 @@ const Contact = () => {
                     >
                         {/* Status Messages */}
                         {status.error && (
-                            <div className={`rounded-lg p-4 ${
-                                status.error.includes('fake') 
-                                    ? 'bg-orange-900/20 border border-orange-500/50 text-orange-300' 
+                            <div className={`rounded-lg p-4 ${status.error.includes('fake')
+                                    ? 'bg-orange-900/20 border border-orange-500/50 text-orange-300'
                                     : 'bg-red-900/20 border border-red-500/50 text-red-300'
-                            }`}>
+                                }`}>
                                 <div className="flex items-center gap-2">
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                                         {status.error.includes('fake') ? (
@@ -261,10 +260,10 @@ const Contact = () => {
                             </p>
                         </div>
 
-                            {/* Submit Button */}
+                        {/* Submit Button */}
                         <div className="flex justify-start">
-                                <button
-                                    type="submit"
+                            <button
+                                type="submit"
                                 disabled={status.submitting || status.submitted || status.validating}
                                 className="cursor-pointer text-white flex items-center justify-center rounded-lg font-bold overflow-hidden w-40 gap-2 hover:scale-105 hover:brightness-110 active:scale-95 py-2 border-x-2 border-l-indigo-300 border-r-purple-400 bg-gradient-to-r from-indigo-600 to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:brightness-100 transition-all duration-200"
                             >
@@ -287,7 +286,7 @@ const Contact = () => {
                                 ) : (
                                     'Send Message'
                                 )}
-                                </button>
+                            </button>
                         </div>
                     </form>
 
