@@ -66,7 +66,6 @@ const App = () => {
           '/svgs/github.svg',
           '/svgs/linkedin.svg',
           '/svgs/instagram.svg',
-          '/svgs/namaste.svg',
           '/svgs/sun.svg',
           '/svgs/moon.svg',
           '/svgs/menu.svg',
