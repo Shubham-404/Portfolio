@@ -45,7 +45,7 @@ const App = () => {
 
         // Load images
         const imageUrls = [
-          '/images/avatar-full.png',
+          '/images/avatar.png',
           '/images/github-gif.gif',
           '/images/firebase.png',
           '/images/django.png',

@@ -22,6 +22,7 @@
     "gsap": "^3.12.7",
     "hamburger-react": "^2.5.2",
     "lenis": "^1.3.17",
+    "motion": "^12.26.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.7.1",
@@ -43,7 +44,7 @@
     "tailwindcss": "^4.0.13",
     "vite": "^6.2.0"
   },
-  "description": "Hi from Dev 'Shubham'!!\r Here you can find all about me.",
+  "description": "Hi from 'Shubham'!!\r Here you can find all about me.",
   "main": "eslint.config.js",
   "repository": {
     "type": "git",

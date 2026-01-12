@@ -1,9 +1,9 @@
-import { useLayoutEffect, useRef, useCallback } from 'react';
+import { useLayoutEffect, useRef, useCallback, useEffect } from 'react';
 import Lenis from 'lenis';
 
 export const ScrollStackItem = ({ children, itemClassName = '' }) => (
   <div
-    className={`scroll-stack-card sticky top-[7rem] ${itemClassName}`.trim()}
+    className={`scroll-stack-card sticky top-[7rem] box-border will-change-transform ${itemClassName}`.trim()}
     style={{
       backfaceVisibility: 'hidden',
       transformStyle: 'preserve-3d'
@@ -18,7 +18,7 @@ const ScrollStack = ({
   className = '',
   itemDistance = 100,
   itemScale = 0.03,
-  itemStackDistance = 101,
+  itemStackDistance = 30,
   stackPosition = '20%',
   scaleEndPosition = '10%',
   baseScale = 0.85,
@@ -328,7 +328,7 @@ const ScrollStack = ({
 
   return (
     <div className={containerClassName} ref={scrollerRef} style={containerStyles}>
-      <div className="scroll-stack-inner pt-[10vh] px-10 min-h-screen">
+      <div className="scroll-stack-inner px-20 min-h-screen">
         {children}
         {/* Spacer so the last pin can release cleanly */}
         <div className="scroll-stack-end w-full h-px" />

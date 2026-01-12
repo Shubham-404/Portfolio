@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/About.css'
 import Heading from './elems/Heading'
+import ProfileCard from './ext-components/ProfileCard'
 
 const About = forwardRef((props, ref) => {
     const containerRef = useRef(null);
@@ -59,9 +60,21 @@ const About = forwardRef((props, ref) => {
 
                     </section>
                     <section className='w-70 max-lg:w-50 max-md:w-[70%] !mb-5'>
-                        <div className='img-cont h-85 w-70 max-lg:h-75 max-lg:w-60 max-md:h-70 max-md:w-55 rounded-xl relative bg-[url("/images/prayag2.jpg")] bg-cover bg-center bg-no-repeat contrast-[1.2] self-center justify-self-center'>
-                            {/* <img className='rounded-xl w-full' src="" alt="MyPic" /> */}
-                        </div>
+                        {/* <div className='img-cont h-85 w-70 max-lg:h-75 max-lg:w-60 max-md:h-70 max-md:w-55 rounded-xl relative bg-[url("/images/prayag2.jpg")] bg-cover bg-center bg-no-repeat contrast-[1.2] self-center justify-self-center'>
+                        </div> */}
+                        <ProfileCard
+                            name="Shubham"
+                            title="Aspiring Software Engineer"
+                            handle="Shubham-404"
+                            status="Learner"
+                            contactText="GitHub"
+                            iconUrl="/images/iconpattern.png"
+                            avatarUrl="/images/prayag21.png"
+                            showUserInfo={true}
+                            enableTilt={true}
+                            enableMobileTilt={true}
+                            onContactClick={() => window.open("https://github.com/Shubham-404", "_blank")}
+                        />
                     </section>
                 </div>
             </div>

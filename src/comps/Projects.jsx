@@ -47,10 +47,20 @@ const Projects = () => {
     };
   }, []); // Run once on mount
 
+  const [itemStackDistance, setItemStackDistance] = useState(31);
+  useEffect(() => {
+    setTimeout(() => {
+      setItemStackDistance(30);
+    }, 3000);
+  }, [])
+
   return (
     <>
-      <div ref={containerRef} id='projects' className='projects-container -mt-40 pb-80'>
-        <ScrollStack useWindowScroll={true}>
+      <div ref={containerRef} id='projects' className='projects-container mt-20 mb-50'>
+        <ScrollStack
+          useWindowScroll={true}
+          itemStackDistance={itemStackDistance}
+        >
           <ScrollStackItem itemClassName="flex justify-center">
             <Heading className="" Head="Projects" />
           </ScrollStackItem>
@@ -60,7 +70,7 @@ const Projects = () => {
             </ScrollStackItem>
           ))}
         </ScrollStack>
-      </div>
+      </div >
     </>
   )
 }
