@@ -21,7 +21,7 @@ const Footer = () => {
             Created with 🤍 by Shubham
           </h4>
           <h4 className='font-ubmono'>
-            Last updated: Sep'25
+            Last updated: Jan'26
           </h4>
 
           <h4 className='text-xs'>
