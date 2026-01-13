@@ -58,5 +58,17 @@
       "Custom UI",
       "Reactbits"
     ]
+  },
+  {
+    "id": 5,
+    "Pname": "NPM package",
+    "description": "A simple NPM package of my own to help eliminate the hassle of explicitely importing the builtin modules in node.js. Not a big one, but a start!",
+    "image": "https://eu-images.contentstack.com/v3/assets/blt6d90778a997de1cd/blt008fcf7a7de7dd58/64f173f4a01b5ae91e517afa/NPM-Araki-Illustrations-Alamy.jpg",
+    "url": "https://www.npmjs.com/package/inbuilt-js",
+    "github": "https://github.com/Shubham-404/inbuilt-js/",
+    "tech": [
+      "NodeJS",
+      "NPM"
+    ]
   }
 ]

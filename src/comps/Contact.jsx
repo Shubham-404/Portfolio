@@ -173,17 +173,17 @@ const Contact = () => {
 
                     <Heading Head="Connect" />
 
-                    <p className='p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Feel free to share a suggestion, talk about an idea or simply say <i>' नमस्ते '</i> &nbsp;in your language! <br />I love to connect to people from different parts of the globe.</p>
+                    <p className='p-5 text-lg/10 max-w-full max-lg:text-base/8 max-md:text-sm/5 h-full'>Feel free to share a suggestion, talk about an idea or simply say <i>' नमस्ते '</i> &nbsp;in your language! <br />I'd love to connect to people from different parts of the globe.</p>
 
                     <form
                         onSubmit={handleSubmit}
-                        className="w-full rounded-lg self-center justify-self-center flex flex-col gap-4"
+                        className="w-[90%] rounded-lg self-center justify-self-center flex flex-col gap-4"
                     >
                         {/* Status Messages */}
                         {status.error && (
                             <div className={`rounded-lg p-4 ${status.error.includes('fake')
-                                    ? 'bg-orange-900/20 border border-orange-500/50 text-orange-300'
-                                    : 'bg-red-900/20 border border-red-500/50 text-red-300'
+                                ? 'bg-orange-900/20 border border-orange-500/50 text-orange-300'
+                                : 'bg-red-900/20 border border-red-500/50 text-red-300'
                                 }`}>
                                 <div className="flex items-center gap-2">
                                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -210,35 +210,33 @@ const Contact = () => {
                         )}
 
                         {/* Name and Email Inputs */}
-                        <div className='flex flex-wrap gap-4'>
-                            <div className="flex-1 min-w-64">
-                                <label htmlFor="name" className='text-sm p-2 opacity-80 block'>Name *</label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    disabled={status.submitting}
-                                    className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-                                    placeholder="Your Name"
-                                />
-                            </div>
-                            <div className="flex-1 min-w-64">
-                                <label htmlFor="email" className='text-sm p-2 opacity-80 block'>Email *</label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    disabled={status.submitting}
-                                    className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
-                                    placeholder="your.email@example.com"
-                                />
-                            </div>
+                        <div className="flex-1">
+                            <label htmlFor="name" className='text-sm p-2 opacity-80 block'>Name *</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                                disabled={status.submitting}
+                                className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                placeholder="Sam Altman"
+                            />
+                        </div>
+                        <div className="flex-1 min-w-64">
+                            <label htmlFor="email" className='text-sm p-2 opacity-80 block'>Email *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
+                                disabled={status.submitting}
+                                className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                placeholder="sam.altman@open.ai"
+                            />
                         </div>
 
                         {/* Message Input */}
@@ -253,9 +251,9 @@ const Contact = () => {
                                 disabled={status.submitting}
                                 rows="8"
                                 className="w-full p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 resize-vertical"
-                                placeholder="Your message here..."
+                                placeholder="Your beloved message..."
                             />
-                            <p className='text-xs opacity-60 mt-2'>
+                            <p className='text-sm opacity-60 mt-2'>
                                 If you're unable to send a message, kindly reach me out through other platforms mentioned below.
                             </p>
                         </div>

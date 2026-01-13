@@ -62,7 +62,7 @@ const Projects = () => {
           itemStackDistance={itemStackDistance}
         >
           <ScrollStackItem itemClassName="flex justify-center">
-            <Heading className="" Head="Projects" />
+            <Heading Head="Projects" />
           </ScrollStackItem>
           {data.map((project, index) => (
             <ScrollStackItem key={index}>

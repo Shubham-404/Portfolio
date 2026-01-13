@@ -5,7 +5,7 @@ const Card = ({ item }) => {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="max-w-[700px] w-full text-wrap h-105 bg-white/30 border-purple-300/50 text-indigo-950 backdrop-blur-md dark:bg-indigo-900/80 dark:border-indigo-900/40 dark:text-gray-100 p-2 flex flex-col hover:bg-indigo-800/90 rounded-4xl items-center">
+            <div className="max-w-[700px] w-full text-wrap h-105 bg-white shadow-lg shadow-black text-indigo-950 dark:bg-indigo-900/90  dark:text-gray-100 p-2 flex flex-col hover:bg-indigo-800 rounded-4xl items-center">
                 <div className="flex flex-wrap justify-between items-center w-full">
                     <h2 className="text-xl font-bold p-2 whitespace-nowrap">{item.Pname}</h2>
                     <div className="h-max flex justify-start max-lg:text-sm">
