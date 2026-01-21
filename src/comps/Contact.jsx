@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import emailjs from '@emailjs/browser';
 import Heading from './elems/Heading'
@@ -136,39 +137,32 @@ const Contact = () => {
 
     const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
+    // Animation with useGSAP
+    useGSAP(() => {
+        const children = gsap.utils.toArray(containerRef.current.children);
+        if (children.length === 0) return;
 
-        const container = containerRef.current;
-        const children = gsap.utils.toArray(container.children);
-
-        const scrollTriggers = children.map((child) => {
-            return gsap.fromTo(child,
-                { scale: 0.8, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "back.out(1)",
-                    scrollTrigger: {
-                        trigger: child,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: 1,
-                        markers: false,
-                    }
+        gsap.fromTo(children,
+            { scale: 0.95, opacity: 0, y: 30 },
+            {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power2.out",
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    toggleActions: "play none none reverse"
                 }
-            );
-        });
-
-        return () => {
-            scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
-        };
-    }, [])
+            }
+        );
+    }, { scope: containerRef });
 
     return (
         <>
-            <div id='connect' className='min-h-100 w-full !p-20 !pb-20 max-md:!p-3 flex justify-center items-start'>
+            <div id='connect' className='min-h-100 w-full !p-20 max-md:!p-3 flex justify-center items-start'>
                 <div ref={containerRef} id='cn' className='!p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                     <Heading Head="Connect" />
@@ -211,7 +205,7 @@ const Contact = () => {
 
                         {/* Name and Email Inputs */}
                         <div className="flex-1">
-                            <label htmlFor="name" className='text-sm p-2 opacity-80 block'>Name *</label>
+                            <label htmlFor="name" className='text-sm  opacity-80 block'>Name *</label>
                             <input
                                 type="text"
                                 id="name"
@@ -220,12 +214,12 @@ const Contact = () => {
                                 onChange={handleChange}
                                 required
                                 disabled={status.submitting}
-                                className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                className="w-full h-12 p-4 mt-2 bg-indigo-900/30 text-white placeholder-indigo-200/90 shadow-inner text-sm ring-1 ring-indigo-800/50 rounded-xl outline-none focus:ring-2 focus:bg-indigo-900/50 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                                 placeholder="Sam Altman"
                             />
                         </div>
                         <div className="flex-1 min-w-64">
-                            <label htmlFor="email" className='text-sm p-2 opacity-80 block'>Email *</label>
+                            <label htmlFor="email" className='text-sm opacity-80 block'>Email *</label>
                             <input
                                 type="email"
                                 id="email"
@@ -234,14 +228,14 @@ const Contact = () => {
                                 onChange={handleChange}
                                 required
                                 disabled={status.submitting}
-                                className="w-full h-12 p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                className="w-full h-12 p-4 mt-2 bg-indigo-900/30 placeholder-indigo-200/90 shadow-inner text-sm text-white ring-1 ring-indigo-800/50 rounded-xl outline-none focus:ring-2 focus:bg-indigo-900/50 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                                 placeholder="sam.altman@open.ai"
                             />
                         </div>
 
                         {/* Message Input */}
                         <div className="w-full">
-                            <label htmlFor="message" className='text-sm p-2 opacity-80 block'>Message *</label>
+                            <label htmlFor="message" className='text-sm opacity-80 block'>Message *</label>
                             <textarea
                                 id="message"
                                 name="message"
@@ -249,8 +243,8 @@ const Contact = () => {
                                 onChange={handleChange}
                                 required
                                 disabled={status.submitting}
-                                rows="8"
-                                className="w-full p-4 mt-2 bg-indigo-900/50 placeholder-indigo-200/90 text-white ring-1 ring-gray-500 rounded-xl outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 resize-vertical"
+                                rows="4"
+                                className="w-full p-4 mt-2 bg-indigo-900/30 placeholder-indigo-200/90 shadow-inner text-sm text-white ring-1 ring-indigo-800/50 rounded-xl outline-none focus:ring-2 focus:bg-indigo-900/50 focus:ring-indigo-400 focus:ring-opacity-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 resize-vertical"
                                 placeholder="Your beloved message..."
                             />
                             <p className='text-sm opacity-60 mt-2'>

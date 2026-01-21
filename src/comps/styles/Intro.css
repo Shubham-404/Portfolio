@@ -1,5 +1,11 @@
-#main-head h1 {
-  transition: none !important;
+@keyframes bgText {
+  0% {
+    background-position: 0px;
+  }
+
+  100% {
+    background-position: 100rem;
+  }
 }
 
 .name {
@@ -7,7 +13,15 @@
   background-image: linear-gradient(to right, rgb(105, 70, 255), rgb(30, 199, 148), rgb(105, 70, 255));
   cursor: pointer;
   position: relative;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
+
+#main-head h1 {
+  transition: none !important;
+}
+
 .waves {
   animation: bgText 2s infinite alternate;
   background-image: linear-gradient(to right, rgb(55, 25, 189), transparent, rgb(30, 199, 148), rgb(55, 25, 189));
@@ -19,18 +33,5 @@
 }
 
 .name>*:hover {
-  /* scale: 1.1; */
   transition: .3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* border: 2px solid white; */
-}
-
-
-@keyframes bgText {
-  0% {
-    background-position: 0px;
-  }
-
-  100% {
-    background-position: 100rem;
-  }
 }

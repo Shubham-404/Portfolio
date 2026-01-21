@@ -2,17 +2,17 @@ nav {
     position: sticky;
     top: 20px;
     min-width: 70%;
-    background: linear-gradient(to right, rgba(34, 0, 56, 0.2), rgba(56, 0, 185, 0.2));
+    background: linear-gradient(to right, rgba(71, 0, 165, 0.5), rgba(56, 0, 185, 0.1));
     box-shadow: .5px .5px .5px rgba(90, 90, 92, 0.5);
-    -webkit-backdrop-filter: blur(.5rem);
-    backdrop-filter: blur(.5rem);
+    -webkit-backdrop-filter: blur(1rem);
+    backdrop-filter: blur(1rem);
     --mt: 10px;
     --scale: .9;
     transition: none;
 }
 
 nav:hover {
-    background: linear-gradient(to right, rgba(34, 0, 56, 0.2), rgba(56, 0, 185, 0.5));
+    background: linear-gradient(to right, rgba(78, 1, 201, 0.5), rgba(56, 0, 185, 0.1));
     box-shadow: .5px .5px 3px rgba(23, 23, 59, 0.5);
     --mt: 5px;
     --scale: 1.05;

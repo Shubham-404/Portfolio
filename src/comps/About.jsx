@@ -1,49 +1,43 @@
-import { useEffect, forwardRef, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import './styles/About.css'
-import Heading from './elems/Heading'
-import ProfileCard from './ext-components/ProfileCard'
+import './styles/About.css';
+import Heading from './elems/Heading';
+import ProfileCard from './ext-components/ProfileCard';
 
-const About = forwardRef((props, ref) => {
+const About = ({ ref }) => {
     const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
+    useGSAP(() => {
+        const children = gsap.utils.toArray(containerRef.current.children);
+        if (children.length === 0) return;
 
-        const container = containerRef.current;
-        const children = gsap.utils.toArray(container.children);
-
-        const scrollTriggers = children.map((child) => {
-            return gsap.fromTo(child,
-                { scale: 0.8, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "back.out(1)",
-                    scrollTrigger: {
-                        trigger: child,
-                        start: "top 80%",
-                        end: "bottom top",
-                        scrub: 1,
-                        markers: false,
-                    }
+        // Animate all children with a stagger, triggered when the section starts entering view
+        gsap.fromTo(children,
+            { opacity: 0, y: 50, scale: 0.95 },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 0.8,
+                ease: "power3.out",
+                stagger: 0.15,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 85%", // Start slightly earlier
+                    end: "bottom center",
+                    toggleActions: "play none none reverse",
                 }
-            );
-        });
-
-        return () => {
-            scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
-        };
-    }, [])
-
+            }
+        );
+    }, { scope: containerRef });
 
     return (
-        <div ref={ref} id='about' className='min-h-screen w-full max-md:!p-3 !pb-0 flex justify-center '>
+        <div ref={ref} id='about' className='w-full max-md:!p-3 !pb-0 !pt-20 max-md:!pt-15 flex justify-center '>
             <div ref={containerRef} id='ab' className='!mt-10 !p-10 max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
-                <Heading Head="About Me" />
+                <div className="anim-item"><Heading Head="About Me" /></div>
 
                 <div className="content !pt-5 w-full flex max-md:flex-col max-md:items-center justify-start items-center">
                     <section className='w-2/3 max-md:w-full flex flex-col justify-center items-start max-md:!p-5 max-md:!pt-0 max-md:!mb-5 '>
@@ -60,8 +54,6 @@ const About = forwardRef((props, ref) => {
 
                     </section>
                     <section className='w-70 max-lg:w-50 max-md:w-[70%] !mb-5'>
-                        {/* <div className='img-cont h-85 w-70 max-lg:h-75 max-lg:w-60 max-md:h-70 max-md:w-55 rounded-xl relative bg-[url("/images/prayag2.jpg")] bg-cover bg-center bg-no-repeat contrast-[1.2] self-center justify-self-center'>
-                        </div> */}
                         <ProfileCard
                             name="Shubham"
                             title="Aspiring Software Engineer"
@@ -80,6 +72,6 @@ const About = forwardRef((props, ref) => {
             </div>
         </div>
     )
-})
+}
 
-export default About
+export default About;

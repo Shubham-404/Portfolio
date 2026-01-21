@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Img from './elems/Img.jsx'
 import Heading from './elems/Heading'
@@ -7,45 +8,35 @@ import Heading from './elems/Heading'
 const TechStack = () => {
     const containerRef = useRef(null);
 
-    useEffect(() => {
-        if (!containerRef.current) return;
+    useGSAP(() => {
+        const children = gsap.utils.toArray(containerRef.current.children);
+        if (children.length === 0) return;
 
-        const container = containerRef.current;
-        const children = gsap.utils.toArray(container.children);
-
-        const scrollTriggers = children.map((child) => {
-            return gsap.fromTo(child,
-                { scale: 0.8, opacity: 0 },
-                {
-                    scale: 1,
-                    opacity: 1,
-                    duration: 0.5,
-                    ease: "back.out(1)",
-                    scrollTrigger: {
-                        trigger: child,
-                        start: "top 80%",
-                        end: "top 60%",
-                        scrub: 1,
-                        markers: false,
-                    }
+        gsap.fromTo(children,
+            { scale: 0.9, opacity: 0, y: 30 },
+            {
+                scale: 1,
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "back.out(1.2)",
+                stagger: 0.08,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    end: "bottom center",
+                    toggleActions: "play none none reverse"
                 }
-            );
-        });
-
-        return () => {
-            scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
-        };
-    }, [])
+            }
+        );
+    }, { scope: containerRef });
 
     return (
-        <div id='tech-stack' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-0 flex justify-center items-start'>
+        <div id='tech-stack' className='min-h-100 w-full !p-20 max-md:!p-3 !pb-10 flex justify-center items-start'>
             <div ref={containerRef} id='tc' className='!p-10  max-md:!p-3 max-md:max-w-120 !pb-0 w-220'>
 
                 <Heading Head="Tech Stack" />
-
-                <p className='!p-2 text-lg/10 max-w-full gap-1 max-lg:text-base/8 max-md:text-sm/5 h-full'>Here are some of the major tools, that I have worked with or currently working on.</p>
-                <div className=''>
-
+                <div className='!pt-10'>
                     <div className="max-w-[80vw] justify-self-center flex flex-wrap min-lg:gap-5 min-md:!px-15 justify-center items-center ">
                         <Img imgAdd="node.png" techName="Node.js" />
                         <Img imgAdd="tech1.png" techName="React" />

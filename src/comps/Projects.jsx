@@ -1,77 +1,63 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useEffect, useRef, memo, useState } from 'react';
+import { useGSAP } from '@gsap/react';
 import Heading from './elems/Heading'
 import Card from './elems/Card.jsx';
-import ScrollStack, { ScrollStackItem } from './ext-components/ScrollStack.jsx';
 
 const Projects = () => {
   const containerRef = useRef(null);
-
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("/files/project-works.json")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch(() => {
-        // Silently handle error - component will show loading state
+        // Silently handle error
       });
   }, []);
 
-  // for scrolltrigger
-  useEffect(() => {
-    if (!containerRef.current) return;
-    const children = gsap.utils.toArray(containerRef.current.children);
+  // Animation with useGSAP
+  useGSAP(() => {
+    if (data.length === 0 || !containerRef.current) return;
 
-    const scrollTriggers = children.map((child) => {
-      return gsap.fromTo(child,
-        { scale: 0.8, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          ease: "back.out(1)",
-          scrollTrigger: {
-            trigger: child,
-            start: "top 80%",
-            end: "top 60%",
-            scrub: 1,
-            markers: false,
-          }
+    // Target the card containers specifically
+    const cards = gsap.utils.toArray(".project-card-container");
+
+    gsap.fromTo(cards,
+      { scale: 0.9, opacity: 0, y: 50 },
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1, // Stagger effect
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 75%",
+          end: "bottom center",
+          toggleActions: "play none none reverse"
         }
-      );
-    });
-    return () => {
-      scrollTriggers.forEach(st => st?.scrollTrigger?.kill());
-    };
-  }, []); // Run once on mount
-
-  const [itemStackDistance, setItemStackDistance] = useState(31);
-  useEffect(() => {
-    setTimeout(() => {
-      setItemStackDistance(30);
-    }, 3000);
-  }, [])
+      }
+    );
+  }, { scope: containerRef, dependencies: [data] });
 
   return (
-    <>
-      <div ref={containerRef} id='projects' className='projects-container mt-20 mb-50'>
-        <ScrollStack
-          useWindowScroll={true}
-          itemStackDistance={itemStackDistance}
-        >
-          <ScrollStackItem itemClassName="flex justify-center">
-            <Heading Head="Projects" />
-          </ScrollStackItem>
-          {data.map((project, index) => (
-            <ScrollStackItem key={index}>
-              <Card item={project} />
-            </ScrollStackItem>
-          ))}
-        </ScrollStack>
-      </div >
-    </>
+    <div id='projects' className='projects-container !pt-30 mb-20 flex flex-col items-center justify-center min-h-[50vh] w-full'>
+      <div className="mb-12 block">
+        <Heading Head="Projects" />
+      </div>
+
+      <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl px-5 place-items-center">
+        {data.map((project, index) => (
+          <div key={index} className="project-card-container flex justify-center w-full max-w-[400px]">
+            <Card item={project} />
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 

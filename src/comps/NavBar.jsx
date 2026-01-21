@@ -61,23 +61,23 @@ const NavBar = () => {
           <span ref={heyRef} className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
         <div className="lg:hidden z-30">
-          <Hamburger toggled={mobileNav} toggle={setMobileNav} size={25} />
+          <Hamburger  toggled={mobileNav} toggle={setMobileNav} size={25} />
         </div>
         <ul
           id='UL'
           ref={mobNav}
-          className={`${mobileNav ? 'max-lg:flex' : 'max-lg:hidden'} flex z-20 h-full max-lg:justify-start items-center gap-3 max-lg:text-gray-300 !p-0 max-lg:!pb-3 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-min max-lg:max-w-40 right-0 top-15 lg:justify-end `}
+          className={`${mobileNav ? 'max-lg:flex' : 'max-lg:hidden'} flex z-20 h-full max-lg:justify-start items-center gap-3 max-lg:text-gray-300 !p-0 max-lg:!pb-3 rounded-3xl w-full max-lg:flex-col max-lg:absolute max-lg:h-min max-lg:max-w-40 right-0 top-15 lg:justify-end`}
         >
           <li className='max-lg:flex hidden gap-1 w-full bg-black rounded-t-full justify-start items-center !p-4 !pt-2 !pb-2'>
             <div className='h-2 w-2 rounded-full bg-red-600'></div>
             <div className='h-2 w-2 rounded-full bg-amber-600'></div>
             <div className='h-2 w-2 rounded-full bg-green-600'></div>
           </li>
-          <Li Tag="About" Href="#about" />
+          <Li Tag="About" Href="#about" toggleMobileNav={closeNav} />
           <div className='lg:hidden w-[50%] h-[.5px] bg-gray-600'></div>
-          <Li Tag="Projects" Href="#projects" />
+          <Li Tag="Projects" Href="#projects" toggleMobileNav={closeNav} />
           <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
-          <Li Tag="Connect" Href="#connect" />
+          <Li Tag="Connect" Href="#connect" toggleMobileNav={closeNav} />
           <div className='lg:hidden w-[50%] h-[.5px] bg-gray-500'></div>
           <Li Tag="Resume &#8599;" Target="_blank" Href="/files/shubham-resume-404.pdf" toggleMobileNav={closeNav} />
         </ul>

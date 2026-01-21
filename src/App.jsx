@@ -7,13 +7,20 @@ import Projects from './comps/Projects';
 import Contact from './comps/Contact';
 import Footer from './comps/Footer';
 import Loading from './comps/Loading';
+import ToTop from './comps/ToTop';
 import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
-import ScrollStack, { ScrollStackItem } from './comps/ext-components/ScrollStack';
+import useIsMobile from './hooks/useIsMobile';
 
-// Register GSAP plugins once at the module level
+// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+// Global GSAP Configuration
+ScrollTrigger.config({
+  ignoreMobileResize: true,
+  autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+});
 
 const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,6 +28,7 @@ const App = () => {
   const themeRef = useRef(null);
   const [dark, setDark] = useState(true);
   const aboutRef = useRef(null);
+  const isMobile = useIsMobile();
 
   // Toggle theme
   const toggleTheme = useCallback(() => {
@@ -40,21 +48,25 @@ const App = () => {
   useEffect(() => {
     const loadResources = async () => {
       try {
-        // Load fonts
-        await document.fonts.ready;
-
-        // Load images
-        const imageUrls = [
+        // Critical resources (Fonts, Hero Image, etc.)
+        const criticalImages = [
           '/images/avatar.png',
+          '/images/music.gif',
+          '/images/playing.gif',
+          // Minimal SVGs for initial render
+          '/svgs/sun.svg',
+          '/svgs/moon.svg',
+        ];
+
+        // Non-critical / Below fold
+        const deferredImages = [
           '/images/github-gif.gif',
           '/images/firebase.png',
           '/images/django.png',
           '/images/image-hover.png',
           '/images/khatabook.png',
           '/images/mongo.png',
-          '/images/music.gif',
           '/images/node.png',
-          '/images/playing.gif',
           '/images/python.png',
           '/images/tailwind.png',
           '/images/tech1.png',
@@ -66,46 +78,53 @@ const App = () => {
           '/svgs/github.svg',
           '/svgs/linkedin.svg',
           '/svgs/instagram.svg',
-          '/svgs/sun.svg',
-          '/svgs/moon.svg',
           '/svgs/menu.svg',
           '/svgs/cross.svg',
         ];
 
-        const imagePromises = imageUrls.map(url => {
-          return new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = resolve;
-            img.onerror = reject;
-            img.src = url;
-          });
+        // Helper to load image
+        const loadImage = (url) => new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve(url);
+          img.onerror = () => resolve(null); // Resolve null on error to not block
+          img.src = url;
         });
 
-        // Load JSON data
-        const jsonPromise = fetch("/files/project-works.json")
-          .then(response => response.json());
+        // 1. Wait for fonts
+        await document.fonts.ready;
 
-        // Wait for all resources to load
-        await Promise.all([...imagePromises, jsonPromise]);
+        // 2. Load critical images
+        await Promise.all(criticalImages.map(loadImage));
 
-        // Set resources as loaded
+        // 3. Mark as ready enough to show UI
         setResourcesLoaded(true);
+
+        // 4. Load remaining in background
+        Promise.all(deferredImages.map(loadImage));
+
+        // Load JSON data
+        fetch("/files/project-works.json")
+          .catch(err => console.warn("Failed to load project works", err));
+
       } catch (error) {
-        // Even if there's an error, show the site after a reasonable timeout
-        setTimeout(() => setResourcesLoaded(true), 5000);
+        console.error("Resource loading error:", error);
+        // Fallback
+        setResourcesLoaded(true);
       }
     };
 
     loadResources();
   }, []);
 
-  // Handle loading state
+  // Handle loading state transition
   useEffect(() => {
     if (resourcesLoaded) {
-      // Add a small delay to ensure smooth transition
+      // Debounce the loading screen exit
       const timer = setTimeout(() => {
         setIsLoaded(true);
-      }, 1000);
+        // Refresh ScrollTrigger after a slight delay to ensure layout is settled
+        setTimeout(() => ScrollTrigger.refresh(), 500);
+      }, 800);
       return () => clearTimeout(timer);
     }
   }, [resourcesLoaded]);
@@ -114,19 +133,19 @@ const App = () => {
     <>
       <Loading isLoading={!isLoaded} />
       {isLoaded && (
-        <>
-          <div ref={themeRef} id='intro' className="dark relative">
-            <NavBar />
-            <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
-            <div className=''>
-              <About ref={aboutRef} />
-              <Projects />
-              <TechStack />
-              <Contact />
-              <Footer />
-            </div>
+        <div ref={themeRef} id='intro' className="dark relative">
+          <NavBar />
+          <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
+          <div className=''>
+
+            <About ref={aboutRef} />
+            <Projects />
+            <TechStack />
+            <Contact />
+            <Footer />
+            <ToTop />
           </div>
-        </>
+        </div>
       )}
     </>
   );

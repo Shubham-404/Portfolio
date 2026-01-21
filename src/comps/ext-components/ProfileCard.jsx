@@ -154,8 +154,18 @@ const ProfileCardComponent = ({
     };
   }, [enableTilt]);
 
-  const getOffsets = (evt, el) => {
-    const rect = el.getBoundingClientRect();
+  // Cache the rect to avoid layout thrashing on every mouse move
+  const rectRef = useRef(null);
+
+  const updateRect = () => {
+    if (shellRef.current) {
+      rectRef.current = shellRef.current.getBoundingClientRect();
+    }
+  };
+
+  const getOffsets = (evt) => {
+    const rect = rectRef.current;
+    if (!rect) return { x: 0, y: 0 };
     return { x: evt.clientX - rect.left, y: evt.clientY - rect.top };
   };
 
@@ -163,7 +173,11 @@ const ProfileCardComponent = ({
     event => {
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
-      const { x, y } = getOffsets(event, shell);
+
+      // If rect is missing for some reason, update it
+      if (!rectRef.current) updateRect();
+
+      const { x, y } = getOffsets(event);
       tiltEngine.setTarget(x, y);
     },
     [tiltEngine]
@@ -174,6 +188,9 @@ const ProfileCardComponent = ({
       const shell = shellRef.current;
       if (!shell || !tiltEngine) return;
 
+      // Update rect on enter
+      updateRect();
+
       shell.classList.add('active');
       shell.classList.add('entering');
       if (enterTimerRef.current) window.clearTimeout(enterTimerRef.current);
@@ -181,7 +198,7 @@ const ProfileCardComponent = ({
         shell.classList.remove('entering');
       }, ANIMATION_CONFIG.ENTER_TRANSITION_MS);
 
-      const { x, y } = getOffsets(event, shell);
+      const { x, y } = getOffsets(event);
       tiltEngine.setTarget(x, y);
     },
     [tiltEngine]
@@ -192,6 +209,9 @@ const ProfileCardComponent = ({
     if (!shell || !tiltEngine) return;
 
     tiltEngine.toCenter();
+
+    // Clear rect ref if needed, or keep it. Clearing it might be safer for resize.
+    // For now, we leave it.
 
     const checkSettle = () => {
       const { x, y, tx, ty } = tiltEngine.getCurrent();
@@ -307,7 +327,7 @@ const ProfileCardComponent = ({
   return (
     <div ref={wrapRef} className={`pc-card-wrapper ${className}`.trim()} style={cardStyle}>
       {behindGlowEnabled && <div className="pc-behind" />}
-      <div ref={shellRef} className="pc-card-shell">
+      <div ref={shellRef} className="pc-card-shell" style={{ willChange: 'transform' }}>
         <section className="pc-card">
           <div className="pc-inside">
             <div className="pc-shine" />
