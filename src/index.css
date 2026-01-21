@@ -1,26 +1,4 @@
 @import "tailwindcss";
-@import './assets/fonts/fonts.css';
-
-
-.font-star {
-  font-family: "Starborn", sans-serif;
-}
-
-.font-saint {
-  font-family: "212 Saint Paddy Demo", sans-serif;
-}
-
-.font-cad {
-  font-family: "CADEAUX", sans-serif;
-}
-
-.font-irish {
-  font-family: "Irish Clovers Demo", sans-serif;
-}
-
-.font-leaf {
-  font-family: "GrowWest-Regular", sans-serif;
-}
 
 .font-code {
   font-family: "Source Code Pro", serif;
@@ -28,13 +6,14 @@
   font-style: normal;
 }
 
-.font-hawk {
-  font-family: "Fahkwang", serif;
+.font-fahk {
+  font-family: "Fahkwang", sans-serif;
+  font-weight: 400;
   font-style: normal;
 }
 
 .font-exo {
-  font-family: "Exo 2", sans-serif;
+  font-family: "Exo", sans-serif;
   font-style: normal;
 }
 
@@ -42,12 +21,10 @@
   font-family: "Ubuntu", sans-serif;
   font-style: normal;
 }
-
 .font-ubmono {
   font-family: "Ubuntu Mono", monospace;
   font-style: normal;
 }
-
 
 * {
   box-sizing: border-box;

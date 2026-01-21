@@ -133,7 +133,7 @@ const App = () => {
     <>
       <Loading isLoading={!isLoaded} />
       {isLoaded && (
-        <div ref={themeRef} id='intro' className="dark relative">
+        <div ref={themeRef} id='intro' className="dark relative font-ub">
           <NavBar />
           <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
           <div className=''>

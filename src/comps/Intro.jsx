@@ -5,7 +5,6 @@ import { useGSAP } from '@gsap/react';
 import Button from './elems/Button';
 
 const Home = ({ toggleTheme, dark, scrollToRef }) => {
-  const [Namaste, setNamaste] = useState("");
   const mainHeadRef = useRef(null);
   const scrollFloatRef = useRef(null);
   const sun = useRef(null);
@@ -112,9 +111,36 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
     toggleTheme();
   }, [dark, toggleTheme]);
 
-  // To handle Namaste
-  const handleNamaste = useCallback(() => {
-    setNamaste(prev => prev === "" ? "🙏" : "");
+  const [greeting, setGreeting] = useState("Mamaste()");
+
+  useEffect(() => {
+    const greetings = [
+    "Namaste (Hindi🙏🏼)",
+    "Vanakkam (Tamil👋🏼)",
+    "Namaskaram (Telugu🖐🏼)",
+    "Kem Chho (Gujarati👋🏼)",
+    "Namaskāra (Marathi🖐🏼)",
+    "Konnichiwa (Japanese👋🏼)",
+    "Annyeonghaseyo (Korean🖐🏼)",
+    "Merhaba (Turkish👋🏼)", 
+    "Shalom (Hebrew🖐🏼)", 
+    "Ciao (Italian👋🏼)",  
+    "Hola (Spanish🖐🏼)",  
+    "Bonjour (French👋🏼)",
+    "Guten Tag (German🖐🏼)",
+    "Privet (Russian👋🏼)", 
+    "Asalaam alaikum (Arabic🖐🏼)", 
+    "Sabaidi (Lao👋🏼)",
+    "Kia ora (Maori🖐🏼)", 
+    "Aloha (Hawaiian👋🏼)"
+  ]
+
+    let i = 0;
+    const interval = setInterval(() => {
+      i = (i + 1) % greetings.length;
+      setGreeting(greetings[i]);
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -125,20 +151,17 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
       >
       </div>
       <div ref={mainHeadRef} id='main-head' className='!p-10 relative !pt-0 max-md:!p-13'>
-        <main className='about justify-self-center font-hawk !p-0 !pt-0 max-w-3xl text-lg/20'>
-
+        <main className='about justify-self-center font-fahk !p-0 !pt-0 max-w-3xl text-lg/20'>
 
           <span>
             <h1
-              onClick={handleNamaste}
-              className='font-ubmono font-normal text-3xl tracking-wide flex w-max max-lg:text-3xl max-md:text-xl cursor-pointer select-none'
+              className='font-ubmono font-normal text-2xl !opacity-75 tracking-wide flex w-max text-wrap max-lg:text-3xl max-md:text-xl cursor-pointer select-none !pl-1'
             >
-              Namaste({Namaste}); I am
+              {greeting}; I am
             </h1>
           </span>
           <span className='flex flex-col gap-1 font-bold max-lg:text-3xl max-md:text-4xl'>
             <h1
-              onClick={handleNamaste}
               className='w-min flex name text-7xl text-transparent max-lg:text-5xl max-md:text-4xl bg-clip-text cursor-pointer select-none'
             >
               Shubham.
