@@ -92,7 +92,7 @@ const NavBar = ({ play }) => {
         />
         <div
           id="nav-waves"
-          className={`waves absolute top-0 left-1/2 -translate-1/2 bottom-0 rounded-full h-[3px] justify-self-center flex transition-all duration-300 -z-1 ${play ? 'w-full' : 'w-0'}`}
+          className={`waves absolute top-0 left-1/2 -translate-x-1/2 rounded-full h-[3px] justify-self-center flex transition-all duration-300 -z-1 ${play ? 'w-full max-lg:w-[80%]' : 'w-0'}`}
         ></div>
       </nav>
     </>
