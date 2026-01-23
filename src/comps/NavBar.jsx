@@ -5,12 +5,14 @@ import Li from './elems/Li';
 import { useGSAP } from '@gsap/react';
 import { Rotate as Hamburger } from 'hamburger-react';
 
-const NavBar = () => {
+const NavBar = ({ play }) => {
   const [mobileNav, setMobileNav] = useState(false);
   const navRef = useRef(null);
   const mobNav = useRef(null);
   const blankRef = useRef(null);
   const heyRef = useRef(null);
+
+  const key = useRef(0);
 
   const showNav = useCallback(() => {
     setMobileNav(prev => !prev);
@@ -61,7 +63,7 @@ const NavBar = () => {
           <span ref={heyRef} className='hey -[10px] absolute px-1 bg-gray-800/60 border border-gray-500 rounded-full'>Hey</span>
         </div>
         <div className="lg:hidden z-30">
-          <Hamburger  toggled={mobileNav} toggle={setMobileNav} size={25} />
+          <Hamburger toggled={mobileNav} toggle={setMobileNav} size={25} />
         </div>
         <ul
           id='UL'
@@ -88,6 +90,10 @@ const NavBar = () => {
           aria-label="Close navigation"
           className={`blank ${mobileNav ? '' : 'hidden'} -z-1 fixed h-screen w-full top-0 left-0 bg-transparent border-none`}
         />
+        <div
+          id="nav-waves"
+          className={`waves absolute top-0 left-1/2 -translate-1/2 bottom-0 rounded-full h-[3px] justify-self-center flex transition-all duration-300 -z-1 ${play ? 'w-full' : 'w-0'}`}
+        ></div>
       </nav>
     </>
   );

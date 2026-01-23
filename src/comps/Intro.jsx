@@ -4,33 +4,18 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Button from './elems/Button';
 
-const Home = ({ toggleTheme, dark, scrollToRef }) => {
+const Home = ({ toggleTheme, dark, scrollToRef, play, switchMusic }) => {
   const mainHeadRef = useRef(null);
   const scrollFloatRef = useRef(null);
   const sun = useRef(null);
   const moon = useRef(null);
   const waveRef = useRef(null);
   const celebrateRef = useRef(null);
-  const [play, setPlay] = useState(false);
   const [showGuide, setShowGuide] = useState(true); // Guide state
-  const songRef = useRef(null);
   const containerRef = useRef(null);
 
   const dismissGuide = useCallback(() => {
     setShowGuide(false);
-  }, []);
-
-  // Initialize Audio safely
-  useEffect(() => {
-    songRef.current = new Audio("/files/falling-again.mp3");
-    songRef.current.loop = true;
-
-    return () => {
-      if (songRef.current) {
-        songRef.current.pause();
-        songRef.current = null;
-      }
-    };
   }, []);
 
   const handleScrollAbout = useCallback(() => {
@@ -81,22 +66,6 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
     }
   }, { scope: containerRef });
 
-  // To control Music
-  const switchMusic = useCallback(() => {
-    const musicElem = songRef.current;
-    if (!musicElem) return;
-
-    if (play) {
-      musicElem.pause();
-      setPlay(false);
-    } else {
-      musicElem.play().catch((err) => {
-        console.warn("Autoplay prevented:", err);
-      });
-      setPlay(true);
-    }
-  }, [play]);
-
   // To switch between dark and light mode.
   const switchTheme = useCallback(() => {
     const icon = dark ? sun.current : moon.current;
@@ -111,29 +80,30 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
     toggleTheme();
   }, [dark, toggleTheme]);
 
-  const [greeting, setGreeting] = useState("Mamaste()");
+  const [greeting, setGreeting] = useState("Namaste (Hindi🙏🏼)");
+  const greetingRef = useRef(null);
 
   useEffect(() => {
     const greetings = [
-    "Namaste (Hindi🙏🏼)",
-    "Vanakkam (Tamil👋🏼)",
-    "Namaskaram (Telugu🖐🏼)",
-    "Kem Chho (Gujarati👋🏼)",
-    "Namaskāra (Marathi🖐🏼)",
-    "Konnichiwa (Japanese👋🏼)",
-    "Annyeonghaseyo (Korean🖐🏼)",
-    "Merhaba (Turkish👋🏼)", 
-    "Shalom (Hebrew🖐🏼)", 
-    "Ciao (Italian👋🏼)",  
-    "Hola (Spanish🖐🏼)",  
-    "Bonjour (French👋🏼)",
-    "Guten Tag (German🖐🏼)",
-    "Privet (Russian👋🏼)", 
-    "Asalaam alaikum (Arabic🖐🏼)", 
-    "Sabaidi (Lao👋🏼)",
-    "Kia ora (Maori🖐🏼)", 
-    "Aloha (Hawaiian👋🏼)"
-  ]
+      "Namaste (Hindi🙏🏼)",
+      "Vanakkam (Tamil👋🏼)",
+      "Namaskaram (Telugu🖐🏼)",
+      "Kem Chho (Gujarati👋🏼)",
+      "Namaskāra (Marathi🖐🏼)",
+      "Konnichiwa (Japanese👋🏼)",
+      "Annyeonghaseyo (Korean🖐🏼)",
+      "Merhaba (Turkish👋🏼)",
+      "Shalom (Hebrew🖐🏼)",
+      "Ciao (Italian👋🏼)",
+      "Hola (Spanish🖐🏼)",
+      "Bonjour (French👋🏼)",
+      "Guten Tag (German🖐🏼)",
+      "Privet (Russian👋🏼)",
+      "Asalaam alaikum (Arabic🖐🏼)",
+      "Sabaidi (Lao👋🏼)",
+      "Kia ora (Maori🖐🏼)",
+      "Aloha (Hawaiian👋🏼)"
+    ]
 
     let i = 0;
     const interval = setInterval(() => {
@@ -143,13 +113,14 @@ const Home = ({ toggleTheme, dark, scrollToRef }) => {
     return () => clearInterval(interval);
   }, []);
 
+  const [Namaste, setNamaste] = useState("");
+  // To handle Namaste
+  const handleNamaste = useCallback(() => {
+    setNamaste(prev => prev === "" ? "🙏" : "");
+  }, []);
+
   return (
     <div ref={containerRef} className="Intro relative !mt-5 !pt-10 grid justify-center items-center min-h-[75vh] justify-self-center">
-      <div
-        ref={celebrateRef}
-        className={`waves absolute top-0 rounded-full h-[2px] justify-self-center flex overflow-hidden transition-all duration-300 ${play ? 'w-[55vw]' : 'w-0'}`}
-      >
-      </div>
       <div ref={mainHeadRef} id='main-head' className='!p-10 relative !pt-0 max-md:!p-13'>
         <main className='about justify-self-center font-fahk !p-0 !pt-0 max-w-3xl text-lg/20'>
 

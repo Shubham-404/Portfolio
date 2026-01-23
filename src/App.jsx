@@ -12,6 +12,7 @@ import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import useIsMobile from './hooks/useIsMobile';
+import ErrorBoundary from './comps/ErrorBoundary';
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
@@ -29,6 +30,37 @@ const App = () => {
   const [dark, setDark] = useState(true);
   const aboutRef = useRef(null);
   const isMobile = useIsMobile();
+  const [play, setPlay] = useState(false);
+  const songRef = useRef(null);
+
+  // Initialize Audio safely
+  useEffect(() => {
+    songRef.current = new Audio("/files/falling-again.mp3");
+    songRef.current.loop = true;
+
+    return () => {
+      if (songRef.current) {
+        songRef.current.pause();
+        songRef.current = null;
+      }
+    };
+  }, []);
+
+  // To control Music
+  const switchMusic = useCallback(() => {
+    const musicElem = songRef.current;
+    if (!musicElem) return;
+
+    if (play) {
+      musicElem.pause();
+      setPlay(false);
+    } else {
+      musicElem.play().catch((err) => {
+        console.warn("Autoplay prevented:", err);
+      });
+      setPlay(true);
+    }
+  }, [play]);
 
   // Toggle theme
   const toggleTheme = useCallback(() => {
@@ -130,14 +162,13 @@ const App = () => {
   }, [resourcesLoaded]);
 
   return (
-    <>
+    <ErrorBoundary>
       <Loading isLoading={!isLoaded} />
       {isLoaded && (
         <div ref={themeRef} id='intro' className="dark relative font-ub">
-          <NavBar />
-          <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} />
+          <NavBar play={play} />
+          <Intro toggleTheme={toggleTheme} dark={dark} scrollToRef={aboutRef} play={play} switchMusic={switchMusic} />
           <div className=''>
-
             <About ref={aboutRef} />
             <Projects />
             <TechStack />
@@ -147,7 +178,7 @@ const App = () => {
           </div>
         </div>
       )}
-    </>
+    </ErrorBoundary>
   );
 };
 
